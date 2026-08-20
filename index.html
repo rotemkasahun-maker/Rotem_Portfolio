@@ -8,11 +8,12 @@
   <title>Rotem Kasahun — Product / UX / Product Builder</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="page-veil" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -35,7 +36,7 @@
         <p class="kicker">PRODUCT · UX · PRODUCT BUILDER</p>
         <h1>Rotem<br><span>Kasahun</span></h1>
         <p class="hero-line">I build products around <em>real behavior.</em></p>
-        <p class="hero-note">I look for the friction underneath the obvious problem, then build the smallest useful thing that fits how people already behave.</p>
+        <p class="hero-note">I turn messy, real-world behavior into useful product systems — finding the friction first, then building only what the problem actually needs.</p>
         <div class="hero-actions">
           <a class="pill pill-primary" href="#work">View my work <span aria-hidden="true">↓</span></a>
           <a class="pill pill-secondary" href="#about">About me</a>
@@ -125,10 +126,10 @@
       </div>
     </section>
 
-    <section class="work shell" id="work">
+    <section class="work shell reveal" id="work">
       <div class="section-label-row">
         <p class="kicker">SELECTED WORK</p>
-        <span>01 project · depth over volume</span>
+        <span>One active build · shown in depth</span>
       </div>
 
       <a class="project-card internal-link" href="family-finance.html" aria-label="Open Family Finance case study">
@@ -136,19 +137,24 @@
           <div class="project-meta"><span>Product system</span><span>AI-native workflow</span><span>In progress</span></div>
           <h2>Family Finance</h2>
           <p>A family-finance system built around how money data actually arrives: scattered across SMS, email, receipts, cards and payment apps.</p>
-          <span class="project-cta">Read the case study <span aria-hidden="true">↗</span></span>
+          <span class="project-cta">Read the case study <span class="cta-arrow" aria-hidden="true">↗</span></span>
         </div>
         <div class="project-visual" aria-hidden="true">
-          <div class="signal-stack">
-            <span>SMS</span><span>Email</span><span>Receipts</span><span>Cards</span>
+          <div class="artifact-top"><span>INCOMING EVIDENCE</span><b>LIVE BUILD</b></div>
+          <div class="artifact-row"><span class="source-pill">SMS</span><span class="source-pill">Email</span><span class="source-pill">Receipt</span></div>
+          <div class="artifact-pipeline">
+            <div><small>01</small><strong>Detect</strong><span>Is this financial?</span></div>
+            <i>→</i>
+            <div><small>02</small><strong>Normalize</strong><span>One evidence shape</span></div>
+            <i>→</i>
+            <div><small>03</small><strong>Queue</strong><span>Sync when ready</span></div>
           </div>
-          <div class="signal-arrow">→</div>
-          <div class="system-block">Detect<br><strong>Normalize</strong><br>Queue · Sync</div>
+          <div class="artifact-foot"><span>Less reconstruction later</span><span>↓ manual remembering</span></div>
         </div>
       </a>
     </section>
 
-    <section class="sidequest shell" id="sidequest">
+    <section class="sidequest reveal shell" id="sidequest">
       <div class="section-label-row">
         <p class="kicker">SIDE QUEST</p>
         <span>Portfolio as product</span>
@@ -157,12 +163,18 @@
         <h2>Building this site became a product problem of its own.</h2>
         <div class="sidequest-copy">
           <p>What started as “make a portfolio” turned into the same kind of work I enjoy: finding what was creating friction, borrowing good patterns, stripping away noise, testing the result and changing direction when it didn’t work.</p>
+          <div class="iteration-strip" aria-label="Portfolio iteration loop">
+            <div><small>01</small><strong>Too generic</strong><span>Looked like SaaS</span></div>
+            <div><small>02</small><strong>Too illustrative</strong><span>Style hid the idea</span></div>
+            <div><small>03</small><strong>Refocused</strong><span>Behavior first</span></div>
+          </div>
           <div class="mini-principles"><span>Observe</span><span>Reuse</span><span>Simplify</span><span>Review</span></div>
         </div>
+        <p class="iteration-note">The portfolio is treated like a product: each version keeps what works, makes the failure visible, and changes only what the evidence says is weak.</p>
       </div>
     </section>
 
-    <section class="about" id="about">
+    <section class="about reveal" id="about">
       <div class="shell about-inner">
         <div>
           <p class="kicker">ABOUT</p>
@@ -175,10 +187,11 @@
       </div>
     </section>
 
-    <section class="contact shell" id="contact">
+    <section class="contact reveal shell" id="contact">
       <p class="kicker">CONTACT</p>
-      <h2>Looking for useful problems.</h2>
-      <p>Remote · part-time · project-based · contract</p>
+      <h2>Have a messy problem worth untangling?</h2>
+      <p>I’m interested in product, UX and research-shaped work where the real problem is still a little unclear.</p>
+      <p class="availability">Remote · part-time · project-based · contract</p>
       <a href="https://github.com/rotemkasahun-maker" target="_blank" rel="noreferrer">GitHub ↗</a>
     </section>
   </main>
