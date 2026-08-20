@@ -1,33 +1,21 @@
-# Rotem Portfolio v1.0
+# Rotem Portfolio v2
 
-A static GitHub Pages portfolio for Rotem Kasahun.
+Static GitHub Pages portfolio for Rotem Kasahun.
 
 ## Files
+- `index.html` — recruiter-first homepage, signature behavior animation, featured work, Side Quest, About, Contact
+- `family-finance.html` — dedicated Family Finance case study
+- `styles.css` — shared visual system, responsive layouts, 5.4-second hero animation, motion/reduced-motion rules
+- `script.js` — lightweight internal-page transition behavior
 
-- `index.html` — semantic page structure and inline SVG hero animation artwork
-- `styles.css` — visual system, responsive layout, four-second hero animation, reduced-motion fallback
-- `script.js` — scroll-focus behavior used only in the dense Family Finance narrative
+## Art direction
+Warm cream, terracotta, muted mustard, dusty mauve/cocoa rose, warm taupe, restrained sage. Instrument Serif + Manrope.
 
-## Design direction
+## Interaction direction
+The homepage stays selective and scannable. Family Finance opens as a separate case-study page. Internal page navigation gets a brief terracotta veil transition; reduced-motion users navigate instantly.
 
-- Personal Product / UX / Product Builder portfolio, not a SaaS landing page
-- Hero statement: **I build products around real behavior.**
-- Warm cream / terracotta / muted mustard / dusty-mauve / taupe palette
-- Family Finance is surfaced immediately after the hero/navigation
-- Side Quest is visible and concise
-- Scroll-focus is limited to the dense case-study narrative
-- Hero animation is a fixed-camera 2D digital/vector micro-story, ≤4 seconds
-- `prefers-reduced-motion` receives a static successful state
+## Hero animation asset
+The anatomical hand/key base is adapted from the CC0 “Hand Holding Up A Key” vector published by SVG Repo. It is used as an existing professional vector source rather than reconstructing a hand from primitive geometry.
 
 ## Deploy
-
-Upload/replace `index.html`, `styles.css`, `script.js`, and `README.md` in the root of the `Rotem_Portfolio` repository. GitHub Pages will serve the updated files from the configured Pages branch.
-
-## QA performed before handoff
-
-- HTML structure and anchor targets checked
-- JavaScript syntax checked
-- CSS braces/keyframes checked
-- animation timeline constrained to exactly 4 seconds
-- target responsive breakpoints included for mobile/tablet/desktop
-- reduced-motion fallback included
+Replace the existing root files with these files and add `family-finance.html`. GitHub Pages serves `index.html`; the featured Family Finance card links to the new case-study page.
