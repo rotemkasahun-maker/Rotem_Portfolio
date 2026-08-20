@@ -8,7 +8,307 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+:root{
+  --cream:#f6eadf;
+  --cream-deep:#efddce;
+  --paper:#fff8f1;
+  --ink:#2a211d;
+  --terracotta:#bf5d3f;
+  --terracotta-dark:#9d452f;
+  --olive:#77845a;
+  --line:#cdb8a8;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:"DM Sans",system-ui,sans-serif;
+  line-height:1.45;
+}
+a{color:inherit;text-decoration:none}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px clamp(22px,5vw,70px);
+  background:rgba(246,234,223,.93);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.brand-mark{color:var(--terracotta);font-size:23px;transform:rotate(-18deg)}
+nav{display:flex;gap:28px;font-size:13px;font-weight:600}
+nav a:hover{color:var(--terracotta)}
+.section{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:clamp(88px,10vw,140px) clamp(22px,5vw,68px);
+  border-top:1px solid var(--line);
+}
+.section-alt{
+  max-width:none;
+  padding-left:max(clamp(22px,5vw,68px),calc((100vw - var(--max))/2 + 68px));
+  padding-right:max(clamp(22px,5vw,68px),calc((100vw - var(--max))/2 + 68px));
+  background:var(--paper);
+}
+.hero{
+  border-top:0;
+  min-height:88vh;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  align-items:center;
+  gap:50px;
+}
+.role,.section-kicker{
+  margin:0 0 22px;
+  font-size:11px;
+  letter-spacing:.18em;
+  font-weight:700;
+}
+h1,h2,h3,p{margin-top:0}
+h1{
+  font-family:"Fraunces",serif;
+  font-size:clamp(72px,11vw,144px);
+  line-height:.78;
+  letter-spacing:-.055em;
+  font-weight:600;
+  margin-bottom:36px;
+}
+.statement{
+  font-family:"Fraunces",serif;
+  font-size:clamp(30px,4.4vw,56px);
+  line-height:1.02;
+  max-width:800px;
+  color:var(--terracotta-dark);
+  margin-bottom:34px;
+}
+.work-link{
+  display:inline-block;
+  padding-bottom:4px;
+  border-bottom:2px solid var(--ink);
+  font-weight:700;
+}
+.hero-symbol{
+  color:var(--terracotta);
+  width:min(100%,320px);
+  justify-self:end;
+}
+.hero-symbol svg{width:100%;height:auto}
+h2{
+  font-family:"Fraunces",serif;
+  font-size:clamp(48px,7vw,88px);
+  line-height:.92;
+  letter-spacing:-.045em;
+  font-weight:600;
+  margin-bottom:30px;
+}
+
+/* animation */
+.animation-section{padding-top:70px}
+.animation-wrap{position:relative}
+.key-animation{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:28px;
+  box-shadow:0 20px 70px rgba(74,47,34,.08);
+}
+.scene-bg{fill:#fff5ea}
+.room-lines path,.door path,.details path,.details ellipse,.hand path,.key-object path,.key-object circle,.hook path,.good-mark path,.bad-mark path{
+  fill:none;
+  stroke:var(--ink);
+  stroke-width:5;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.door-fill{fill:#f7e5d5!important;stroke:var(--ink)!important}
+.accent-fill{fill:var(--terracotta);stroke:none!important}
+.hand{fill:#fff9f2;stroke:var(--ink);stroke-width:5;stroke-linejoin:round}
+.key-object{stroke:var(--terracotta);stroke-width:8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.reminder rect{fill:#fffaf5;stroke:var(--terracotta);stroke-width:3}
+.reminder text{font:600 23px "DM Sans",sans-serif;fill:var(--ink)}
+.bad-mark circle{fill:#f2c3af;stroke:none}
+.bad-mark path{stroke:var(--terracotta-dark);stroke-width:7}
+.good-mark circle{fill:#dce4cf;stroke:none}
+.good-mark path{stroke:var(--olive);stroke-width:8}
+.hook path{stroke:var(--terracotta);stroke-width:10}
+.final-message text{
+  font:600 45px "Fraunces",serif;
+  fill:var(--ink)
+}
+.accent-text{fill:var(--terracotta-dark);font-style:italic}
+.replay{
+  margin-top:16px;
+  border:1px solid var(--ink);
+  background:transparent;
+  color:var(--ink);
+  padding:9px 14px;
+  border-radius:999px;
+  font:600 12px "DM Sans",sans-serif;
+  cursor:pointer
+}
+.replay:hover{background:var(--ink);color:var(--cream)}
+
+/* hidden animation states */
+.hand,.key-object,.reminder,.bad-mark,.hook,.good-mark,.final-message{opacity:0}
+
+/* portfolio menu */
+.portfolio-menu{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:0;
+  padding-top:60px;
+  padding-bottom:60px;
+}
+.menu-card{
+  min-height:250px;
+  border:1px solid var(--ink);
+  border-right:0;
+  padding:26px;
+  display:flex;
+  flex-direction:column;
+  transition:.2s ease;
+  background:transparent;
+}
+.menu-card:last-child{border-right:1px solid var(--ink)}
+.menu-card:hover{background:var(--terracotta);color:#fff8f1}
+.menu-card.featured{background:var(--terracotta);color:#fff8f1}
+.menu-index{font-size:11px;letter-spacing:.15em}
+.menu-card strong{
+  margin-top:auto;
+  font-family:"Fraunces",serif;
+  font-size:clamp(28px,3.5vw,48px);
+  line-height:1;
+}
+.menu-card small{margin-top:8px;font-size:13px}
+.menu-arrow{margin-top:22px;font-size:24px}
+
+/* case */
+.section-head{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:70px;
+  align-items:end;
+}
+.work-summary{
+  font-family:"Fraunces",serif;
+  font-size:26px;
+  line-height:1.18;
+  max-width:500px;
+}
+.focus-block{
+  margin:70px 0;
+  padding:32px 0;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+  max-width:950px;
+}
+.focus-line{
+  margin:0;
+  padding:.18em 0;
+  font-family:"Fraunces",serif;
+  font-size:clamp(23px,3vw,38px);
+  line-height:1.16;
+  opacity:.35;
+  transform:scale(.97);
+  transform-origin:left center;
+  transition:opacity .22s ease,transform .22s ease
+}
+.focus-line.is-near{opacity:.62;transform:scale(.99)}
+.focus-line.is-active{opacity:1;transform:scale(1.025)}
+.focus-accent{color:var(--terracotta-dark)}
+.case-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--ink);
+}
+.case-grid article{padding:30px 36px 30px 0;border-bottom:1px solid var(--ink)}
+.case-grid article:first-child{border-right:1px solid var(--ink)}
+.case-grid article:last-child{padding-left:36px}
+.case-grid span,.learning span,.sidequest-label{
+  font-size:10px;letter-spacing:.16em;font-weight:700
+}
+.case-grid h3,.learning h3,.sidequest-card h3{
+  font-family:"Fraunces",serif;
+  font-size:clamp(27px,3.5vw,43px);
+  line-height:1.06;
+  margin:12px 0 0
+}
+.flow{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:44px 0}
+.flow span{border:1px solid var(--ink);border-radius:999px;padding:8px 13px;font-size:12px}
+.flow i{font-style:normal}
+.learning{
+  border-left:6px solid var(--terracotta);
+  padding:8px 0 8px 26px;
+  max-width:790px;
+  margin-top:60px
+}
+.learning p{font-size:17px;max-width:650px;margin-top:16px}
+
+/* side quest */
+.sidequest-card{
+  display:grid;grid-template-columns:120px 1fr;gap:28px;
+  border-top:1px solid var(--ink);
+  margin-top:55px;padding-top:34px
+}
+.sidequest-index{
+  font-family:"Fraunces",serif;
+  font-size:56px;color:var(--terracotta)
+}
+.sidequest-card p{font-size:18px;max-width:730px}
+
+/* about */
+.about-copy{
+  font-family:"Fraunces",serif;
+  font-size:28px;max-width:760px
+}
+.about-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--ink);
+  margin-top:60px
+}
+.about-grid>div{padding:26px 22px 26px 0;border-right:1px solid var(--ink)}
+.about-grid>div:not(:first-child){padding-left:22px}
+.about-grid>div:last-child{border-right:0}
+.about-grid span{font-size:10px;letter-spacing:.15em}
+.about-grid strong{
+  display:block;
+  font-family:"Fraunces",serif;
+  font-size:26px;margin-top:10px
+}
+.about-grid p{margin:6px 0 0}
+.contact p{font-family:"Fraunces",serif;font-size:24px}
+.contact a{font-weight:700;border-bottom:2px solid var(--ink)}
+
+@media(max-width:800px){
+  nav{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:90px}
+  .hero-symbol{justify-self:start;width:140px}
+  h1{font-size:clamp(68px,18vw,110px)}
+  .portfolio-menu{grid-template-columns:1fr}
+  .menu-card{border-right:1px solid var(--ink);border-bottom:0}
+  .menu-card:last-child{border-bottom:1px solid var(--ink)}
+  .section-head,.case-grid,.about-grid{grid-template-columns:1fr}
+  .case-grid article:first-child{border-right:0}
+  .case-grid article:last-child{padding-left:0}
+  .about-grid>div{border-right:0;border-bottom:1px solid var(--ink);padding-left:0!important}
+  .sidequest-card{grid-template-columns:1fr}
+  .final-message text{font-size:34px}
+}
+.back-top{
+  position:fixed;right:18px;bottom:18px;z-index:50;
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid var(--ink);background:var(--cream);color:var(--ink);
+  display:grid;place-items:center;font-weight:700
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;transition:none!important}
+}
+
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -24,6 +324,7 @@
     </nav>
   </header>
 
+  <a class="back-top" href="#top" aria-label="Back to top">↑</a>
   <main id="top">
     <section class="hero section">
       <div class="hero-copy">
@@ -239,6 +540,169 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+const svg = document.getElementById('keyAnimation');
+const hand = document.getElementById('hand');
+const keyObj = document.getElementById('keyObj');
+const reminder = document.getElementById('reminder');
+const badMark = document.getElementById('badMark');
+const hook = document.getElementById('hook');
+const goodMark = document.getElementById('goodMark');
+const finalMessage = document.getElementById('finalMessage');
+const replay = document.getElementById('replayAnimation');
+
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+function setOpacity(el, v) { el.style.opacity = v; }
+function setTransform(el, v) { el.style.transform = v; el.style.transformBox = 'fill-box'; el.style.transformOrigin = 'center'; }
+
+async function fade(el, from, to, duration=250) {
+  el.style.transition = `opacity ${duration}ms ease`;
+  setOpacity(el, from);
+  await wait(20);
+  setOpacity(el, to);
+  await wait(duration + 20);
+}
+
+async function move(el, transform, duration=420) {
+  el.style.transition = `transform ${duration}ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease`;
+  setOpacity(el, 1);
+  setTransform(el, transform);
+  await wait(duration + 20);
+}
+
+async function resetScene() {
+  [hand,keyObj,reminder,badMark,hook,goodMark,finalMessage].forEach(el => {
+    el.style.transition = 'none';
+    setOpacity(el,0);
+    setTransform(el,'translate(0px,0px)');
+  });
+  await wait(40);
+}
+
+async function failCycle(speed=1) {
+  // enter
+  await move(hand, 'translate(0px,0px)', 260*speed);
+  await move(keyObj, 'translate(0px,0px) rotate(0deg)', 120*speed);
+
+  // release keys to table
+  await move(keyObj, 'translate(155px,80px) rotate(12deg)', 340*speed);
+  setOpacity(hand,0);
+  await wait(80*speed);
+
+  await fade(reminder,0,1,180*speed);
+  await fade(badMark,0,1,150*speed);
+  await wait(320*speed);
+
+  await fade(reminder,1,0,150*speed);
+  await fade(badMark,1,0,120*speed);
+  setOpacity(keyObj,0);
+  await wait(80*speed);
+}
+
+async function successCycle() {
+  await fade(hook,0,1,260);
+  await wait(260);
+
+  await move(hand, 'translate(0px,0px)', 260);
+  await move(keyObj, 'translate(0px,0px)', 100);
+  await move(keyObj, 'translate(155px,-50px) rotate(88deg)', 420);
+
+  // a tiny hanging swing
+  keyObj.style.transition = 'transform 180ms ease-in-out';
+  setTransform(keyObj,'translate(155px,-50px) rotate(96deg)');
+  await wait(190);
+  setTransform(keyObj,'translate(155px,-50px) rotate(84deg)');
+  await wait(190);
+  setTransform(keyObj,'translate(155px,-50px) rotate(90deg)');
+  await wait(220);
+
+  setOpacity(hand,0);
+  await fade(goodMark,0,1,220);
+  await wait(360);
+  await fade(finalMessage,0,1,420);
+  await wait(1900);
+}
+
+let running = false;
+let runToken = 0;
+
+async function playAnimation() {
+  if (running) runToken++;
+  const token = ++runToken;
+  running = true;
+  await resetScene();
+
+  await failCycle(1);
+  if (token !== runToken) return;
+  await failCycle(.82);
+  if (token !== runToken) return;
+  await failCycle(.68);
+  if (token !== runToken) return;
+  await successCycle();
+  if (token !== runToken) return;
+
+  running = false;
+  // loop so a visitor who scrolls in late still sees it
+  await wait(2500);
+  if (token === runToken) playAnimation();
+}
+
+replay.addEventListener('click', () => {
+  runToken++;
+  running = false;
+  playAnimation();
+});
+
+// Start only when the animation is near the viewport, with a robust fallback.
+let started = false;
+const start = () => {
+  if (started) return;
+  started = true;
+  playAnimation();
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) start();
+  });
+}, { threshold: 0.18 });
+
+observer.observe(svg);
+setTimeout(() => {
+  const r = svg.getBoundingClientRect();
+  if (r.top < window.innerHeight * 1.5 && r.bottom > -100) start();
+}, 900);
+
+// scroll focus only in longer case-study copy
+const blocks = [...document.querySelectorAll('[data-focus-block]')];
+function updateFocus(){
+  const center = window.innerHeight/2;
+  blocks.forEach(block=>{
+    const lines=[...block.querySelectorAll('.focus-line')];
+    let active=0,best=Infinity;
+    lines.forEach((line,i)=>{
+      const r=line.getBoundingClientRect();
+      const d=Math.abs((r.top+r.height/2)-center);
+      if(d<best){best=d;active=i}
+    });
+    lines.forEach((line,i)=>{
+      line.classList.toggle('is-active',i===active);
+      line.classList.toggle('is-near',Math.abs(i-active)===1);
+    });
+  });
+}
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(ticking)return;
+  ticking=true;
+  requestAnimationFrame(()=>{updateFocus();ticking=false});
+},{passive:true});
+window.addEventListener('load',updateFocus);
+window.addEventListener('resize',updateFocus);
+
+});
+  </script>
 </body>
 </html>
