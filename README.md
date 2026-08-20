@@ -1,12 +1,15 @@
-# Rotem Portfolio v0.3
+# Rotem Portfolio v0.4
 
-Changes from v0.2:
-- Hero now clearly reads as a personal portfolio.
-- Leads with “Hi, I’m Rotem.”
-- Main positioning line: “I build products around real behavior.”
-- Removed “Find the friction / Find the key” from the hero.
-- The key metaphor is now communicated through the animation instead of repeated as copy.
-- Added direct “View my work” and “About me” actions.
-- Kept the rest of v0.2 unchanged so the next review round can isolate this change.
+Main changes:
+- Warm cream / terracotta / dark-brown visual system.
+- New Fraunces + DM Sans typography.
+- No static grey body copy.
+- Stronger section separation.
+- Clear portfolio menu without “choose a path” copy.
+- Family Finance appears immediately after the menu.
+- Side Quest is visible as a dedicated section.
+- Key story rebuilt as inline SVG animation, not div shapes.
+- Animation loops, has a replay button, and only starts near the viewport.
+- Scroll focus remains only in longer case-study copy.
 
-Upload index.html, styles.css, script.js and README.md to the repository root.
+Upload index.html, styles.css, script.js and README.md to the root of Rotem_Portfolio.

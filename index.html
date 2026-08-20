@@ -1,172 +1,244 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Rotem Kasahun — AI-Native Product Builder">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Rotem Kasahun — AI-Native Product Builder" />
   <title>Rotem Kasahun — AI-Native Product Builder</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="topbar">
-  <a class="brand" href="#top">Rotem Kasahun</a>
-  <nav>
-    <a href="#work">Work</a>
-    <a href="#sidequests">Side quests</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">⌁</span>
+      <span>Rotem Kasahun</span>
+    </a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#sidequests">Side quests</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<main id="top">
-
-  <section class="hero">
-    <p class="eyebrow">ROTEM KASAHUN · AI-NATIVE PRODUCT BUILDER</p>
-    <h1>Hi, I’m Rotem.</h1>
-    <p class="hero-statement">I build products around real behavior.</p>
-    <div class="hero-actions">
-      <a class="primary-link" href="#work">View my work →</a>
-      <a class="secondary-link" href="#about">About me</a>
-    </div>
-    <a class="down" href="#key-story" aria-label="See the key story">↓</a>
-  </section>
-
-  <section id="key-story" class="key-story">
-    <p class="animation-intro">A tiny example of how I think.</p>
-    <div class="key-scene" aria-label="Key behavior animation">
-      <div class="wall-label">Every day.</div>
-
-      <div class="reminder" id="reminder">Remember to put your keys away.</div>
-
-      <div class="table">
-        <div class="table-top"></div>
-        <div class="table-leg l"></div>
-        <div class="table-leg r"></div>
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-copy">
+        <p class="role">AI-NATIVE PRODUCT BUILDER</p>
+        <h1>ROTEM<br>KASAHUN</h1>
+        <p class="statement">I build products around real behavior.</p>
+        <a class="work-link" href="#work">View selected work ↓</a>
       </div>
-
-      <div class="hook" aria-hidden="true"></div>
-
-      <div class="key" aria-hidden="true">
-        <div class="ring"></div>
-        <div class="stem"></div>
-        <div class="tooth t1"></div>
-        <div class="tooth t2"></div>
+      <div class="hero-symbol" aria-hidden="true">
+        <svg viewBox="0 0 160 160" role="img">
+          <circle cx="54" cy="80" r="26" fill="none" stroke="currentColor" stroke-width="8"/>
+          <path d="M78 80 H132" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M112 80 v22 M128 80 v14" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+        </svg>
       </div>
+    </section>
 
-      <p class="scene-copy try">You could keep trying to remember.</p>
-      <p class="scene-copy change">Or change the system.</p>
-    </div>
-  </section>
+    <section id="key-story" class="animation-section section">
+      <div class="section-kicker">A tiny example of how I think</div>
 
-  <section class="chooser" aria-labelledby="choose-title">
-    <p class="eyebrow">WHERE DO YOU WANT TO GO?</p>
-    <h2 id="choose-title">Choose a path.</h2>
+      <div class="animation-wrap">
+        <svg id="keyAnimation" class="key-animation" viewBox="0 0 1200 700" aria-labelledby="animTitle animDesc">
+          <title id="animTitle">Keys and hook behavior animation</title>
+          <desc id="animDesc">A hand repeatedly leaves keys on a console despite reminders. A hook appears near the natural landing point and the keys are finally hung successfully.</desc>
 
-    <div class="choice-grid">
-      <a class="choice primary" href="#work">
-        <span class="choice-num">01</span>
-        <strong>Family Finance</strong>
-        <small>Case study · product in progress</small>
-        <b>Explore →</b>
+          <rect x="0" y="0" width="1200" height="700" rx="36" class="scene-bg"/>
+
+          <!-- room -->
+          <g class="room-lines">
+            <path d="M250 125 V585" />
+            <path d="M252 126 H470 V585 H252" />
+            <path d="M470 585 H1035" />
+            <path d="M730 460 H1010" />
+            <path d="M760 466 V615 M980 466 V615" />
+            <path d="M750 610 H990" />
+          </g>
+
+          <!-- open door -->
+          <g class="door">
+            <path d="M250 125 L430 85 V585 L250 585 Z" class="door-fill"/>
+            <path d="M250 125 L430 85 V585 L250 585 Z" />
+            <circle cx="394" cy="355" r="7" class="accent-fill"/>
+            <path d="M386 355 h-26" />
+          </g>
+
+          <!-- plant + bowl -->
+          <g class="details">
+            <ellipse cx="915" cy="452" rx="42" ry="12"/>
+            <path d="M875 452 q40 42 80 0"/>
+            <path d="M965 455 v-92"/>
+            <path d="M965 390 c-36 -20 -45 -45 -46 -70"/>
+            <path d="M965 370 c30 -22 42 -48 45 -72"/>
+            <path d="M963 343 c-27 -13 -35 -30 -40 -47"/>
+            <path d="M968 334 c24 -14 33 -28 38 -43"/>
+          </g>
+
+          <!-- hand -->
+          <g id="hand" class="hand">
+            <path d="M420 300
+                     C485 285 528 298 555 322
+                     C575 340 591 357 610 368
+                     C630 380 646 386 666 393
+                     C677 398 682 409 676 419
+                     C670 429 658 431 648 427
+                     L607 412
+                     C593 407 581 412 573 422
+                     L552 448
+                     C544 458 528 460 518 451
+                     C510 444 509 432 515 422
+                     L529 399
+                     C536 388 533 377 522 371
+                     L487 352
+                     C470 343 451 340 430 345 Z"/>
+            <path d="M421 300 L344 286" />
+            <path d="M345 286 L312 343" />
+          </g>
+
+          <!-- key -->
+          <g id="keyObj" class="key-object">
+            <circle cx="665" cy="428" r="22"/>
+            <path d="M687 428 H772" />
+            <path d="M736 428 v28 M758 428 v18" />
+          </g>
+
+          <!-- reminder bubble -->
+          <g id="reminder" class="reminder">
+            <rect x="700" y="175" width="350" height="118" rx="26"/>
+            <text x="875" y="224" text-anchor="middle">Remember to put</text>
+            <text x="875" y="258" text-anchor="middle">your keys away.</text>
+          </g>
+
+          <!-- x -->
+          <g id="badMark" class="bad-mark">
+            <circle cx="1035" cy="365" r="34"/>
+            <path d="M1021 351 L1049 379 M1049 351 L1021 379"/>
+          </g>
+
+          <!-- hook -->
+          <g id="hook" class="hook">
+            <path d="M820 342 v72 c0 42 -54 42 -54 0"/>
+            <circle cx="820" cy="326" r="16" class="accent-fill"/>
+          </g>
+
+          <!-- check -->
+          <g id="goodMark" class="good-mark">
+            <circle cx="1040" cy="350" r="36"/>
+            <path d="M1021 350 l14 15 27 -32"/>
+          </g>
+
+          <!-- final message -->
+          <g id="finalMessage" class="final-message">
+            <text x="600" y="635" text-anchor="middle">
+              I build products around <tspan class="accent-text">real behavior.</tspan>
+            </text>
+          </g>
+        </svg>
+
+        <button class="replay" id="replayAnimation" type="button">Replay ↻</button>
+      </div>
+    </section>
+
+    <section class="portfolio-menu section">
+      <a href="#work" class="menu-card featured">
+        <span class="menu-index">01</span>
+        <strong>Selected work</strong>
+        <small>Family Finance</small>
+        <span class="menu-arrow">→</span>
       </a>
-
-      <a class="choice" href="#about">
-        <span class="choice-num">02</span>
-        <strong>About me</strong>
-        <small>How I think & work</small>
-        <b>Read →</b>
-      </a>
-
-      <a class="choice" href="#sidequests">
-        <span class="choice-num">03</span>
+      <a href="#sidequests" class="menu-card">
+        <span class="menu-index">02</span>
         <strong>Side quests</strong>
-        <small>Small design decisions worth showing</small>
-        <b>Browse →</b>
+        <small>Small decisions worth showing</small>
+        <span class="menu-arrow">→</span>
       </a>
-    </div>
-  </section>
+      <a href="#about" class="menu-card">
+        <span class="menu-index">03</span>
+        <strong>About</strong>
+        <small>How I work</small>
+        <span class="menu-arrow">→</span>
+      </a>
+    </section>
 
-  <section id="work" class="work">
-    <div class="work-head">
-      <div>
-        <p class="eyebrow">FEATURED CASE STUDY · IN PROGRESS</p>
-        <h2>Family Finance</h2>
-      </div>
-      <p class="work-intro">A family-finance system designed around real behavior, not perfect discipline.</p>
-    </div>
-
-    <div class="story-block focus-block" data-focus-block>
-      <p class="focus-line">It started with one question: where is our money actually going?</p>
-      <p class="focus-line">The information was scattered across SMS, email, receipts, cards and payment apps.</p>
-      <p class="focus-line">Then the deeper problem appeared: the system depended on remembering.</p>
-      <p class="focus-line key-line">The key was to remove remembering from the workflow wherever possible.</p>
-    </div>
-
-    <div class="decision-row">
-      <div>
-        <span>THE PROBLEM</span>
-        <p>Manual financial tracking creates repeated cognitive work.</p>
-      </div>
-      <div>
-        <span>THE DIRECTION</span>
-        <p>Collect evidence automatically, classify it, and surface what still needs human attention.</p>
-      </div>
-    </div>
-
-    <div class="flow">
-      <span>SMS</span><i>→</i><span>Detect</span><i>→</i><span>Normalize</span><i>→</i><span>Queue</span><i>→</i><span>Sync</span>
-    </div>
-
-    <div class="insight-card">
-      <span class="tag">PRODUCT LEARNING</span>
-      <h3>Automation solved collection. It didn’t solve motivation.</h3>
-      <p>That led to proactive support, personalization and a gamification hypothesis around meaningful goals.</p>
-    </div>
-
-    <p class="status">MVP in active development · Android SMS ingestion and sync currently being validated.</p>
-  </section>
-
-  <section id="sidequests" class="sidequests">
-    <p class="eyebrow">SIDE QUESTS</p>
-    <h2>Small decisions. Useful signals.</h2>
-
-    <article class="side-card">
-      <div class="side-number">01</div>
-      <div>
-        <span class="tag">DESIGNING FOR ATTENTION</span>
-        <h3>There was too much useful context to delete.</h3>
-        <p>Instead of hiding information, I reduced how much of it competes for attention at one time.</p>
-        <div class="mini-focus" data-focus-block>
-          <p class="focus-line">Keep the context visible.</p>
-          <p class="focus-line key-line">Focus the line being read.</p>
-          <p class="focus-line">Let the rest recede.</p>
+    <section id="work" class="work section section-alt">
+      <div class="section-head">
+        <div>
+          <p class="role">FEATURED CASE STUDY · IN PROGRESS</p>
+          <h2>Family Finance</h2>
         </div>
+        <p class="work-summary">A family-finance system designed around real behavior, not perfect discipline.</p>
       </div>
-    </article>
-  </section>
 
-  <section id="about" class="about">
-    <p class="eyebrow">ABOUT</p>
-    <h2>I learn through building.</h2>
-    <p class="about-lead">
-      I start with the real behavior, work with the constraints that exist, and change direction when the evidence changes.
-    </p>
+      <div class="focus-block" data-focus-block>
+        <p class="focus-line">It started with one question: where is our money actually going?</p>
+        <p class="focus-line">The information was scattered across SMS, email, receipts, cards and payment apps.</p>
+        <p class="focus-line">Then the deeper problem appeared: the system depended on remembering.</p>
+        <p class="focus-line focus-accent">The key was to remove remembering from the workflow wherever possible.</p>
+      </div>
 
-    <div class="about-grid">
-      <div><span>01</span><h3>Observe</h3><p>What actually happens?</p></div>
-      <div><span>02</span><h3>Find friction</h3><p>What is really getting in the way?</p></div>
-      <div><span>03</span><h3>Build</h3><p>What is the simplest useful next step?</p></div>
-      <div><span>04</span><h3>Adapt</h3><p>What changed after we learned more?</p></div>
-    </div>
-  </section>
+      <div class="case-grid">
+        <article>
+          <span>THE FRICTION</span>
+          <h3>Manual tracking creates repeated cognitive work.</h3>
+        </article>
+        <article>
+          <span>THE DIRECTION</span>
+          <h3>Collect automatically. Surface only what still needs attention.</h3>
+        </article>
+      </div>
 
-  <section class="contact">
-    <p class="eyebrow">WORK WITH ME</p>
-    <h2>Looking for useful problems.</h2>
-    <p>Remote · part-time · project-based · contract</p>
-    <a href="https://github.com/rotemkasahun-maker" target="_blank" rel="noreferrer">GitHub ↗</a>
-  </section>
-</main>
+      <div class="flow">
+        <span>SMS</span><i>→</i><span>Detect</span><i>→</i><span>Normalize</span><i>→</i><span>Queue</span><i>→</i><span>Sync</span>
+      </div>
 
-<script src="script.js"></script>
+      <div class="learning">
+        <span>PRODUCT LEARNING</span>
+        <h3>Automation solved collection. It didn’t solve motivation.</h3>
+        <p>That led to proactive support, personalization and a gamification hypothesis around meaningful goals.</p>
+      </div>
+    </section>
+
+    <section id="sidequests" class="sidequests section">
+      <p class="role">SIDE QUESTS</p>
+      <h2>Small decisions.<br>Useful signals.</h2>
+
+      <article class="sidequest-card">
+        <div class="sidequest-index">01</div>
+        <div>
+          <span class="sidequest-label">DESIGNING FOR ATTENTION</span>
+          <h3>The portfolio became a product problem of its own.</h3>
+          <p>Instead of deleting useful context, I tested how to reduce how much information competes for attention at one time — then narrowed the interaction when it became noise.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="about" class="about section section-alt">
+      <p class="role">ABOUT</p>
+      <h2>I learn through building.</h2>
+      <p class="about-copy">I start with what people actually do, work with the constraints that exist, and change direction when the evidence changes.</p>
+
+      <div class="about-grid">
+        <div><span>01</span><strong>Observe</strong><p>What actually happens?</p></div>
+        <div><span>02</span><strong>Find friction</strong><p>What is really getting in the way?</p></div>
+        <div><span>03</span><strong>Build</strong><p>What is the simplest useful next step?</p></div>
+        <div><span>04</span><strong>Adapt</strong><p>What changed after we learned more?</p></div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section">
+      <p class="role">WORK WITH ME</p>
+      <h2>Looking for useful problems.</h2>
+      <p>Remote · part-time · project-based · contract</p>
+      <a href="https://github.com/rotemkasahun-maker" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
