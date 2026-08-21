@@ -8,7 +8,7 @@
   <title>Family Finance — Rotem Kasahun</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -16,9 +16,44 @@
   <div class="page-veil" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header case-header">
-    <a class="identity internal-link" href="index.html"><span class="identity-dot" aria-hidden="true"></span><span>Rotem Kasahun</span></a>
-    <nav aria-label="Case study navigation"><a class="internal-link" href="index.html#work">All work</a><a href="#learning">Learning</a></nav>
+    <a class="identity internal-link" href="index.html">
+      <span class="identity-dot" aria-hidden="true"></span><span>Rotem Kasahun</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Case study navigation">
+      <a class="internal-link" href="index.html#work">All work</a>
+      <a href="#context">Context</a>
+      <a href="#system">System</a>
+      <a href="#learning">Learning</a>
+    </nav>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
   </header>
+
+  <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <p class="mobile-menu-kicker">CASE STUDY</p>
+      <nav aria-label="Mobile case navigation">
+        <a class="internal-link" href="index.html#work"><span>00</span><strong>All work</strong></a>
+        <a href="#context"><span>01</span><strong>Context</strong></a>
+        <a href="#system"><span>02</span><strong>System</strong></a>
+        <a href="#learning"><span>03</span><strong>Learning</strong></a>
+      </nav>
+      <p class="mobile-menu-note">Family Finance · active build</p>
+    </div>
+  </aside>
+
+  <nav class="case-progress" aria-label="Case study progress">
+    <a href="#context"><span>01</span>Context</a>
+    <a href="#observation"><span>02</span>Observation</a>
+    <a href="#system"><span>03</span>System</a>
+    <a href="#proof"><span>04</span>Proof</a>
+    <a href="#learning"><span>05</span>Learning</a>
+    <button class="reading-toggle" type="button" aria-pressed="false" data-reading-toggle>
+      <span class="reading-icon" aria-hidden="true">Aa</span>
+      <span class="reading-label">Reading mode</span>
+    </button>
+  </nav>
 
   <main id="main">
     <section class="case-hero reveal shell">
@@ -26,6 +61,7 @@
       <p class="kicker">FEATURED CASE STUDY · IN PROGRESS</p>
       <h1>Family<br><span>Finance</span></h1>
       <p class="case-deck">A family-finance system designed around real behavior, not perfect discipline.</p>
+      <p class="reading-hint"><span>Optional reading aid:</span> Lexend + bionic-style emphasis is available for denser sections.</p>
       <div class="case-meta-grid">
         <div><span>Problem space</span><strong>Household finance</strong></div>
         <div><span>My role</span><strong>Product thinking · UX · building</strong></div>
@@ -41,28 +77,28 @@
       </div>
     </section>
 
-    <section class="case-section reveal shell">
+    <section class="case-section reveal shell" id="context">
       <div class="case-section-label">01 · Context</div>
       <div class="case-section-content">
         <h2>One question exposed a fragmented system.</h2>
         <p class="large-copy">It started with a simple question: where is our money actually going?</p>
-        <p>The information was scattered across SMS, email, receipts, cards and payment apps. Seeing the whole picture meant repeatedly collecting, interpreting and categorizing evidence from different places.</p>
+        <p class="dense-copy" data-bionic>The information was scattered across SMS, email, receipts, cards and payment apps. Seeing the whole picture meant repeatedly collecting, interpreting and categorizing evidence from different places.</p>
       </div>
     </section>
 
-    <section class="case-section reveal shell case-rule">
+    <section class="case-section reveal shell case-rule" id="observation">
       <div class="case-section-label">02 · Observation</div>
       <div class="case-section-content">
         <h2>Manual tracking creates repeated cognitive work.</h2>
-        <p>The deeper problem was not only missing data. The workflow relied on someone remembering to gather it, move it and keep it current.</p>
+        <p class="dense-copy" data-bionic>The deeper problem was not only missing data. The workflow relied on someone remembering to gather it, move it and keep it current.</p>
         <blockquote>Remove remembering from the workflow wherever possible.</blockquote>
       </div>
     </section>
 
-    <section class="system-section reveal">
+    <section class="system-section reveal" id="system">
       <div class="shell">
         <p class="kicker">THE DIRECTION</p>
-        <div class="system-heading"><h2>Collect automatically.<br>Surface only what still needs attention.</h2><p>The initial technical flow focuses on turning incoming financial evidence into a normalized queue that can be synced instead of manually reconstructed later.</p></div>
+        <div class="system-heading"><h2>Collect automatically.<br>Surface only what still needs attention.</h2><p class="dense-copy" data-bionic>The initial technical flow focuses on turning incoming financial evidence into a normalized queue that can be synced instead of manually reconstructed later.</p></div>
         <div class="system-flow" role="img" aria-label="SMS to Detect to Normalize to Queue to Sync">
           <span>SMS</span><i>→</i><span>Detect</span><i>→</i><span>Normalize</span><i>→</i><span>Queue</span><i>→</i><span>Sync</span>
         </div>
@@ -70,11 +106,11 @@
     </section>
 
 
-    <section class="proof-section shell reveal">
+    <section class="proof-section shell reveal" id="proof">
       <div class="proof-intro">
         <p class="kicker">WHAT EXISTS TODAY</p>
         <h2>Not a concept deck. A working ingestion path.</h2>
-        <p>The current Android build detects financial SMS candidates, normalizes evidence, persists a local queue and exposes sync status. The product is still evolving, so this section separates what is built from what is still a hypothesis.</p>
+        <p class="dense-copy" data-bionic>The current Android build detects financial SMS candidates, normalizes evidence, persists a local queue and exposes sync status. The product is still evolving, so this section separates what is built from what is still a hypothesis.</p>
       </div>
       <div class="proof-grid">
         <article><small>BUILT</small><strong>Candidate detection</strong><p>Incoming SMS can be screened for likely financial evidence.</p></article>
@@ -88,7 +124,7 @@
       <div class="case-section-label">03 · Product learning</div>
       <div class="case-section-content">
         <h2>Automation solved collection. It didn’t solve motivation.</h2>
-        <p>The work shifted from “how do we capture data?” toward what happens after the system has it: proactive support, personalization and a hypothesis around meaningful goals.</p>
+        <p class="dense-copy" data-bionic>The work shifted from “how do we capture data?” toward what happens after the system has it: proactive support, personalization and a hypothesis around meaningful goals.</p>
         <p class="status-note">This is an active project. The direction above reflects the current product learning; it is not presented as a finished outcome.</p>
       </div>
     </section>
