@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260822-evidence">
   <script src="script.js" defer></script>
 </head>
 <body class="case-page">
@@ -99,8 +99,8 @@
       <div class="shell">
         <p class="kicker">THE DIRECTION</p>
         <div class="system-heading"><h2>Collect automatically.<br>Surface only what still needs attention.</h2><p class="dense-copy" data-bionic>The initial technical flow focuses on turning incoming financial evidence into a normalized queue that can be synced instead of manually reconstructed later.</p></div>
-        <div class="system-flow" role="img" aria-label="SMS to Detect to Normalize to Queue to Sync">
-          <span>SMS</span><i>→</i><span>Detect</span><i>→</i><span>Normalize</span><i>→</i><span>Queue</span><i>→</i><span>Sync</span>
+        <div class="system-flow" role="img" aria-label="SMS to Detect to Normalize to Queue to Sync attempt">
+          <span>SMS</span><i>→</i><span>Detect</span><i>→</i><span>Normalize</span><i>→</i><span>Queue</span><i>→</i><span>Sync attempt</span>
         </div>
       </div>
     </section>
@@ -116,16 +116,34 @@
         <article><small>BUILT</small><strong>Candidate detection</strong><p>Incoming SMS can be screened for likely financial evidence.</p></article>
         <article><small>BUILT</small><strong>Normalized evidence</strong><p>Different messages can enter one consistent processing shape.</p></article>
         <article><small>BUILT</small><strong>Local queue</strong><p>Pending evidence survives locally instead of depending on memory.</p></article>
-        <article><small>IN PROGRESS</small><strong>Useful support</strong><p>The next question is how collected data becomes help people actually care about.</p></article>
+        <article><small>IN PROGRESS</small><strong>End-to-end sync</strong><p>The queue can attempt synchronization; a complete SMS-to-ledger path is not yet verified.</p></article>
       </div>
+
+      <article class="failure-story" aria-labelledby="failureStoryTitle">
+        <div class="failure-story-copy">
+          <p class="kicker">A FAILURE WORTH KEEPING</p>
+          <h3 id="failureStoryTitle">The sync failed.<br>The evidence didn’t disappear.</h3>
+          <p class="dense-copy" data-bionic>An Android E2E run reached the backend and received an error. The important result was not a successful sync: the normalized financial evidence remained safely retained in the local queue for another attempt.</p>
+        </div>
+        <div class="failure-sequence" role="img" aria-label="SMS detected, normalized and persisted; synchronization failed; evidence remained queued">
+          <div><small>01 · BUILT</small><strong>Detected</strong><span>Financial SMS candidate</span></div>
+          <i aria-hidden="true">→</i>
+          <div><small>02 · BUILT</small><strong>Persisted</strong><span>Normalized local evidence</span></div>
+          <i aria-hidden="true">→</i>
+          <div class="is-failure"><small>03 · FAILED ATTEMPT</small><strong>Sync error</strong><span>Backend returned an error</span></div>
+          <i aria-hidden="true">→</i>
+          <div class="is-retained"><small>04 · VERIFIED</small><strong>Still queued</strong><span>Evidence retained safely</span></div>
+        </div>
+        <p class="evidence-note"><strong>Evidence:</strong> Android SMS E2E report · duplicate-prevention checks · persistent-queue verification. Technical behavior tested; user outcome not yet validated.</p>
+      </article>
     </section>
 
     <section class="case-section reveal shell case-rule" id="learning">
       <div class="case-section-label">03 · Product learning</div>
       <div class="case-section-content">
-        <h2>Automation solved collection. It didn’t solve motivation.</h2>
-        <p class="dense-copy" data-bionic>The work shifted from “how do we capture data?” toward what happens after the system has it: proactive support, personalization and a hypothesis around meaningful goals.</p>
-        <p class="status-note">This is an active project. The direction above reflects the current product learning; it is not presented as a finished outcome.</p>
+        <h2>Collection is becoming more reliable. Motivation is the next hypothesis.</h2>
+        <p class="dense-copy" data-bionic>The current work reduces manual collection for supported inputs, but the full system is not automated yet. A future direction is to explore whether proactive support, personalization and meaningful goals can make the collected information more useful.</p>
+        <p class="status-note"><strong>Truth boundary:</strong> the ingestion behaviors above are built and technically tested. Complete synchronization, household adoption and behavioral outcomes are not yet validated.</p>
       </div>
     </section>
 

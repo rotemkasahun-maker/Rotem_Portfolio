@@ -67,11 +67,11 @@
           <span class="sr-only" id="behaviorDesc">Three times, the same hand movement leaves keys on the console while someone else inside the home says, “Remember to put your keys away.” A hook is then added in the same path. On the next pass, the same movement naturally leaves the keys on the hook.</span>
 
           <div class="key-story-stage">
-            <img class="key-frame key-frame-1" src="assets/key-story/frame-1.jpg" alt="">
-            <img class="key-frame key-frame-2" src="assets/key-story/frame-2.jpg" alt="">
-            <img class="key-frame key-frame-3" src="assets/key-story/frame-3.jpg" alt="">
-            <img class="key-frame key-frame-4" src="assets/key-story/frame-4.jpg" alt="">
-            <img class="key-frame key-frame-5" src="assets/key-story/frame-5.jpg" alt="">
+            <img class="key-frame key-frame-1" src="frame-1.jpg" alt="">
+            <img class="key-frame key-frame-2" src="frame-2.jpg" alt="">
+            <img class="key-frame key-frame-3" src="frame-3.jpg" alt="">
+            <img class="key-frame key-frame-4" src="frame-4.jpg" alt="">
+            <img class="key-frame key-frame-5" src="frame-5.jpg" alt="">
 
             <div class="human-reminder reminder-1" aria-hidden="true">
               <span>Remember to put<br>your keys away.</span>
@@ -105,12 +105,12 @@
         <span>One active build · shown in depth</span>
       </div>
 
-      <a class="project-card internal-link" href="family-finance.html" aria-label="Open Family Finance case study">
+      <article class="project-card" aria-labelledby="familyFinanceTitle">
         <div class="project-copy">
           <div class="project-meta"><span>Product system</span><span>AI-native workflow</span><span>In progress</span></div>
-          <h2>Family Finance</h2>
+          <h2 id="familyFinanceTitle">Family Finance</h2>
           <p>A family-finance system built around how money data actually arrives: scattered across SMS, email, receipts, cards and payment apps.</p>
-          <span class="project-cta">Read the case study <span class="cta-arrow" aria-hidden="true">↗</span></span>
+          <a class="project-cta internal-link" href="family-finance.html">Read the case study <span class="cta-arrow" aria-hidden="true">↗</span></a>
         </div>
         <div class="project-visual finance-demo" aria-label="Interactive preview of the Family Finance ingestion flow">
           <div class="demo-toolbar">
@@ -152,7 +152,7 @@
 
           <button class="demo-run" type="button" data-run-demo>Run the flow <span aria-hidden="true">→</span></button>
         </div>
-      </a>
+      </article>
     </section>
 
     <section class="sidequest reveal shell" id="sidequest">
@@ -185,7 +185,7 @@
               </div>
             </div>
             <figure class="history-frame">
-              <img src="assets/history/v1.png" alt="Earlier portfolio version" data-history-image>
+              <img src="v1.png" alt="Portfolio version 1: an earlier SaaS-like layout" data-history-image>
               <figcaption>
                 <strong data-history-title>Too SaaS-like</strong>
                 <span data-history-copy>Clear structure, but it looked like a product landing page instead of a personal portfolio.</span>
