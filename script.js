@@ -50,5 +50,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const caseLinks=[...document.querySelectorAll('.case-progress a[href^="#"]')];
   if (caseLinks.length && 'IntersectionObserver' in window) { const observer=new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) caseLinks.forEach(link => link.classList.toggle('is-active',link.hash===`#${entry.target.id}`)); }),{rootMargin:'-25% 0px -65%'}); caseLinks.forEach(link => { const section=document.querySelector(link.hash); if(section) observer.observe(section); }); }
+
+  const showSection = document.querySelector('[data-show-me-section]');
+  const showTrigger = document.querySelector('[data-show-me]');
+  const showOutcome = document.querySelector('.ff-show-outcome');
+  const storyArtifacts = [...document.querySelectorAll('.ff-floating-artifact')];
+  let showComplete = false;
+  const setShowReady = ready => {
+    if (showComplete) return;
+    body.classList.toggle('ff-show-ready', ready);
+  };
+  if (showSection && 'IntersectionObserver' in window) {
+    const showObserver = new IntersectionObserver(entries => entries.forEach(entry => setShowReady(entry.isIntersecting)), {threshold:.28});
+    showObserver.observe(showSection);
+  }
+  showTrigger?.addEventListener('click', () => {
+    if (showComplete) return;
+    showComplete = true;
+    showTrigger.disabled = true;
+    showTrigger.setAttribute('aria-label', 'The system is collecting the artifacts');
+    body.classList.add('ff-show-ready');
+    showSection.classList.add('is-collecting');
+    const product = showSection.querySelector('.ff-product-window');
+    const target = product.getBoundingClientRect();
+    const visibleArtifacts = storyArtifacts.filter(artifact => getComputedStyle(artifact).display !== 'none');
+    if (reduced) {
+      body.classList.add('ff-show-complete');
+      showSection.classList.add('is-collected');
+      showOutcome?.setAttribute('aria-hidden', 'false');
+      showTrigger.textContent = 'everything is here';
+      return;
+    }
+    const finishAt = visibleArtifacts.reduce((latest, artifact, index) => {
+      const start = artifact.getBoundingClientRect();
+      artifact.style.animation = 'none';
+      Object.assign(artifact.style, {position:'fixed',left:`${start.left}px`,top:`${start.top}px`,right:'auto',bottom:'auto',width:`${start.width}px`,height:`${start.height}px`,transform:'none'});
+      const dx = target.left + target.width / 2 - (start.left + start.width / 2);
+      const dy = target.top + target.height / 2 - (start.top + start.height / 2);
+      const delay = index * 170;
+      artifact.animate([
+        {transform:'translate3d(0,0,0)',opacity:1},
+        {transform:`translate3d(${dx}px,${dy}px,0) scale(.72)`,opacity:0}
+      ], {duration:1050,delay,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+      return Math.max(latest, delay + 1050);
+    }, 0);
+    setTimeout(() => showSection.classList.add('is-great'), Math.max(700, finishAt - 420));
+    setTimeout(() => {
+      body.classList.add('ff-show-complete');
+      showSection.classList.add('is-collected');
+      showOutcome?.setAttribute('aria-hidden', 'false');
+      showTrigger.textContent = 'everything is here';
+    }, finishAt + 120);
+  });
   if (!reduced) document.querySelectorAll('a.internal-link').forEach(link => link.addEventListener('click', e => { if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||link.target==='_blank') return; const href=link.getAttribute('href'); if(!href||href.startsWith('#')) return; e.preventDefault(); body.classList.add('is-leaving'); setTimeout(() => location.href=href,260); }));
 });

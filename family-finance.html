@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260823-ff-m1">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260823-ff-m2">
+  <script src="script.js?v=20260823-ff-m2" defer></script>
 </head>
 <body class="case-page ff-story-page">
   <div class="page-veil" aria-hidden="true"></div>
@@ -30,7 +30,7 @@
         <a href="#collecting"><span>01</span><strong>Collecting</strong></a>
         <a href="#brief"><span>02</span><strong>The brief</strong></a>
       </nav>
-      <p class="mobile-menu-note">Milestone 1 · narrative opening</p>
+      <p class="mobile-menu-note">Milestone 2 · show me</p>
     </div>
   </aside>
 
@@ -91,7 +91,25 @@
         <li><span aria-hidden="true"></span>told myself I'd do it later</li>
       </ul>
     </section>
-    <div class="ff-milestone-end" aria-label="End of Milestone 1"><span>Milestone 1</span></div>
+
+    <section class="ff-show" id="show-me" aria-labelledby="ffShowTitle" data-show-me-section>
+      <div class="ff-show-copy reveal">
+        <p class="ff-beat-number">03 / letting go</p>
+        <h2 id="ffShowTitle">What if the system did<br>the remembering instead?</h2>
+        <button class="ff-show-trigger" type="button" data-show-me aria-controls="ffShowResult">show me <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="ff-product-stage" id="ffShowResult" data-show-result aria-live="polite">
+        <figure class="ff-product-window">
+          <img src="assets/family-finance/evidence/screenshots/core-receipt-after.png" alt="A genuine Family Finance product screenshot showing receipt-related transaction states.">
+          <figcaption>Family Finance <span>real product evidence</span></figcaption>
+        </figure>
+        <div class="ff-show-outcome" aria-hidden="true">
+          <p class="ff-outcome-great">Great. Everything was in one place.</p>
+          <p class="ff-outcome-not-enough">That wasn't enough.</p>
+        </div>
+      </div>
+    </section>
+    <div class="ff-milestone-end" aria-label="End of Milestone 2"><span>Milestone 2</span></div>
   </main>
   <footer class="shell footer ff-story-footer"><span>Rotem Kasahun</span><a class="internal-link" href="index.html">Home ↑</a></footer>
 </body>
