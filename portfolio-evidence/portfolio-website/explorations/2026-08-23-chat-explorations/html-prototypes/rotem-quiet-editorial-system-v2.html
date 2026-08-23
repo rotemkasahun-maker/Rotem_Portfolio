@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotem — Quiet Editorial System v2</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fcf8f0;color:#29262d;font-family:Arial,sans-serif}
+:root{--coral:#e97867;--sage:#afd09b;--lilac:#ece6f4;--ink:#29262d;--cream:#fcf8f0}
+nav{height:64px;padding:0 4.5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #00000012;position:sticky;top:0;background:#fcf8f0ed;backdrop-filter:blur(12px);z-index:10;font-size:10px;letter-spacing:.05em}
+.micro{font-size:8px;letter-spacing:.19em;text-transform:uppercase;font-weight:700;opacity:.55}
+.whisper{font-family:Georgia,serif;font-size:12px;line-height:1.75}
+.hero{min-height:92vh;padding:5vh 4.5vw 6vh;display:grid;grid-template-columns:.42fr 1.58fr;gap:5vw;align-items:center}
+.heroCopy{align-self:end;padding-bottom:8vh;max-width:285px}.heroCopy h1{font-size:21px;line-height:1.12;letter-spacing:-.035em;margin:14px 0}.heroCopy p{font-size:10px;line-height:1.75;max-width:245px}
+.scene{height:650px;position:relative}.lawn{position:absolute;inset:40px 20px 35px 50px;background:var(--sage);border-radius:43% 57% 48% 52%;box-shadow:0 42px 95px #342d3521}
+.formal{position:absolute;width:80%;height:70%;right:-1%;top:15%;border:64px solid #ead1bd;border-left-color:transparent;border-bottom-color:transparent;border-radius:52%;transform:rotate(12deg)}
+.shortcut{position:absolute;width:53%;height:42px;background:#e9a07e;left:25%;top:53%;transform:rotate(-22deg);border-radius:50% 42% 55% 38%}
+.person{position:absolute;width:21px;height:21px;border-radius:50%;background:#846c91;left:52%;top:45%;box-shadow:0 27px 0 6px #d96d62}
+.sceneCap{position:absolute;right:1%;bottom:4%;width:150px;font-size:8px;line-height:1.55;letter-spacing:.03em}
+
+.pause{min-height:78vh;display:flex;align-items:center;padding:8vw}.pauseIn{width:min(720px,85%);margin:auto}.pause .line1{font-family:Georgia,serif;font-size:11px}.pause .line2{font-family:Georgia,serif;font-size:11px;margin:28vh 0 0 42%}
+
+.work{padding:60px 4.5vw 150px}.workMeta{display:flex;justify-content:space-between;margin-bottom:24px}.project{display:grid;grid-template-columns:.33fr 1.67fr;gap:5vw;border-top:1px solid #0002;padding-top:26px}.copy h2{font-size:20px;line-height:1.08;letter-spacing:-.03em;margin:14px 0}.copy p{font-size:10px;line-height:1.75;max-width:280px}.artifact{height:72vh;min-height:570px;border-radius:24px;background:#fff;box-shadow:0 42px 95px #30283224;padding:22px;position:relative}.artifactIn{height:100%;border-radius:15px;background:#e6f1e3;padding:28px}.artifactIn h3{font-size:34px;letter-spacing:-.04em;max-width:460px}.caption{position:absolute;left:22px;bottom:-34px;font-size:8px;letter-spacing:.06em;opacity:.58}
+
+.annotation{padding:110px 4.5vw 160px;display:grid;grid-template-columns:1.5fr .5fr;gap:7vw;max-width:1250px;margin:auto}.annotationVisual{height:500px;background:#fff;border-radius:20px;box-shadow:0 35px 80px #3028321d;position:relative}.dot{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--coral);right:22%;top:33%}.hairline{position:absolute;width:145px;height:1px;background:var(--coral);right:9%;top:34%}.annotationText{align-self:center}.annotationText h2{font-size:15px;line-height:1.2;margin:12px 0}.annotationText p{font-size:9px;line-height:1.7}
+
+.depth{min-height:78vh;margin:0 4.5vw 140px;background:var(--lilac);border-radius:28px;position:relative;overflow:hidden;padding:6vw}.depthCopy{width:260px}.depthCopy h2{font-size:18px;margin:13px 0}.depthCopy p{font-size:10px;line-height:1.7}.layer{position:absolute;background:#fff;border-radius:20px;box-shadow:0 35px 75px #3b304022}.l1{width:48%;height:58%;right:8%;top:14%;transform:rotate(1.5deg)}.l2{width:35%;height:40%;right:27%;top:35%;transform:rotate(-2deg);background:#dfeedd}.l3{width:18%;height:20%;right:5%;bottom:8%;background:var(--coral)}
+
+.failure{min-height:95vh;background:#29262d;color:#fcf8f0;display:flex;align-items:center;padding:8vw 4.5vw}.failure h2{font-size:clamp(72px,10vw,148px);line-height:.76;letter-spacing:-.078em;margin:30px 0}.failure h2 span{color:var(--coral)}.failure p{font-size:10px;line-height:1.75;max-width:380px}.states{font-size:8px;letter-spacing:.14em;margin-top:45px;word-spacing:13px;opacity:.72}
+
+.return{min-height:70vh;display:flex;align-items:center;padding:7vw}.returnIn{max-width:520px;margin:auto}.return h2{font-size:16px;margin:14px 0}.return p{font-size:10px;line-height:1.8}.tinyDecision{margin-top:90px;margin-left:42%;font-family:Georgia,serif;font-size:10px;line-height:1.7;width:260px}
+
+.motion{padding:130px 4.5vw;background:#f2eee7}.motionGrid{max-width:1120px;margin:auto;display:grid;grid-template-columns:.55fr 1.45fr;gap:8vw}.motion h2{font-size:18px;margin:12px 0}.motion p{font-size:10px;line-height:1.75}.motionList{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.motionItem{min-height:180px;border-top:1px solid #0003;padding-top:18px}.motionItem b{display:block;font-size:12px;margin:45px 0 10px}.motionItem span{font-size:8px;line-height:1.6;display:block}
+
+footer{padding:110px 4.5vw 45px}.footerLine{font-family:Georgia,serif;font-size:13px;margin:14px 0 80px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:45px 24px}.scene{height:500px;order:1}.heroCopy{order:2;padding:0}.pause .line2{margin-left:15%}.project{grid-template-columns:1fr}.artifact{height:500px;min-height:0}.annotation{grid-template-columns:1fr;padding:80px 24px}.annotationVisual{height:390px}.depth{min-height:650px;margin:0 20px 100px}.layer.l1{width:72%}.layer.l2{width:55%}.failure{padding:100px 24px}.tinyDecision{margin-left:10%}.motionGrid{grid-template-columns:1fr}.motionList{grid-template-columns:1fr}}
+</style></head>
+<body>
+<nav><b>ROTEM.</b><div>WORK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; APPROACH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ABOUT</div></nav>
+
+<section class="hero">
+<div class="heroCopy"><div class="micro">ROTEM KASAHUN · PRODUCT / UX</div><h1>Follow what people actually do.</h1><p>Designing around the gap between intended systems and real behavior.</p></div>
+<div class="scene"><div class="lawn"></div><div class="formal"></div><div class="shortcut"></div><div class="person"></div><div class="sceneCap">01 / DESIRE PATH<br>Observed behavior can reveal what the designed route missed.</div></div>
+</section>
+
+<section class="pause"><div class="pauseIn"><div class="line1">The data wasn't missing.</div><div class="line2">It was already everywhere.</div></div></section>
+
+<section class="work"><div class="workMeta"><span class="micro">SELECTED WORK / 01</span><span class="micro">FAMILY FINANCE · CURRENT BUILD</span></div>
+<div class="project"><div class="copy"><div class="micro">PRODUCT OBSERVATION</div><h2>Capture what already happens.</h2><p>Financial evidence already exists in SMS, notifications and receipts. The product begins there instead of creating another maintenance task.</p></div>
+<div class="artifact"><div class="artifactIn"><div class="micro">REAL PRODUCT EVIDENCE</div><h3>The screenshot carries the visual weight. The explanation stays precise.</h3></div><div class="caption">FIG. 01 · REAL APPLICATION STATE · SYNTHETIC / REDACTED DATA</div></div></div></section>
+
+<section class="annotation"><div class="annotationVisual"><div class="dot"></div><div class="hairline"></div></div><div class="annotationText"><div class="micro">DETAIL ON DEMAND</div><h2>Annotations don't arrive until they're useful.</h2><p>Future interaction: hover, focus or scroll proximity can reveal the note. At rest, the evidence remains visually quiet.</p></div></section>
+
+<section class="depth"><div class="depthCopy"><div class="micro">CONTROLLED DEPTH</div><h2>Not flat. Not busy.</h2><p>A few physical layers create presence without turning every piece of information into a card.</p></div><div class="layer l1"></div><div class="layer l2"></div><div class="layer l3"></div></section>
+
+<section class="failure"><div><div class="micro">TURNING POINT / E2E</div><h2>THE SYNC<br><span>FAILED.</span></h2><p>The only XXL type event on the page marks a real change in the product story. Scale is punctuation, not a default.</p><div class="states">DETECTED → PERSISTED → SYNC ERROR → STILL QUEUED</div></div></section>
+
+<section class="return"><div class="returnIn"><div class="micro">RETURN TO HUMAN SCALE</div><h2>The evidence didn't disappear.</h2><p>After the event, the page becomes quiet immediately. Reliability is explained without trying to compete with the moment that came before it.</p><div class="tinyDecision">Safe persistence was technically correct.<br><br>But invisible safety still needed to become understandable safety.</div></div></section>
+
+<section class="motion"><div class="motionGrid"><div><div class="micro">FUTURE BEHAVIOR</div><h2>Quiet at rest.<br>Alive in response.</h2><p>The static composition intentionally leaves room for interaction to become the personality layer later.</p></div><div class="motionList"><div class="motionItem"><div class="micro">01</div><b>Desire path</b><span>Repeated movement gradually reveals the shortcut rather than playing a decorative loop.</span></div><div class="motionItem"><div class="micro">02</div><b>Evidence</b><span>Annotations appear only when the visitor approaches or asks for more detail.</span></div><div class="motionItem"><div class="micro">03</div><b>State change</b><span>System transitions use motion to show causality, failure and persistence.</span></div></div></div></section>
+
+<footer><div class="micro">ROTEM · PRODUCT THINKING</div><div class="footerLine">Make the system fit reality.</div><div class="micro">CONTACT · LINKEDIN · CV</div></footer>
+</body></html>

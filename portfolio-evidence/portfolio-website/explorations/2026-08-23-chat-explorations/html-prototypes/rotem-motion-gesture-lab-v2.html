@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotem — Motion Gesture Lab v2</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f0e7;color:#2a272d;font-family:Arial,sans-serif;overflow-x:hidden}
+:root{--cream:#fbf5e9;--ink:#29262d;--green:#a7ce93;--apricot:#efaa88;--plum:#755f7d}
+header{padding:48px 5vw 34px;max-width:1000px;margin:auto}
+header h1{font-size:34px;letter-spacing:-.045em;margin:9px 0}
+header p{font-size:14px;line-height:1.65;max-width:680px}
+.lab{max-width:1180px;margin:auto;padding:12px 4vw 100px;display:grid;gap:48px}
+.exp{background:var(--cream);border-radius:30px;overflow:hidden;box-shadow:0 32px 80px #342d3820;position:relative;min-height:650px}
+.meta{padding:16px 24px;border-bottom:1px solid #0001;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between}
+.stage{min-height:590px;padding:52px;position:relative;overflow:hidden}
+.copy{max-width:360px;position:relative;z-index:4}.copy h2{font-size:28px;line-height:1.04;letter-spacing:-.04em;margin:14px 0}.copy p{font-size:14px;line-height:1.7}
+.label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
+
+/* 1 delayed trace */
+.traceField{position:absolute;right:5%;top:12%;width:55%;height:72%;background:#dfead8;border-radius:28px;box-shadow:0 35px 80px #5c6f5520}
+.walker{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--plum);left:18%;top:66%;box-shadow:0 27px 0 6px #d96d62;transition:transform .18s linear}
+.foot{position:absolute;width:8px;height:13px;border-radius:50%;background:#8a6d72;opacity:0;transition:opacity .5s}
+.foot.show{opacity:.5}
+.scrollTrack{position:absolute;right:10%;bottom:7%;font:11px Georgia,serif;opacity:.65}
+
+/* 2 evidence holds */
+.holdWrap{position:absolute;right:7%;top:13%;width:55%;height:73%}
+.holdCard{position:sticky;top:28vh;width:100%;height:300px;background:#fffdf7;border-radius:24px;box-shadow:0 35px 80px #67534325;padding:26px;transition:box-shadow .3s}
+.holdCard.active{box-shadow:0 10px 18px #67534316,0 45px 90px #67534334}
+.holdText{position:absolute;right:12%;bottom:9%;width:260px;font:11px/1.6 Georgia,serif;opacity:.7}
+
+/* 3 handoff */
+.chain{position:absolute;right:6%;top:12%;width:58%;height:75%}
+.block{position:absolute;width:68%;height:150px;border-radius:22px;padding:24px;box-shadow:0 24px 60px #4f41371e;transition:transform .25s linear}
+.b1{top:5%;left:2%;background:#e5efdf}
+.b2{top:38%;right:0;background:#fffdf7}
+.b3{bottom:3%;left:9%;background:#efb092}
+.token{position:absolute;width:36px;height:36px;border-radius:50%;background:var(--plum);left:28%;top:21%;box-shadow:0 13px 25px #4e41551f;transition:transform .18s linear}
+
+/* 4 shadow response */
+.object{position:absolute;right:12%;top:19%;width:46%;height:54%;background:#fffdf7;border-radius:26px;box-shadow:0 22px 50px #6d55431b;transition:box-shadow .25s ease,transform .25s ease}
+.object.near{box-shadow:0 8px 16px #6d554312,0 44px 95px #6d554337;transform:translateY(-3px)}
+.object .inside{margin:24px;height:calc(100% - 48px);border-radius:18px;background:#e6f0df;padding:24px}
+.proximity{position:absolute;right:18%;bottom:9%;font:11px Georgia,serif;opacity:.65}
+
+footer{padding:90px 5vw;text-align:center;font:13px Georgia,serif}
+@media(max-width:760px){
+header{padding:36px 24px 20px}.lab{padding:10px 16px 70px;gap:34px}.stage{padding:30px;min-height:680px}.copy{max-width:85%}
+.traceField,.holdWrap,.chain{width:80%;right:2%;top:40%;height:53%}.object{width:75%;right:4%;top:45%;height:42%}
+.holdCard{height:230px}.block{height:120px}.scrollTrack,.holdText,.proximity{font-size:10px}
+}
+</style></head><body>
+<header><div class="label">Motion Gesture Lab v2</div><h1>Four quiet ways to make the site feel alive.</h1><p>Same Sunlit base. No tilt, wobble or aggressive parallax. Each experiment adds one small behavior that rewards attention without demanding it.</p></header>
+
+<main class="lab">
+<section class="exp" id="exp1"><div class="meta"><b>01 · Delayed trace</b><span>memory, not decoration</span></div><div class="stage"><div class="copy"><span class="label">Breeze + Response</span><h2>The page remembers you passed.</h2><p>The character moves with scroll. Footprints appear a moment later, so the motion feels like a trace of behavior rather than a synced animation.</p></div><div class="traceField" id="traceField"><div class="walker" id="walker"></div></div><div class="scrollTrack">scroll through this section slowly ↓</div></div></section>
+
+<section class="exp" id="exp2"><div class="meta"><b>02 · Evidence holds</b><span>pause with meaning</span></div><div class="stage" style="min-height:900px"><div class="copy"><span class="label">Response</span><h2>The artifact stays one beat longer.</h2><p>As the story moves past it, the evidence holds position for a short moment. It feels like the page is saying: “look at this before we continue.”</p></div><div class="holdWrap"><div class="holdCard" id="holdCard"><span class="label">Real evidence</span><h3 style="font-size:24px">SYNC_ATTEMPT → HTTP 500</h3><p style="font:12px/1.8 'Courier New',monospace">QUEUE_STATE → RETAINED<br>DATA_LOSS → NO</p></div></div><div class="holdText">The hold is short. It should never feel like scroll-jacking.</div></div></section>
+
+<section class="exp" id="exp3"><div class="meta"><b>03 · Handoff</b><span>one detail continues forward</span></div><div class="stage"><div class="copy"><span class="label">Transition</span><h2>A detail survives the section change.</h2><p>One small token travels from one block to the next while the rest of the page changes around it. The transition feels connected rather than cut into separate rectangles.</p></div><div class="chain" id="chain"><div class="block b1"><span class="label">Observation</span><h3>Evidence exists.</h3></div><div class="block b2"><span class="label">Decision</span><h3>Capture it.</h3></div><div class="block b3"><span class="label">Result</span><h3>Keep provenance.</h3></div><div class="token" id="token"></div></div></div></section>
+
+<section class="exp" id="exp4"><div class="meta"><b>04 · Proximity depth</b><span>quiet physical response</span></div><div class="stage"><div class="copy"><span class="label">Breeze</span><h2>Depth changes when the evidence becomes relevant.</h2><p>The object doesn’t fly toward you. Its shadow simply deepens and the surface rises a few pixels as you approach the part of the story that references it.</p></div><div class="object" id="object"><div class="inside"><span class="label">Artifact</span><h3 style="font-size:24px">Still queued.</h3></div></div><div class="proximity">a little closer, then back to calm</div></div></section>
+</main>
+<footer>Creative motion should reward attention, not demand it.</footer>
+
+<script>
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+const e1=document.getElementById('exp1'), field=document.getElementById('traceField'), walker=document.getElementById('walker');
+let lastFoot=-1;
+function makeFoot(x,y,i){const f=document.createElement('i');f.className='foot';f.style.left=x+'%';f.style.top=y+'%';f.style.transform=`rotate(${i%2?150:-28}deg)`;field.appendChild(f);setTimeout(()=>f.classList.add('show'),220)}
+const e2=document.getElementById('exp2'),hold=document.getElementById('holdCard');
+const e3=document.getElementById('exp3'),token=document.getElementById('token');
+const e4=document.getElementById('exp4'),obj=document.getElementById('object');
+function update(){
+ let r=e1.getBoundingClientRect(), p=clamp((innerHeight-r.top)/(innerHeight+r.height),0,1);
+ walker.style.transform=`translate(${p*260}px,${-p*150}px)`;
+ let idx=Math.floor(p*8);
+ if(idx>lastFoot && idx<8){lastFoot=idx;makeFoot(18+idx*7,66-idx*4.2,idx)}
+ let r2=e2.getBoundingClientRect(),p2=clamp((innerHeight-r2.top)/(innerHeight+r2.height),0,1);hold.classList.toggle('active',p2>.32&&p2<.72);
+ let r3=e3.getBoundingClientRect(),p3=clamp((innerHeight-r3.top)/(innerHeight+r3.height),0,1);
+ let y=p3<.5?p3*300:150+(p3-.5)*300; token.style.transform=`translate(${p3*110}px,${y}px)`;
+ let r4=e4.getBoundingClientRect(),p4=clamp((innerHeight-r4.top)/(innerHeight+r4.height),0,1);obj.classList.toggle('near',p4>.38&&p4<.7)
+}
+addEventListener('scroll',update,{passive:true});update();
+</script></body></html>

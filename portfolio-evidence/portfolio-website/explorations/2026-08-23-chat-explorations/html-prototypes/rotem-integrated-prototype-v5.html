@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotem — Integrated Portfolio Prototype v5</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fbf7ef;color:#29262d;font-family:Arial,sans-serif;overflow-x:hidden}
+:root{--cream:#fbf7ef;--ink:#29262d;--coral:#e87564;--green:#62ad83;--soft:#eee8f4}
+nav{height:64px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #0001;position:sticky;top:0;z-index:20;background:#fbf7efed;backdrop-filter:blur(12px);font-size:12px}
+.label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.55}
+.hero{min-height:92vh;padding:6vh 5vw;display:grid;grid-template-columns:.48fr 1.52fr;gap:6vw;align-items:center}.heroCopy{align-self:end;padding-bottom:8vh}.hero h1{font-size:29px;line-height:1.05;letter-spacing:-.04em;margin:14px 0}.hero p{font-size:15px;line-height:1.7;max-width:335px}
+.heroArt{position:relative;min-height:620px}.heroArt img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 35px 70px #352b341c)}
+.trace{position:absolute;width:8px;height:13px;border-radius:55%;background:#7c657f;opacity:0;transform:rotate(-30deg);transition:opacity .3s}.trace.on{opacity:.62}.trace:nth-of-type(even){transform:rotate(155deg)}
+.traceHint{position:absolute;right:5%;bottom:3%;font-family:Georgia,serif;font-size:11px;max-width:180px;line-height:1.55}.traceBtn{position:absolute;left:5%;bottom:4%;border:1px solid #0002;background:#fff8;padding:11px 15px;border-radius:30px;font-size:11px}
+
+.whisper{min-height:70vh;display:flex;align-items:center;padding:8vw}.whisper p{font-family:Georgia,serif;font-size:11px;line-height:1.8;width:260px;margin-left:18%}
+
+.project{padding:90px 5vw 160px}.projectIntro{display:grid;grid-template-columns:.5fr 1.5fr;gap:7vw;border-top:1px solid #0002;padding-top:34px}.projectIntro h2{font-size:31px;line-height:1.05;letter-spacing:-.04em;margin:10px 0}.projectIntro p{font-size:15px;line-height:1.75;max-width:470px}
+.evidenceStage{height:78vh;min-height:610px;margin-top:70px;position:relative}.evidenceCopy{position:absolute;left:0;top:26%;width:330px;transition:.55s}.evidenceCopy h3{font-size:22px;margin:10px 0}.evidenceCopy p{font-size:14px;line-height:1.7}
+.evidence{position:absolute;right:0;top:12%;width:38%;height:62%;border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 35px 80px #30283226;transition:all .65s cubic-bezier(.2,.8,.2,1);cursor:zoom-in}.evidence img{width:100%;height:100%;object-fit:cover;object-position:top left}.evidence.open{width:78%;height:88%;top:3%;cursor:zoom-out}.evidenceStage.open .evidenceCopy{opacity:.25;transform:translateX(-18px)}.evidenceTip{position:absolute;right:3%;bottom:2%;font-size:11px;background:#fff;padding:8px 11px;border-radius:20px;box-shadow:0 10px 25px #0001}
+
+.failure{min-height:94vh;background:var(--ink);color:var(--cream);display:flex;align-items:center;padding:8vw 5vw}.failure h2{font-size:clamp(72px,10vw,145px);line-height:.77;letter-spacing:-.075em;margin:30px 0}.failure h2 span{color:var(--coral)}.failure p{font-size:15px;line-height:1.75;max-width:470px}.states{font-size:12px;margin-top:44px;opacity:.7}
+
+.payoff{min-height:76vh;display:flex;align-items:center;padding:9vw 5vw}.payoffIn{max-width:760px;margin:auto}.payoff h2{font-size:28px;letter-spacing:-.03em}.payoff p{font-size:16px;line-height:1.8;max-width:600px}.tiny{font-family:Georgia,serif;font-size:11px!important;width:260px;margin:20vh 0 0 48%}
+
+.about{padding:140px 5vw;background:#f2eee7}.aboutWrap{max-width:1150px;margin:auto;display:grid;grid-template-columns:.7fr 1.3fr;gap:8vw}.about h2{font-size:30px;letter-spacing:-.04em}.about p{font-size:15px;line-height:1.75;max-width:420px}.magicBox{min-height:420px;border-radius:28px;background:#29262d;position:relative;overflow:hidden;color:#fbf7ef;box-shadow:0 35px 80px #30283224}.wand{position:absolute;left:34px;bottom:34px;font-size:32px;cursor:pointer;user-select:none;transform:rotate(-30deg)}.spell{position:absolute;left:85px;bottom:45px;font-family:Georgia,serif;font-size:12px;opacity:.7}.secret{position:absolute;right:12%;top:38%;font-family:Georgia,serif;font-size:16px;color:#29262d;transition:color .4s}.clip{position:absolute;right:20%;bottom:18%;font-size:50px;transition:transform 1.4s cubic-bezier(.2,.8,.2,1);cursor:pointer}.clip.up{transform:translateY(-150px) rotate(12deg)}.light{position:fixed;width:190px;height:190px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#fffbd8dc 0,#fffbd83b 43%,transparent 70%);display:none;z-index:50;transform:translate(-50%,-50%)}
+footer{padding:100px 5vw 45px}footer h2{font-family:Georgia,serif;font-size:27px;font-weight:normal;margin:14px 0 70px}
+@media(max-width:800px){
+.hero{grid-template-columns:1fr;padding:48px 24px}.heroArt{min-height:480px;order:1}.heroCopy{order:2;padding:0}.traceBtn{left:0}.whisper p{margin-left:5%}.projectIntro,.aboutWrap{grid-template-columns:1fr}.project{padding-left:24px;padding-right:24px}.evidenceStage{height:650px}.evidenceCopy{top:0;width:80%}.evidence{top:33%;width:62%;height:55%}.evidence.open{top:26%;width:100%;height:68%}.failure{padding:100px 24px}.tiny{margin-left:15%}.about{padding:100px 24px}.magicBox{min-height:380px}}
+</style></head><body>
+<div class="light" id="light"></div>
+<nav><b>ROTEM.</b><div>WORK &nbsp;&nbsp;&nbsp; APPROACH &nbsp;&nbsp;&nbsp; ABOUT</div></nav>
+
+<section class="hero">
+<div class="heroCopy"><span class="label">Rotem Kasahun · Product / UX</span><h1>Follow what people actually do.</h1><p>I design around the gap between intended systems and real behavior.</p></div>
+<div class="heroArt" id="heroArt">
+<img src="https://raw.githubusercontent.com/rotemkasahun-maker/Rotem_Portfolio/codex/portfolio-polish/frame-5.jpg" alt="Desire Path illustration from the current portfolio branch">
+<button class="traceBtn" onclick="addPass()">another person passes</button>
+<div class="traceHint">trace → accumulation → reveal<br><br>The path becomes visible because people keep choosing it.</div>
+</div></section>
+
+<section class="whisper"><p>The designed route is visible immediately.<br><br>The better route is revealed by behavior.</p></section>
+
+<section class="project">
+<div class="projectIntro"><span class="label">01 · Family Finance</span><div><h2>Money data existed. Maintaining it was the work.</h2><p>The product begins with financial evidence people already generate instead of asking them to maintain another system.</p></div></div>
+<div class="evidenceStage" id="evidenceStage"><div class="evidenceCopy"><span class="label">Evidence first</span><h3>When evidence matters, make room for it.</h3><p>The artifact starts as a fragment. Tap it and the composition yields space to the evidence rather than forcing it into another small card.</p></div>
+<div class="evidence" id="evidence" onclick="toggleEvidence()"><img src="https://raw.githubusercontent.com/rotemkasahun-maker/Rotem_Portfolio/codex/portfolio-polish/qa-screenshots/family-finance-evidence-proposal-desktop-987.png" alt="Current Family Finance portfolio evidence proposal screenshot"><span class="evidenceTip">tap to inspect</span></div></div></section>
+
+<section class="failure"><div><span class="label">Turning point</span><h2>THE SYNC<br><span>FAILED.</span></h2><p>The single oversized typographic event marks a real failure boundary. It is not a recurring visual motif.</p><div class="states">Detected → Persisted → Sync error → Still queued</div></div></section>
+
+<section class="payoff"><div class="payoffIn"><span class="label">What the failure revealed</span><h2>Reliability worked. Understanding still needed work.</h2><p>The queue retained the evidence safely. That moved the product question from “did the system survive?” to “can the person tell that it survived?”</p><p class="tiny">The evidence didn't disappear.</p></div></section>
+
+<section class="about"><div class="aboutWrap"><div><span class="label">About / one hidden detail</span><h2>Not every interaction needs to prove a product point.</h2><p>One small Easter egg is allowed to exist because it says something personal. It never hides essential portfolio information.</p></div><div class="magicBox"><div class="secret">I like products with a little hidden magic.</div><div class="wand" onclick="lumos()">🪄</div><div class="spell" id="spell">tap the wand</div><div class="clip" onclick="leviosa(this)">📎</div></div></div></section>
+
+<footer><span class="label">Rotem · Product thinking</span><h2>Make the system fit reality.</h2></footer>
+
+<script>
+let passes=0;
+function addPass(){
+ passes++;
+ const art=document.getElementById('heroArt');
+ for(let i=0;i<4;i++){
+   const d=document.createElement('i'); d.className='trace';
+   const t=Math.min((passes*4+i)/28,1);
+   d.style.left=(42+31*t)+'%';
+   d.style.top=(66-29*t + (i%2?1.2:-1.2))+'%';
+   art.appendChild(d); setTimeout(()=>d.classList.add('on'),i*90);
+ }
+}
+function toggleEvidence(){
+ const e=document.getElementById('evidence'), s=document.getElementById('evidenceStage');
+ e.classList.toggle('open'); s.classList.toggle('open');
+ e.querySelector('.evidenceTip').textContent=e.classList.contains('open')?'tap to close':'tap to inspect';
+}
+let lit=false;
+function lumos(){
+ lit=!lit; const l=document.getElementById('light'), sp=document.getElementById('spell');
+ l.style.display=lit?'block':'none'; sp.textContent=lit?'Lumos. Move your finger / cursor.':'Nox.';
+}
+document.addEventListener('pointermove',e=>{const l=document.getElementById('light');l.style.left=e.clientX+'px';l.style.top=e.clientY+'px'});
+document.addEventListener('pointerdown',e=>{if(lit){const l=document.getElementById('light');l.style.left=e.clientX+'px';l.style.top=e.clientY+'px'}});
+function leviosa(el){el.classList.toggle('up');document.getElementById('spell').textContent=el.classList.contains('up')?'Wingardium Leviosa.':'Finite.'}
+</script></body></html>

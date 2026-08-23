@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotem — Intentional System v3</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fbf7ef;color:#29262d;font-family:Arial,sans-serif}
+:root{--coral:#e67866;--sage:#afd09b;--cream:#fbf7ef;--ink:#29262d;--lilac:#eee8f4}
+nav{height:66px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #0001;font-size:12px}
+.hero{min-height:90vh;padding:7vh 5vw;display:grid;grid-template-columns:.55fr 1.45fr;gap:6vw;align-items:center}
+.heroCopy{align-self:end;padding-bottom:8vh}.heroCopy small{font-size:12px}.heroCopy h1{font-size:30px;line-height:1.05;letter-spacing:-.04em;margin:15px 0}.heroCopy p{font-size:15px;line-height:1.65;max-width:330px}
+.scene{height:610px;position:relative}.lawn{position:absolute;inset:40px 20px 30px 50px;background:var(--sage);border-radius:44% 56% 49% 51%;box-shadow:0 40px 90px #30283220}.formal{position:absolute;width:80%;height:70%;right:0;top:15%;border:62px solid #ead2bd;border-left-color:transparent;border-bottom-color:transparent;border-radius:52%;transform:rotate(12deg)}.shortcut{position:absolute;width:53%;height:42px;background:#e9a07e;left:25%;top:53%;transform:rotate(-22deg);border-radius:50%}.person{position:absolute;width:22px;height:22px;border-radius:50%;background:#80698e;left:52%;top:45%;box-shadow:0 28px 0 6px #d96c61}
+
+.tinyMoment{min-height:72vh;display:flex;align-items:center;padding:8vw}.tinyMoment p{font-family:Georgia,serif;font-size:11px;line-height:1.7;width:250px;margin-left:18%}
+
+.project{padding:100px 5vw 150px}.projectTop{display:grid;grid-template-columns:.55fr 1.45fr;gap:7vw;border-top:1px solid #0002;padding-top:34px}.projectTop h2{font-size:32px;line-height:1.05;letter-spacing:-.04em;margin:10px 0 18px}.projectTop p{font-size:15px;line-height:1.7;max-width:420px}.label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
+.artifact{margin-top:70px;height:70vh;min-height:550px;background:#fff;border-radius:25px;box-shadow:0 40px 90px #30283222;padding:25px}.artifactIn{height:100%;border-radius:16px;background:#e6f1e3;padding:34px}.artifactIn h3{font-size:42px;max-width:520px;letter-spacing:-.04em}
+
+.reason{padding:130px 5vw;max-width:1080px;margin:auto;display:grid;grid-template-columns:.55fr 1.45fr;gap:8vw}.reason h2{font-size:25px;line-height:1.08;margin:8px 0}.reason p{font-size:16px;line-height:1.8;max-width:620px}
+
+.failure{min-height:94vh;background:var(--ink);color:var(--cream);display:flex;align-items:center;padding:8vw 5vw}.failure h2{font-size:clamp(72px,10vw,145px);line-height:.77;letter-spacing:-.075em;margin:30px 0}.failure h2 span{color:var(--coral)}.failure p{font-size:15px;line-height:1.7;max-width:480px}.states{font-size:12px;letter-spacing:.06em;margin-top:45px;opacity:.72}
+
+.after{min-height:78vh;padding:9vw 5vw;display:flex;align-items:center}.afterInner{max-width:760px;margin:auto}.after h2{font-size:28px;letter-spacing:-.03em}.after p{font-size:16px;line-height:1.8;max-width:600px}.tinyAfter{font-family:Georgia,serif;font-size:11px!important;line-height:1.75!important;width:285px;margin:20vh 0 0 46%;color:#5f5863}
+
+.interaction{background:var(--lilac);padding:140px 5vw}.interactionWrap{max-width:1150px;margin:auto;display:grid;grid-template-columns:.6fr 1.4fr;gap:8vw}.interaction h2{font-size:28px;margin:10px 0}.interaction p{font-size:15px;line-height:1.75}.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.rule{border-top:1px solid #0003;padding-top:20px}.rule b{font-size:16px;display:block;margin:25px 0 12px}.rule span{font-size:13px;line-height:1.6;display:block}
+footer{padding:110px 5vw 45px}footer h2{font-family:Georgia,serif;font-size:28px;font-weight:normal;margin:15px 0 70px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:50px 24px}.scene{height:490px;order:1}.heroCopy{order:2;padding:0}.tinyMoment p{margin-left:4%}.projectTop,.reason,.interactionWrap{grid-template-columns:1fr}.artifact{height:500px;min-height:0}.failure{padding:100px 24px}.tinyAfter{margin-left:12%}.rules{grid-template-columns:1fr}.project,.reason,.interaction{padding-left:24px;padding-right:24px}}
+</style></head>
+<body>
+<nav><b>ROTEM.</b><div>WORK &nbsp;&nbsp;&nbsp; APPROACH &nbsp;&nbsp;&nbsp; ABOUT</div></nav>
+
+<section class="hero">
+<div class="heroCopy"><small>Rotem Kasahun · Product / UX</small><h1>Follow what people actually do.</h1><p>I design around the gap between intended systems and real behavior.</p></div>
+<div class="scene"><div class="lawn"></div><div class="formal"></div><div class="shortcut"></div><div class="person"></div></div>
+</section>
+
+<section class="tinyMoment"><p>The designed route says one thing.<br><br>Behavior leaves another answer behind.</p></section>
+
+<section class="project">
+<div class="projectTop"><div><span class="label">Selected work · Family Finance</span></div><div><h2>Money data existed. Maintaining it was the work.</h2><p>The product begins with evidence a household already generates — SMS, notifications and receipts — instead of requiring another manual source of truth.</p></div></div>
+<div class="artifact"><div class="artifactIn"><span class="label">Real product evidence</span><h3>Capture what already happens.</h3></div></div>
+</section>
+
+<section class="reason"><div><span class="label">Decision</span><h2>Evidence before certainty.</h2></div><p>Ambiguous financial evidence should survive long enough to be understood. That led to persistent queues, duplicate prevention and explicit review rather than silently merging uncertain data.</p></section>
+
+<section class="failure"><div><span class="label">Turning point</span><h2>THE SYNC<br><span>FAILED.</span></h2><p>This is the page's only oversized typographic event because it marks a genuine change in the story: a failed network boundary exposed whether the system's reliability decisions actually held.</p><div class="states">Detected → Persisted → Sync error → Still queued</div></div></section>
+
+<section class="after"><div class="afterInner"><span class="label">What mattered next</span><h2>The failure wasn't the most important result.</h2><p>The evidence remained safely queued. Technically, the system behaved as intended. But that created a new product question: if safety is invisible, does the person using the system know their data is safe?</p><p class="tinyAfter">The evidence didn't disappear.</p></div></section>
+
+<section class="interaction"><div class="interactionWrap"><div><span class="label">Future interaction principle</span><h2>Quiet at rest.<br>Alive in response.</h2><p>Interaction is reserved for moments where behavior itself carries meaning.</p></div><div class="rules"><div class="rule"><b>The path forms</b><span>Repeated movement reveals the Desire Path because repeated behavior is what creates it.</span></div><div class="rule"><b>Evidence expands</b><span>A real artifact grows when the story asks the visitor to inspect evidence rather than interpretation.</span></div><div class="rule"><b>State transforms</b><span>Motion connects system states when causality is easier to understand through change than through labels.</span></div></div></div></section>
+
+<footer><span class="label">Rotem · Product thinking</span><h2>Make the system fit reality.</h2></footer>
+</body></html>

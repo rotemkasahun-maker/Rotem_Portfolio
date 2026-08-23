@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotem — Motion + Overlap v3</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --cream:#fbf5e9;
+  --ink:#29262d;
+  --green:#a7ce93;
+  --apricot:#efaa88;
+  --plum:#755f7d;
+  --soft:#e8f1df;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif;overflow-x:hidden}
+nav{position:sticky;top:0;z-index:20;padding:20px 5vw;background:#fbf5e9e8;backdrop-filter:blur(10px);border-bottom:1px solid #0001;font-size:12px}
+.label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.55}
+.hero,.section,.failure,.after{min-height:92vh;padding:9vh 6vw;position:relative}
+.hero{display:grid;grid-template-columns:.62fr 1.38fr;gap:7vw;align-items:center}
+.hero h1,.section h2,.after h2{letter-spacing:-.045em}
+.hero h1{font-size:31px;line-height:1.04;margin:14px 0}
+.hero p,.section p,.after p{font-size:15px;line-height:1.8;max-width:560px}
+
+.world{height:560px;position:relative}
+.field{position:absolute;width:72%;height:68%;right:2%;top:12%;background:var(--green);border-radius:45% 55% 47% 53%;box-shadow:0 50px 110px #65795b28;transition:transform .8s ease}
+.sun{position:absolute;width:250px;height:250px;left:9%;bottom:4%;border-radius:50%;background:var(--apricot);filter:blur(6px);opacity:.75;transition:transform .9s ease}
+.artifact{position:absolute;width:48%;height:43%;right:10%;top:29%;background:#fffdf7;border-radius:24px;box-shadow:0 8px 18px #6d554314,0 34px 75px #6d554329;padding:26px;z-index:5;transition:transform .7s ease,box-shadow .7s ease}
+.artifact pre{margin:0;font:11px/1.9 "Courier New",monospace}
+.hero.in .field{transform:translateY(10px)}
+.hero.in .sun{transform:translateY(-12px)}
+.hero.in .artifact{transform:translateY(-7px);box-shadow:0 12px 20px #6d554314,0 44px 92px #6d554335}
+
+.section{display:flex;align-items:center}
+.wrap{max-width:1080px;width:100%;margin:auto}
+.overlapStage{margin-top:70px;position:relative;min-height:430px}
+.shape{position:absolute;left:23%;top:28px;width:62%;height:320px;background:var(--soft);border-radius:32px;box-shadow:0 34px 78px #5f73591f;transform:translateY(24px);opacity:.7;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s}
+.overlapText{position:absolute;left:10%;top:120px;width:46%;font-family:Georgia,serif;font-size:28px;line-height:1.16;z-index:4;transform:translateY(18px);opacity:0;transition:transform .8s .18s cubic-bezier(.2,.8,.2,1),opacity .8s .18s}
+.overlapCaption{position:absolute;right:8%;bottom:38px;width:250px;font-size:12px;line-height:1.65;opacity:0;transform:translateY(12px);transition:.75s .35s}
+.section.in .shape{transform:translateY(0);opacity:1}
+.section.in .overlapText{transform:translateY(0);opacity:1}
+.section.in .overlapCaption{transform:translateY(0);opacity:.72}
+
+.traceLine{margin-top:80px;height:220px;position:relative}
+.dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--plum);top:90px;left:8%;opacity:.2;transition:left 1.4s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.trail{position:absolute;top:95px;left:8%;height:2px;width:0;background:linear-gradient(90deg,#755f7d44,#755f7dbb);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.traceText{position:absolute;right:8%;top:56px;font:12px/1.7 Georgia,serif;opacity:0;transition:opacity .7s .75s}
+.section.in .dot{left:68%;opacity:.85}
+.section.in .trail{width:60%}
+.section.in .traceText{opacity:.72}
+
+.failure{background:var(--ink);color:var(--cream);display:flex;align-items:center;overflow:hidden}
+.failure h2{font-size:clamp(72px,11vw,150px);line-height:.77;letter-spacing:-.08em;margin:28px 0}
+.failure h2 span{color:var(--apricot)}
+.failure p{font-size:15px;line-height:1.75;max-width:480px}
+.failure .ghost{position:absolute;right:8%;top:20%;font:120px Georgia,serif;color:#ffffff08;transform:translateY(40px);opacity:0;transition:transform .9s ease,opacity .9s}
+.failure.in .ghost{transform:translateY(0);opacity:1}
+
+.after{display:flex;align-items:center;background:linear-gradient(180deg,var(--cream),#e8f1df)}
+.after .inner{max-width:760px;margin:auto}
+.after h2{font-size:28px}
+.after p{font-size:16px;line-height:1.8;max-width:600px}
+.whisper{font:italic 11px/1.7 Georgia,serif!important;margin:24vh 0 0 46%;width:260px;opacity:0;transform:translateY(8px);transition:.8s .3s}
+.after.in .whisper{opacity:1;transform:translateY(0)}
+
+.tip{position:fixed;right:16px;bottom:16px;background:#fffdf7;padding:9px 12px;border-radius:18px;font-size:10px;box-shadow:0 14px 34px #0002;z-index:30}
+
+@media(max-width:760px){
+  .hero{grid-template-columns:1fr;padding:92px 24px 60px}
+  .world{height:430px;order:-1}
+  .field{width:86%;height:63%}
+  .artifact{width:69%;height:42%;right:2%}
+  .section,.failure,.after{padding:90px 24px}
+  .overlapStage{min-height:470px}
+  .shape{left:12%;width:82%;height:300px}
+  .overlapText{left:0;top:118px;width:72%;font-size:25px}
+  .overlapCaption{right:0;width:58%}
+  .traceText{right:0;width:45%}
+  .whisper{margin-left:12%}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+<nav><b>ROTEM.</b></nav>
+<div class="tip">scroll ↓</div>
+
+<section class="hero observe">
+  <div>
+    <span class="label">Breeze</span>
+    <h1>Quiet at rest.<br>Alive in response.</h1>
+    <p>The layers shift only when this section enters the viewport. No tilt, no wobble, no continuous floating.</p>
+  </div>
+  <div class="world">
+    <div class="field"></div>
+    <div class="sun"></div>
+    <div class="artifact"><pre>SMS_DETECTED    ✓
+PERSISTED       ✓
+SYNC_ATTEMPT    …
+QUEUE_STATE     SAFE</pre></div>
+  </div>
+</section>
+
+<section class="section observe">
+  <div class="wrap">
+    <span class="label">Overlap for relationship</span>
+    <h2>Text can meet the shape instead of sitting beside it.</h2>
+    <p>The overlap is subtle and stable. The shape arrives first, the thought follows, and the caption appears last.</p>
+    <div class="overlapStage">
+      <div class="shape"></div>
+      <div class="overlapText">The evidence existed.<br>The maintenance was the work.</div>
+      <div class="overlapCaption">This is the kind of overlap we can use later with a real screenshot or case-study artifact.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section observe">
+  <div class="wrap">
+    <span class="label">Delayed trace</span>
+    <h2>The page leaves a small memory of your movement.</h2>
+    <p>One dot travels. The trace catches up behind it. Nothing loops after the moment is over.</p>
+    <div class="traceLine">
+      <div class="trail"></div>
+      <div class="dot"></div>
+      <div class="traceText">you passed here.</div>
+    </div>
+  </div>
+</section>
+
+<section class="failure observe">
+  <div class="ghost">500</div>
+  <div style="position:relative;z-index:2">
+    <span class="label">Kick · once</span>
+    <h2>THE SYNC<br><span>FAILED.</span></h2>
+    <p>The event is mostly created by contrast and scale. Motion only supports it; it doesn’t perform for attention.</p>
+  </div>
+</section>
+
+<section class="after observe">
+  <div class="inner">
+    <span class="label">Release</span>
+    <h2>Then the page becomes quiet again.</h2>
+    <p>The evidence survived the failure. The visual rhythm settles immediately instead of trying to top the previous moment.</p>
+    <p class="whisper">The evidence didn't disappear.</p>
+  </div>
+</section>
+
+<script>
+const els=document.querySelectorAll('.observe');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add('in');
+  });
+},{threshold:0.28});
+els.forEach(el=>io.observe(el));
+</script>
+</body></html>

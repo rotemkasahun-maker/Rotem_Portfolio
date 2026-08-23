@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Family Finance — opening storyboard</title>
+<style>
+:root{--paper:#fbf7ef;--ink:#242126;--muted:#77706a;--rule:#ddd6cd;--wine:#672838}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{position:fixed;top:0;left:0;right:0;padding:20px 5vw;display:flex;justify-content:space-between;font:10px "Courier New",monospace;z-index:5;mix-blend-mode:multiply}
+.spread{min-height:100vh;padding:13vh 7vw 10vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.small{font:11px/1.55 "Courier New",monospace;color:var(--muted)}
+h1,h2,p{margin:0}
+.story{font:normal clamp(40px,6.7vw,94px)/.98 Georgia,serif;letter-spacing:-.045em;max-width:980px}
+.story em{font-weight:normal;color:var(--wine)}
+.sub{font-size:16px;line-height:1.7;max-width:520px;margin-top:30px}
+.reply{margin-top:12vh;margin-left:35%;font:italic clamp(18px,2vw,29px)/1.4 Georgia,serif;max-width:500px}
+.receipt-edge{position:absolute;right:-4vw;bottom:-16vh;width:min(36vw,480px);height:68vh;background:white;border:1px solid var(--rule);box-shadow:0 1px 0 rgba(0,0,0,.04);padding:28px;font:11px/1.7 "Courier New",monospace;transform:none}
+.receipt-edge .bars{margin-top:30px;border-top:2px dashed #777;padding-top:18px}
+.receipt-edge .total{font-size:24px;margin-top:22px}
+.scatter{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}
+.objects{position:relative;height:65vh}
+.paper,.sms,.mail{position:absolute;background:#fff;border:1px solid var(--rule)}
+.paper{width:44%;height:72%;left:8%;top:9%;padding:22px;font:10px/1.6 "Courier New",monospace}
+.sms{width:52%;right:3%;top:18%;padding:22px;border-radius:3px;font-size:13px;line-height:1.55}
+.mail{width:50%;right:11%;bottom:8%;padding:20px;font:11px/1.55 Arial,sans-serif}
+.list{margin-top:6vh;font:normal clamp(28px,4vw,58px)/1.35 Georgia,serif}
+.list div{padding:.18em 0}
+.twist{background:#f8f2e9}
+.check-wrap{max-width:900px}
+.check-title{font:normal clamp(36px,5vw,72px)/1 Georgia,serif;letter-spacing:-.04em;margin-bottom:7vh}
+.check{font-size:clamp(17px,2vw,26px);line-height:1.55;display:grid;gap:15px}
+.check span{display:grid;grid-template-columns:28px 1fr;gap:10px}
+.box{width:18px;height:18px;border:1px solid var(--ink);margin-top:5px}
+.ah{align-items:center;text-align:center}
+.ah .story{margin:auto;font-size:clamp(80px,17vw,240px)}
+.question{background:var(--ink);color:var(--paper)}
+.question .small{color:#bdb5ad}
+.question .story{max-width:1050px}
+.organize{min-height:120vh}
+.pipeline{margin-top:10vh;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font:11px "Courier New",monospace}
+.pipeline .node{border:1px solid var(--rule);padding:13px 16px;background:#fff;color:var(--ink)}
+.pipeline .arrow{opacity:.45}
+.attention{padding-top:14vh;padding-bottom:14vh}
+.att-grid{display:grid;grid-template-columns:.52fr 1.48fr;gap:6vw;align-items:center}
+.eleven{font:normal clamp(120px,20vw,290px)/.72 Georgia,serif;letter-spacing:-.08em}
+.real{overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);height:600px;background:#fff}
+.real img{height:100%;width:auto;min-width:100%;object-fit:cover;object-position:82% 48%}
+.endline{margin-top:4vh;font:11px/1.6 "Courier New",monospace;color:var(--muted)}
+@media(max-width:800px){
+.spread{padding:12vh 24px 8vh}
+.reply{margin-left:12%;margin-top:14vh}
+.receipt-edge{width:55vw;right:-12vw;height:55vh}
+.scatter{grid-template-columns:1fr}.objects{height:52vh}
+.att-grid{grid-template-columns:1fr;gap:45px}.real{height:420px}
+}
+</style></head>
+<body>
+<header><b>ROTKA.</b><span>opening storyboard · real evidence + restrained illustration</span></header>
+
+<section class="spread">
+  <span class="small">Family Finance</span>
+  <h1 class="story">I wanted to know where our money was going.</h1>
+  <p class="sub">It should have been a pretty simple question.</p>
+</section>
+
+<section class="spread">
+  <span class="small">...</span>
+  <h2 class="story">I could tell you.</h2>
+  <p class="reply">But it makes more sense if I show you.</p>
+  <div class="receipt-edge" aria-hidden="true">
+    RECEIPT<br>23.08.26<br><br>milk&nbsp;&nbsp;&nbsp;&nbsp;12.90<br>bread&nbsp;&nbsp;&nbsp;8.50<br>household&nbsp;24.90
+    <div class="bars">••••••••••••••••••••</div>
+    <div class="total">₪ 87.50</div>
+  </div>
+</section>
+
+<section class="spread">
+  <div class="scatter">
+    <div>
+      <span class="small">the information was there</span>
+      <div class="list"><div>Receipts.</div><div>Emails.</div><div>SMS.</div><div>Screenshots.</div><div>Payment apps.</div></div>
+    </div>
+    <div class="objects" aria-hidden="true">
+      <div class="paper">CARREFOUR<br><br>04/08/26&nbsp;&nbsp;19:42<br><br>GROCERIES<br>HOUSEHOLD<br>•••• 1847<br><br>TOTAL&nbsp;&nbsp;₪243.60</div>
+      <div class="sms">MAX<br><br>עסקה בכרטיס ••••1847<br>₪87.50<br>23/08 · 19:15</div>
+      <div class="mail"><b>Your receipt is ready</b><br><br>Order confirmation · payment received</div>
+    </div>
+  </div>
+</section>
+
+<section class="spread twist">
+  <h2 class="story">The problem wasn't finding the information.</h2>
+</section>
+
+<section class="spread">
+  <h2 class="story">I had the receipts.<br>I had the messages.<br>I had the emails.</h2>
+  <p class="sub">I just had to remember to do something with them.</p>
+</section>
+
+<section class="spread">
+  <div class="check-wrap">
+    <h2 class="check-title">The system had to work even when I…</h2>
+    <div class="check">
+      <span><i class="box"></i>forgot to upload the receipt</span>
+      <span><i class="box"></i>couldn't remember what the payment was for</span>
+      <span><i class="box"></i>didn't feel like categorizing anything</span>
+      <span><i class="box"></i>ignored it for three days</span>
+      <span><i class="box"></i>started somewhere else instead</span>
+      <span><i class="box"></i>just… couldn't be bothered</span>
+    </div>
+  </div>
+</section>
+
+<section class="spread ah">
+  <h2 class="story">Ah.</h2>
+</section>
+
+<section class="spread">
+  <h2 class="story">Maybe the system was asking too much of the person using it.</h2>
+  <p class="sub">“Just be more consistent” wasn't a product strategy.</p>
+</section>
+
+<section class="spread question">
+  <span class="small">so the question changed</span>
+  <h2 class="story">What if the system did the remembering instead?</h2>
+  <div class="pipeline">
+    <span class="node">SMS</span><span class="arrow">→</span>
+    <span class="node">evidence</span><span class="arrow">→</span>
+    <span class="node">transaction</span><span class="arrow">→</span>
+    <span class="node">only what needs me</span>
+  </div>
+</section>
+
+<section class="spread attention">
+  <div class="att-grid">
+    <div>
+      <span class="small">and eventually</span>
+      <div class="eleven">11</div>
+      <p class="sub">things still need <em>me</em>.</p>
+      <p class="endline">The system remembered. I only had to decide.</p>
+    </div>
+    <div class="real">
+      <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Financial/codex/evidence-sync/portfolio-evidence/family-finance/screenshots/attention-after.png" alt="Real Family Finance Attention screen">
+    </div>
+  </div>
+</section>
+</body></html>

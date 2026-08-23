@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Family Finance — partial reveal study</title>
+<style>
+:root{--paper:#fbf7ef;--ink:#242126;--muted:#756e68;--rule:#ddd6cd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{padding:26px 6vw;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;font-size:11px}
+main{max-width:1280px;margin:auto}
+section{padding-left:7vw;padding-right:7vw}
+.kicker{font:10px/1.5 "Courier New",monospace;letter-spacing:.06em;text-transform:uppercase}
+.hero{min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font:normal clamp(54px,9vw,126px)/.88 Georgia,serif;letter-spacing:-.055em;margin:15px 0 26px;max-width:880px}
+.hero p{max-width:520px;font-size:16px;line-height:1.7}
+.reveal-one{padding-top:9vh;padding-bottom:12vh}
+.detail-window{height:420px;overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;background:#f7f3eb}
+.detail-window img{position:absolute;width:140%;max-width:none;left:-12%;top:-48%;height:auto}
+.detail-label{margin-top:18px;font:11px/1.6 "Courier New",monospace;color:var(--muted)}
+.source{padding-top:7vh;padding-bottom:14vh}
+.source-grid{display:grid;grid-template-columns:.5fr 1.5fr;gap:6vw;align-items:start}
+.source p{font-size:15px;line-height:1.75;max-width:360px}
+.full-screen{border:1px solid var(--rule);background:white;overflow:hidden}
+.full-screen img{display:block;width:100%;height:auto}
+.payoff{padding-top:20vh;padding-bottom:20vh;display:grid;grid-template-columns:1fr 1fr;gap:10vw;align-items:center}
+.payoff .big{font:normal clamp(70px,13vw,190px)/.8 Georgia,serif;letter-spacing:-.07em}
+.payoff .small{font:11px/1.7 "Courier New",monospace;color:var(--muted);max-width:260px}
+.transition{padding-top:16vh;padding-bottom:18vh;border-top:1px solid var(--rule)}
+.transition h2{font:normal clamp(38px,6vw,80px)/.95 Georgia,serif;letter-spacing:-.045em;max-width:800px;margin:12px 0 55px}
+.next-window{height:520px;overflow:hidden;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);position:relative;background:#f7f3eb}
+.next-window img{position:absolute;width:125%;max-width:none;left:-5%;top:-18%;height:auto}
+.transition-note{margin-top:20px;font:11px/1.6 "Courier New",monospace;color:var(--muted)}
+.trace{padding-top:15vh;padding-bottom:18vh;text-align:center}
+.trace span{font:11px/1.5 "Courier New",monospace;color:var(--muted)}
+@media(max-width:800px){
+header{padding:20px 22px}
+section{padding-left:24px;padding-right:24px}
+.hero{min-height:64vh}
+.detail-window{height:300px}
+.detail-window img{width:180%;left:-35%;top:-35%}
+.source-grid{grid-template-columns:1fr;gap:35px}
+.payoff{grid-template-columns:1fr;gap:35px}
+.next-window{height:340px}
+.next-window img{width:170%;left:-28%;top:-10%}
+}
+</style>
+</head>
+<body>
+<header><b>ROTKA.</b><span>partial reveal study · real evidence only</span></header>
+<main>
+<section class="hero">
+  <span class="kicker">Family Finance</span>
+  <h1>One detail first.</h1>
+  <p>The page doesn’t announce the whole screen. It lets one real product detail arrive before the context that explains it.</p>
+</section>
+
+<section class="reveal-one">
+  <span class="kicker">01 · detail</span>
+  <div class="detail-window">
+    <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Financial/codex/evidence-sync/portfolio-evidence/family-finance/screenshots/attention-after.png" alt="Real Family Finance attention screen crop">
+  </div>
+  <div class="detail-label">the source is still hidden</div>
+</section>
+
+<section class="source">
+  <div class="source-grid">
+    <div>
+      <span class="kicker">02 · source</span>
+      <p>The crop opens up. What looked like an isolated signal becomes part of the actual Attention screen.</p>
+    </div>
+    <div class="full-screen">
+      <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Financial/codex/evidence-sync/portfolio-evidence/family-finance/screenshots/attention-after.png" alt="Real Family Finance attention screen full">
+    </div>
+  </div>
+</section>
+
+<section class="payoff">
+  <div class="big">11</div>
+  <div class="small">now the number has somewhere to come from.<br><br>not decoration.<br>not a headline system.<br>evidence.</div>
+</section>
+
+<section class="transition">
+  <span class="kicker">03 · next detail</span>
+  <h2>The next decision appears before the next screen does.</h2>
+  <div class="next-window">
+    <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Financial/codex/evidence-sync/portfolio-evidence/family-finance/screenshots/quick-cash-after.png" alt="Real Family Finance quick cash screen crop">
+  </div>
+  <div class="transition-note">quick-cash-after.png · real product capture</div>
+</section>
+
+<section class="trace">
+  <span>attention → action</span>
+</section>
+</main>
+</body>
+</html>

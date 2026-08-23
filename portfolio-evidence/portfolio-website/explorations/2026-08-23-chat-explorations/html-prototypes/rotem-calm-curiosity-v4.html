@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rotem — Calm / Curiosity / Response / Payoff</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fbf7ef;color:#29262d;font-family:Arial,sans-serif;overflow-x:hidden}
+:root{--coral:#e87564;--sage:#afd09b;--ink:#29262d;--cream:#fbf7ef;--lilac:#eee8f4;--stone:#ead2bd}
+nav{height:66px;padding:0 5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #0001;font-size:12px;position:sticky;top:0;background:#fbf7efeb;backdrop-filter:blur(12px);z-index:20}
+.label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.55}
+.hero{min-height:92vh;padding:6vh 5vw;display:grid;grid-template-columns:.5fr 1.5fr;gap:6vw;align-items:center}
+.heroText{align-self:end;padding-bottom:8vh}.heroText h1{font-size:29px;line-height:1.06;letter-spacing:-.04em;margin:14px 0}.heroText p{font-size:15px;line-height:1.7;max-width:330px}
+.scene{height:620px;position:relative;cursor:crosshair}.lawn{position:absolute;inset:40px 20px 30px 50px;background:var(--sage);border-radius:44% 56% 49% 51%;box-shadow:0 40px 90px #30283220}.formal{position:absolute;width:80%;height:70%;right:0;top:15%;border:62px solid var(--stone);border-left-color:transparent;border-bottom-color:transparent;border-radius:52%;transform:rotate(12deg)}.shortcut{position:absolute;width:0;height:42px;background:#e9a07e;left:25%;top:53%;transform:rotate(-22deg);transform-origin:left;border-radius:50%;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}.scene:hover .shortcut{width:53%}.person{position:absolute;width:22px;height:22px;border-radius:50%;background:#80698e;left:28%;top:57%;box-shadow:0 28px 0 6px #d96c61;transition:all 1.2s cubic-bezier(.2,.8,.2,1)}.scene:hover .person{left:54%;top:43%}.hint{position:absolute;right:1%;bottom:2%;font-family:Georgia,serif;font-size:11px;opacity:.58}
+
+.empty{min-height:78vh;position:relative}.empty p{position:absolute;left:18%;top:57%;font-family:Georgia,serif;font-size:11px;line-height:1.7;width:260px}
+
+.work{padding:100px 5vw 155px}.workIntro{display:grid;grid-template-columns:.55fr 1.45fr;gap:7vw;border-top:1px solid #0002;padding-top:35px}.workIntro h2{font-size:31px;line-height:1.05;letter-spacing:-.04em;margin:10px 0}.workIntro p{font-size:15px;line-height:1.75;max-width:470px}
+.evidenceStage{height:75vh;min-height:590px;margin-top:70px;position:relative}
+.fragment{position:absolute;width:28%;height:42%;right:9%;top:22%;background:#fff;border-radius:22px;box-shadow:0 32px 75px #30283222;padding:20px;transition:all .65s cubic-bezier(.2,.8,.2,1);z-index:2}
+.fragment:hover{width:76%;height:88%;right:0;top:4%;box-shadow:0 48px 110px #3028322e}
+.fragIn{height:100%;border-radius:14px;background:#e4f0e1;padding:25px;overflow:hidden}.fragIn h3{font-size:31px;letter-spacing:-.04em;min-width:430px}.evidenceCopy{position:absolute;left:0;top:27%;width:330px;transition:opacity .3s,transform .5s}.evidenceStage:has(.fragment:hover) .evidenceCopy{opacity:.28;transform:translateX(-18px)}.evidenceCopy h3{font-size:22px;margin:10px 0}.evidenceCopy p{font-size:14px;line-height:1.7}
+
+.breakGrid{padding:120px 5vw 170px;position:relative}.gridLine{position:absolute;left:33%;top:80px;bottom:100px;width:1px;background:#0002}.breakGrid .normal{margin-left:8%;width:25%;font-size:15px;line-height:1.75}.observation{margin:100px 0 0 27%;width:52%;background:var(--lilac);padding:45px 55px;border-radius:22px;box-shadow:0 28px 70px #332b3520;transform:translateX(9%)}.observation h2{font-size:30px;line-height:1.05;letter-spacing:-.04em;margin:10px 0}.observation p{font-size:15px;line-height:1.75}.why{position:absolute;left:31.7%;top:58%;width:13px;height:13px;background:var(--coral);border-radius:50%}
+
+.failure{min-height:95vh;background:var(--ink);color:var(--cream);display:flex;align-items:center;padding:8vw 5vw}.failure h2{font-size:clamp(72px,10vw,145px);line-height:.77;letter-spacing:-.075em;margin:30px 0}.failure h2 span{color:var(--coral)}.failure p{font-size:15px;line-height:1.75;max-width:470px}.states{font-size:12px;margin-top:45px;opacity:.72}
+
+.payoff{min-height:84vh;padding:10vw 5vw;display:flex;align-items:center}.payoffInner{max-width:800px;margin:auto}.payoff h2{font-size:29px;line-height:1.06;letter-spacing:-.035em}.payoff p{font-size:16px;line-height:1.8;max-width:610px}.quietPayoff{font-family:Georgia,serif;font-size:11px!important;margin:23vh 0 0 48%;width:250px}
+
+.motion{padding:130px 5vw;background:#f1ede6}.motionWrap{max-width:1150px;margin:auto;display:grid;grid-template-columns:.55fr 1.45fr;gap:8vw}.motion h2{font-size:27px;margin:10px 0}.motion p{font-size:15px;line-height:1.75}.items{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.item{border-top:1px solid #0003;padding-top:20px}.item b{display:block;margin:28px 0 10px;font-size:16px}.item span{font-size:13px;line-height:1.6}
+footer{padding:110px 5vw 45px}footer h2{font-family:Georgia,serif;font-size:27px;font-weight:normal;margin:14px 0 70px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:50px 24px}.scene{height:490px;order:1}.heroText{order:2;padding:0}.empty p{left:10%}.workIntro,.motionWrap{grid-template-columns:1fr}.fragment{width:55%;right:0}.fragment:hover{width:100%}.evidenceCopy{width:45%}.gridLine{left:18%}.breakGrid .normal{margin-left:0;width:60%}.observation{margin-left:10%;width:88%;transform:translateX(4%)}.failure{padding:100px 24px}.quietPayoff{margin-left:15%}.items{grid-template-columns:1fr}}
+</style></head><body>
+<nav><b>ROTEM.</b><div>WORK &nbsp;&nbsp;&nbsp; APPROACH &nbsp;&nbsp;&nbsp; ABOUT</div></nav>
+
+<section class="hero"><div class="heroText"><span class="label">Rotem Kasahun · Product / UX</span><h1>Follow what people actually do.</h1><p>I design around the gap between intended systems and real behavior.</p></div><div class="scene"><div class="lawn"></div><div class="formal"></div><div class="shortcut"></div><div class="person"></div><div class="hint">move closer → behavior creates the shortcut</div></div></section>
+
+<section class="empty"><p>The designed route is visible immediately.<br><br>The better route appears through behavior.</p></section>
+
+<section class="work"><div class="workIntro"><span class="label">01 · Family Finance</span><div><h2>Money data existed. Maintaining it was the work.</h2><p>Instead of asking a household to maintain another system, the product begins with financial evidence daily life already creates.</p></div></div>
+<div class="evidenceStage"><div class="evidenceCopy"><span class="label">Evidence</span><h3>When evidence matters, make room for it.</h3><p>The artifact begins as a fragment. Inspecting it causes the composition itself to yield space.</p></div><div class="fragment"><div class="fragIn"><span class="label">Real product artifact</span><h3>Capture what already happens.</h3></div></div></div></section>
+
+<section class="breakGrid"><div class="gridLine"></div><div class="normal"><span class="label">Designed system</span><p>The layout establishes a clear alignment rule first.</p></div><div class="why"></div><div class="observation"><span class="label">Observed behavior</span><h2>Real behavior doesn't always respect the designed system.</h2><p>This observation crosses the established grid once. The break has meaning because the rule existed before it.</p></div></section>
+
+<section class="failure"><div><span class="label">Turning point</span><h2>THE SYNC<br><span>FAILED.</span></h2><p>The single oversized typographic event marks a genuine failure boundary — not a recurring visual signature.</p><div class="states">Detected → Persisted → Sync error → Still queued</div></div></section>
+
+<section class="payoff"><div class="payoffInner"><span class="label">What the failure revealed</span><h2>Reliability worked. Understanding still needed work.</h2><p>The queue retained the evidence safely. That shifted the product question from “did the system survive?” to “can the person tell that it survived?”</p><p class="quietPayoff">The evidence didn't disappear.</p></div></section>
+
+<section class="motion"><div class="motionWrap"><div><span class="label">Interaction principle</span><h2>Calm → curiosity → response → payoff.</h2><p>Surprise is allowed. Repetition without meaning isn't.</p></div><div class="items"><div class="item"><b>Behavior reveals</b><span>The Desire Path appears because the visitor's behavior activates it.</span></div><div class="item"><b>Evidence claims space</b><span>Inspection physically changes the composition because evidence becomes the priority.</span></div><div class="item"><b>The grid yields once</b><span>A single deliberate rule-break mirrors the tension between designed systems and actual use.</span></div></div></div></section>
+
+<footer><span class="label">Rotem · Product thinking</span><h2>Make the system fit reality.</h2></footer>
+</body></html>

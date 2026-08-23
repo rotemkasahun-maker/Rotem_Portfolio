@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ROTKA — Scroll Motion Prototype</title>
+<style>
+:root{--paper:#f6f3ec;--ink:#111;--muted:#69665f;--line:#d7d2c8;--note:#e7d69a}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+.stage{height:430vh;position:relative}.sticky{position:sticky;top:0;height:100svh;overflow:hidden;padding:24px 5vw 28px;display:flex;flex-direction:column}
+.nav{display:flex;justify-content:space-between;align-items:center;font:12px/1.2 monospace;letter-spacing:.14em}.dot{width:11px;height:11px;border-radius:50%;background:#111;display:inline-block;margin-left:12px}.scene{position:relative;flex:1;min-height:0}.copy{position:absolute;left:2%;top:24%;max-width:530px}.hero{font-family:Georgia,'Times New Roman',serif;font-size:clamp(42px,6vw,82px);line-height:.98;font-weight:400;letter-spacing:-.04em;margin:0}.hero em{font-weight:400}.sub{margin-top:54px;font-size:14px;line-height:1.55;max-width:360px}.tiny{font:13px/1.2 monospace;position:absolute;left:2%;bottom:7%;opacity:0;transform:translateY(6px);transition:opacity .25s linear,transform .25s linear}.receiptWrap{position:absolute;right:4%;bottom:-68%;width:min(45vw,520px);height:78%;will-change:transform}.photo{position:absolute;right:0;bottom:5%;width:64%;height:68%;background:linear-gradient(145deg,#292929,#8b8b82 45%,#171717);box-shadow:0 18px 50px rgba(0,0,0,.13)}.receipt{position:absolute;left:0;bottom:0;width:62%;min-width:245px;background:#faf8f2;padding:34px 28px 30px;box-shadow:0 18px 38px rgba(0,0,0,.15);font:15px/1.55 monospace;transform:rotate(-1.2deg)}.receipt:before,.receipt:after{content:"";position:absolute;left:0;right:0;height:8px;background:linear-gradient(135deg,transparent 5px,#faf8f2 0) 0 0/10px 10px repeat-x}.receipt:before{top:-8px}.receipt:after{bottom:-8px;transform:rotate(180deg)}.rtitle{text-align:center;font-weight:700;font-size:17px;margin-bottom:22px}.row{display:flex;justify-content:space-between}.dash{border-top:1px dashed #555;margin:10px 0}.thanks{text-align:center;margin-top:20px}.note{position:absolute;right:-3%;bottom:18%;background:var(--note);padding:18px 18px 24px;width:150px;font:italic 18px/1.25 Georgia,serif;transform:rotate(2deg);box-shadow:0 8px 18px rgba(0,0,0,.12)}.sad{font-style:normal;font-size:22px;margin-top:8px}.work{position:absolute;left:2%;right:2%;bottom:-45%;border-top:1px solid var(--line);padding-top:20px;opacity:0;will-change:transform,opacity}.work h2{font:32px Georgia,serif;font-weight:400;margin:0 0 22px}.project{display:flex;justify-content:space-between;border-top:1px dashed #aaa;padding:16px 0;font:13px monospace}.trace{position:absolute;right:7%;bottom:7%;font:13px monospace;opacity:0}.footer{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;font:11px monospace;color:#333}.receiptVoice{font-family:monospace;letter-spacing:.015em}.hint{position:fixed;right:18px;top:50%;writing-mode:vertical-rl;font:10px monospace;color:#777;letter-spacing:.08em;pointer-events:none}
+@media(max-width:720px){.sticky{padding:18px 18px 22px}.nav{font-size:10px}.copy{left:1%;top:18%;max-width:92%}.hero{font-size:clamp(42px,13vw,66px)}.sub{margin-top:30px;font-size:13px}.receiptWrap{right:-12%;width:92vw;height:60%}.receipt{width:58%;min-width:220px;padding:26px 20px;font-size:12px}.note{width:125px;font-size:15px;right:2%}.work{left:1%;right:1%}.hint{display:none}}
+@media(prefers-reduced-motion:reduce){.stage{height:auto}.sticky{position:relative;height:auto;min-height:100svh}.receiptWrap{position:relative;right:auto;bottom:auto;margin:40px auto 20px;height:480px;width:min(90vw,520px)}.work{position:relative;bottom:auto;opacity:1;margin-top:40px}.trace{opacity:1}.tiny{opacity:1}}
+</style>
+</head>
+<body>
+<div class="hint">SCROLL SLOWLY</div>
+<section class="stage" id="stage">
+  <div class="sticky">
+    <div class="nav"><span>ROTKA</span><span>work, thinking, traces <i class="dot"></i></span></div>
+    <div class="scene">
+      <div class="copy" id="copy">
+        <h1 class="hero">I look at what<br>people <em>actually</em> do.</h1>
+        <div class="sub"><b>Researcher &amp; Product Designer</b><br>I help teams understand the real problem,<br>design what matters, and prove it works.</div>
+      </div>
+      <div class="tiny" id="tiny">not really.</div>
+      <div class="receiptWrap" id="artifact">
+        <div class="photo"></div>
+        <div class="receipt">
+          <div class="rtitle">SUPERMARKET</div>
+          <div class="row"><span>MILK</span><span>1.75</span></div><div class="row"><span>BREAD</span><span>2.40</span></div><div class="row"><span>EGGS</span><span>1.00</span></div><div class="row"><span>APPLES</span><span>3.80</span></div><div class="row"><span>PASTA</span><span>1.95</span></div><div class="row"><span>TOMATO SAUCE</span><span>2.90</span></div>
+          <div class="dash"></div><div class="row"><span>TOTAL</span><span>13.20</span></div><div class="row"><span>VISA</span><span>13.20</span></div>
+          <div class="thanks">THANK YOU<br>06/05&nbsp;&nbsp;&nbsp;17:42</div>
+        </div>
+        <div class="note">who bought<br>the oat milk?<div class="sad">☹</div></div>
+      </div>
+      <div class="work" id="work"><h2>Selected work</h2><div class="project"><span>Family Finance<br><small>Turning messy financial data into clarity and confidence.</small></span><span>→</span></div><div class="project"><span>Next project</span><span>→</span></div></div>
+      <div class="trace" id="trace">06/05&nbsp;&nbsp;&nbsp;17:42</div>
+    </div>
+    <div class="footer"><span>work, thinking, traces</span><span>00</span></div>
+  </div>
+</section>
+<script>
+const stage=document.getElementById('stage'), artifact=document.getElementById('artifact'), tiny=document.getElementById('tiny'), work=document.getElementById('work'), trace=document.getElementById('trace'), copy=document.getElementById('copy');
+const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+function render(){
+ const r=stage.getBoundingClientRect(); const max=stage.offsetHeight-innerHeight; const p=clamp(-r.top/max);
+ // 0-.18 quiet; .18-.42 enters; .42-.60 recognized; .60-.74 leaves; .74+ trace
+ const enter=clamp((p-.16)/.27); const leave=clamp((p-.58)/.22); const y=68 - enter*67 - leave*55;
+ artifact.style.transform=`translateY(${y}%)`;
+ const recognize=clamp((p-.34)/.10); tiny.style.opacity=recognize*(1-leave); tiny.style.transform=`translateY(${6-6*recognize}px)`;
+ const contam=clamp((p-.44)/.12)*(1-clamp((p-.62)/.10));
+ copy.style.fontFamily=contam>.5?'monospace':'';
+ copy.style.letterSpacing=contam>.5?'.01em':'';
+ const wp=clamp((p-.49)/.18); work.style.opacity=wp; work.style.transform=`translateY(${(1-wp)*50}px)`;
+ const tp=clamp((p-.77)/.12); trace.style.opacity=tp;
+ requestAnimationFrame(render);
+}
+requestAnimationFrame(render);
+</script>
+</body></html>
