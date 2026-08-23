@@ -25,3 +25,33 @@
 - Never overwrite an older screenshot when it represents a meaningful iteration. Save the new checkpoint as a separate file.
 - Prefer descriptive filenames that identify both the screen and its state or iteration, such as `YYYY-MM-DD_<screen>_<state-or-iteration>.png`.
 - Screenshots in `portfolio-evidence/` are the historical evidence archive. Copies under `assets/<case-study>/evidence/` are rendering assets for the portfolio and must retain provenance back to that archive or the original project repository.
+
+## Permanent creative decision framework
+
+Evaluate every meaningful visual milestone against all four principles below. These are internal working rules, not public portfolio copy, and they do not authorize redesigning approved work.
+
+1. **Use What Exists.** Prefer visual language that emerges from real material before inventing decorative language.
+2. **Show Me, Don't Explain It to Me.** Let interaction, evidence, composition, and sequence communicate an idea when they can do the job better than explanatory copy.
+3. **Bidirectional Visual References.** Inspect the actual positive references and the actual negative references. Move toward selected work while actively checking that the result does not drift toward preserved generic UX layouts, decorative handwriting or arrows, tilted screens, added-on editorial personality, generic beige/lavender styling, or AI/invented product UI.
+4. **The Tommy Girl Rule.** Aim for controlled presence: clean, transparent, and light. Leave a trace without filling the room. The closer someone gets, the more they should notice.
+
+### The Tommy Girl Rule in practice
+
+- This is a rule about intensity, presence, and discovery. It is not a literal reference to perfume packaging, Tommy Hilfiger branding, fragrance advertising, or a perfume aesthetic.
+- The first layer may feel effortless: generous whitespace, restrained typography, simple composition, calm surfaces, and little visual noise.
+- Reward proximity and attention with small, earned details: artifact-derived typography, microcopy, callbacks, meaningful motion, unexpected interaction, small illustration, or genuine evidence.
+- Important moments should remain in memory without competing all at once. Details should reward attention, not demand it.
+- Before adding motion, illustration, humor, color, typography treatment, interaction, visual metaphor, or decoration, ask: **Does this leave a trace, or does it fill the room?** Reduce or remove intensity that does not serve an important narrative or product purpose.
+- Do not misread controlled presence as generic minimalism. It does not mean beige, tiny, neutral-only, sterile, humorless, motionless, or personality-free. Playfulness and intensity are welcome when they earn their place.
+- Preserve the internal name **“The Tommy Girl Rule.”** Do not expose or explain it publicly unless the user explicitly requests that later.
+
+Before presenting a visual milestone, self-check:
+
+- Did I use what already exists before inventing something new?
+- Am I showing something that I could have unnecessarily explained?
+- Did I compare against both positive and negative references?
+- Is the experience leaving a trace, or filling the room?
+- Are there details that reward closer attention?
+- Is anything trying too hard to demonstrate creativity?
+
+If the implementation feels immediately “designed” before the work itself becomes interesting, compare it again against the selected Early Exploration references.
