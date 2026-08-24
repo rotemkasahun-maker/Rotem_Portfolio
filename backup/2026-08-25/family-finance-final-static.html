@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Family Finance — Final Static Layout v1</title>
+<style>
+:root{
+  --paper:#fbf7ef;
+  --ink:#242126;
+  --muted:#7a726b;
+  --rule:#ddd6cd;
+  --wine:#6a2639;
+  --soft:#f4eee5;
+  --soft2:#f7f2ea;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{position:sticky;top:0;z-index:10;background:rgba(251,247,239,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);padding:18px 5vw;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+header b{letter-spacing:.02em}
+header nav{display:flex;gap:22px}
+header a{color:inherit;text-decoration:none}
+main{max-width:1360px;margin:0 auto}
+.spread{min-height:34vh;padding:4.2vh 7vw 3.8vh;position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.kicker{font:9px/1.45 "Courier New",monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.story{font:normal clamp(20px,2.7vw,36px)/1.2 Georgia,serif;letter-spacing:-.022em;max-width:850px;margin:7px 0 0}
+.sub{font-size:14px;line-height:1.62;max-width:560px;margin-top:12px}
+.tiny{font:10px/1.55 "Courier New",monospace;color:var(--muted)}
+.note{font:italic 13px/1.6 Georgia,serif;color:var(--muted)}
+.rule{border-top:1px solid var(--rule)}
+/* STORY ARTIFACTS — illustrative, not product evidence */
+.artifact-field{position:absolute;inset:0;pointer-events:none}
+.receipt{position:absolute;background:#fff;border:1px solid #d9d2c9;padding:16px;width:175px;min-height:230px;font:9px/1.5 "Courier New",monospace;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+.receipt.r1{right:8%;bottom:-28px}
+.receipt.r2{left:6%;top:12%;width:150px;min-height:205px;opacity:.94}
+.receipt .dash{border-top:1px dashed #777;margin:18px 0}
+.sms{position:absolute;background:white;border:1px solid var(--rule);padding:12px 14px;width:205px;font-size:10px;line-height:1.45;border-radius:4px}
+.sms.s1{right:7%;top:14%}
+.mail{position:absolute;background:white;border:1px solid var(--rule);padding:12px;width:190px;font-size:10px;line-height:1.45;left:8%;bottom:8%}
+.collect-list{font:normal clamp(15px,1.8vw,23px)/1.45 Georgia,serif;margin-top:16px}
+.collect-list div{padding:.12em 0}
+.checklist{margin-top:16px;display:grid;gap:8px;max-width:650px;font-size:clamp(14px,1.15vw,17px);line-height:1.45}
+.checkitem{display:grid;grid-template-columns:26px 1fr;gap:8px;align-items:start}
+.box{width:17px;height:17px;border:1px solid var(--ink);margin-top:4px}
+.center{text-align:center;align-items:center}
+.center .story{margin-left:auto;margin-right:auto}
+.cta{display:inline-block;margin-top:26px;font:11px "Courier New",monospace;border-bottom:1px solid var(--ink);padding-bottom:3px;width:max-content}
+
+/* REAL PRODUCT EVIDENCE */
+.product-block{padding:4.5vh 7vw 6vh}
+.product-grid{display:grid;grid-template-columns:.38fr 1.62fr;gap:4vw;align-items:start}
+.copycol{position:sticky;top:110px}
+.copycol h2{font:normal clamp(28px,3.6vw,48px)/1 Georgia,serif;letter-spacing:-.035em;margin:10px 0 16px}
+.real-screen{background:#fff;border:1px solid var(--rule);overflow:hidden}
+.real-screen img{display:block;width:100%;height:auto}
+.evidence-tag{margin-top:10px;font:9px/1.4 "Courier New",monospace;color:var(--muted)}
+.afterline{margin-top:3vh;font:normal clamp(16px,1.8vw,23px)/1.35 Georgia,serif;letter-spacing:-.01em;max-width:680px;text-align:center;margin-left:auto;margin-right:auto}
+
+/* CALLBACK */
+.callback{background:var(--soft2)}
+.callback .old{opacity:.28}
+.callback .new{opacity:1;margin-top:16px}
+.lazy{margin:28px 0 0 35px;font:italic 13px Georgia,serif;color:var(--muted)}
+
+/* RECEIPT → MICRO CATEGORIES */
+.micro{padding:5.5vh 7vw 6.5vh}
+.micro-head{display:block;margin-bottom:3vh}
+.micro-head h2{font:normal clamp(18px,2.4vw,32px)/1.25 Georgia,serif;letter-spacing:-.02em;margin:10px 0 0}
+.receipt-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;align-items:start;margin-bottom:5vh}
+.short-receipt{background:#fff;border:1px solid var(--rule);padding:15px;font:9px/1.55 "Courier New",monospace;min-height:190px}
+.short-receipt:nth-child(2){margin-top:0}
+.short-receipt:nth-child(3){margin-top:0}
+.category-strip{display:flex;gap:12px;flex-wrap:wrap;margin:35px 0 65px}
+.category-strip span{border:1px solid var(--rule);padding:10px 13px;font:11px "Courier New",monospace;background:#fff}
+.screen-slot{border:1px dashed #aaa39a;background:#f8f3eb;min-height:390px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
+.screen-slot strong{font:normal clamp(26px,3vw,44px)/1.15 Georgia,serif;display:block}
+.screen-slot span{display:block;margin-top:12px;font:10px/1.6 "Courier New",monospace;color:var(--muted)}
+.decor-note{text-align:right;margin-top:16px}
+
+/* EXPLORER */
+.explorer{padding:6vh 7vw;background:#242126;color:#fbf7ef}
+.explorer .kicker,.explorer .tiny{color:#aaa39e}
+.explorer h2{font:normal clamp(19px,2.4vw,31px)/1.2 Georgia,serif;letter-spacing:-.02em;margin:8px 0 10px;max-width:650px}
+.explorer p{max-width:510px;font-size:15px;line-height:1.7}
+.explorer-stage{margin-top:4vh;background:#fff;border-radius:2px;padding:14px;color:#242126}
+.explorer-stage img{width:100%;height:auto;display:block}
+.hotspots{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.hotspots span{border:1px solid #cfc8bf;padding:9px 12px;font:10px "Courier New",monospace}
+.state-legend{margin-top:32px;display:flex;gap:18px;flex-wrap:wrap;font:10px "Courier New",monospace;color:#bdb6b1}
+
+/* SMALL PRODUCT MOMENTS */
+.microbeats{padding:12vh 7vw}
+.microbeats-grid{display:grid;grid-template-columns:1fr 1fr;gap:3vw;margin-top:7vh}
+.microbeat h3{font:normal 30px/1.05 Georgia,serif;margin:0 0 14px}
+.microbeat p{font-size:13px;line-height:1.65;max-width:420px}
+.microbeat .real-screen{margin-top:24px}
+
+/* INSIGHTS */
+.insights{padding:5.5vh 7vw 6.5vh}
+.insight-wrap{display:grid;grid-template-columns:.5fr 1.5fr;gap:4vw;align-items:start}
+.insight-wrap h2{font:normal clamp(18px,2.2vw,29px)/1.18 Georgia,serif;letter-spacing:-.018em;margin:8px 0 12px}
+
+/* END */
+.final{min-height:52vh;padding:6.5vh 7vw;display:flex;flex-direction:column;justify-content:center}
+.principles{font:normal clamp(26px,3.8vw,48px)/1.18 Georgia,serif;letter-spacing:-.03em;display:grid;gap:8px}
+.northstar{margin-top:2vh;font:normal clamp(21px,2.8vw,37px)/1.18 Georgia,serif;letter-spacing:-.02em;max-width:860px}
+.closure{margin-top:6vh}
+.closure .smallq{font:normal 17px/1.35 Georgia,serif;color:var(--muted)}
+.closure .answer{font:normal clamp(34px,5vw,64px)/.95 Georgia,serif;letter-spacing:-.04em;margin-top:10px}
+.hood{padding:6vh 7vw 8vh;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:4vw;align-items:center}
+.hood h3{font:normal clamp(20px,2.7vw,34px)/1.15 Georgia,serif;margin:7px 0}
+.lineperson{width:150px;height:100px;position:relative}
+.car{position:absolute;left:22px;bottom:15px;width:95px;height:27px;border:2px solid var(--ink);border-radius:20px 30px 6px 6px}
+.car:before{content:"";position:absolute;left:12px;bottom:-12px;width:16px;height:16px;border:2px solid var(--ink);border-radius:50%;background:var(--paper)}
+.car:after{content:"";position:absolute;right:12px;bottom:-12px;width:16px;height:16px;border:2px solid var(--ink);border-radius:50%;background:var(--paper)}
+.person{position:absolute;right:8px;bottom:24px;width:28px;height:54px;border-left:2px solid var(--ink);transform:skew(-8deg)}
+.person:before{content:"";position:absolute;left:-9px;top:-17px;width:18px;height:18px;border:2px solid var(--ink);border-radius:50%}
+.hoodline{position:absolute;left:22px;bottom:42px;width:48px;border-top:2px solid var(--ink);transform:rotate(-28deg);transform-origin:left}
+
+
+.story-inline{font:normal clamp(15px,1.7vw,22px)/1.5 Georgia,serif;letter-spacing:-.01em;max-width:1180px}
+.story-inline .on{font-size:clamp(66px,10vw,150px);line-height:.62;letter-spacing:-.07em;vertical-align:-.13em;margin-left:.08em}
+.midbeat{text-align:center;margin:2.5vh auto 0;max-width:620px}
+.midbeat .yay{font:italic 16px/1.25 Georgia,serif;margin-bottom:4px}
+.midbeat .dots{font:14px/1.1 "Courier New",monospace;letter-spacing:0;display:grid;gap:1px;margin:13px auto}
+.midbeat .but{font:normal 17px/1.2 Georgia,serif;margin-bottom:5px}
+.ticker-wrap{margin-top:2.5vh;position:relative}
+.ticker{overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:11px 0;white-space:nowrap}
+.ticker-track{display:inline-block;font:10px/1.4 "Courier New",monospace;letter-spacing:.01em}
+.ohhell{font:italic 12px/1.4 Georgia,serif;text-align:right;margin-top:8px;color:var(--muted)}
+.system-first{display:grid;grid-template-columns:1.35fr .65fr;gap:4vw;align-items:start}
+.handles{border:1px solid var(--rule);background:#fff;padding:18px}
+.handles h3{font:normal 18px/1.25 Georgia,serif;margin:0 0 12px}
+.handles-row{display:flex;gap:14px;flex-wrap:wrap}
+.handles-row span{border:1px solid var(--rule);padding:9px 11px;font:10px "Courier New",monospace}
+.reminder-card{margin-top:20px;border:1px solid var(--rule);background:#fff8c8;padding:18px 20px;max-width:290px;font-size:12px;line-height:1.55}
+.attention-after{margin-top:4vh}
+
+@media(max-width:850px){
+  header nav{display:none}
+  .spread{padding:6vh 24px 5vh}
+  .receipt.r1{width:47vw;right:-10vw}.receipt.r2{display:none}.sms.s1{right:-9vw;width:46vw}.mail{left:-8vw;width:44vw}
+  .product-block,.micro,.microbeats,.insights,.explorer,.final,.hood{padding-left:24px;padding-right:24px}
+  .product-grid,.micro-head,.insight-wrap,.system-first{grid-template-columns:1fr;gap:38px}
+  .copycol{position:static}
+  .receipt-row{grid-template-columns:1fr;gap:18px}
+  .short-receipt:nth-child(2),.short-receipt:nth-child(3){margin-top:0}
+  .microbeats-grid{grid-template-columns:1fr}
+  .hood{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <b>ROTKA.</b>
+  <nav><a href="#story">Story</a><a href="#product">Product</a><a href="#explore">Explore</a><a href="#hood">Under the hood</a></nav>
+</header>
+
+<main>
+<section class="spread" id="story">
+  <span class="kicker">Family Finance</span>
+  <h1 class="story" style="font-size:clamp(28px,3.8vw,48px);max-width:760px">I wanted to know where our money was going.</h1>
+</section>
+
+<section class="spread">
+  <p class="story">So I started collecting things.</p>
+  <div class="collect-list"><div>Receipts.</div><div>Emails.</div><div>SMS.</div><div>Screenshots.</div><div>Payment apps.</div></div>
+  <div class="artifact-field" aria-hidden="true">
+    <div class="receipt r1">CARREFOUR<br>23.08.26<br><br>tomatoes&nbsp;&nbsp;12.90<br>dates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.50<br>cleaning&nbsp;&nbsp;24.90<br>storage&nbsp;&nbsp;&nbsp;19.90<div class="dash"></div>TOTAL&nbsp;&nbsp;₪76.20</div>
+    <div class="sms s1"><b>MAX</b><br><br>עסקה בכרטיס ••••1847<br>₪87.50<br>23/08 · 19:15</div>
+    <div class="mail"><b>Your receipt is ready</b><br><br>Order confirmation<br>Payment received</div>
+  </div>
+</section>
+
+<section class="spread">
+  <p class="story">The problem wasn't finding the information.</p>
+</section>
+
+<section class="spread">
+  <div class="center"><h2 class="story" style="font-size:clamp(46px,7vw,86px);letter-spacing:-.05em">It was me.</h2></div>
+  <p class="sub">The system had to work even when I…</p>
+  <div class="checklist">
+    <div class="checkitem"><i class="box"></i><span>forgot to upload the receipt</span></div>
+    <div class="checkitem"><i class="box"></i><span>couldn't remember what the payment was for</span></div>
+    <div class="checkitem"><i class="box"></i><span>ignored it for three days</span></div>
+    <div class="checkitem"><i class="box"></i><span>told myself I'd do it later</span></div>
+  </div>
+</section>
+
+<section class="spread center">
+  <p class="story">What if the system could remember and understand for me?</p>
+</section>
+
+<section class="product-block rule" id="product">
+  <div class="product-grid">
+    <div class="copycol">
+      <span class="kicker">real product · transactions</span>
+      <p class="tiny">In motion, the opening receipts and messages resolve into this real product state.</p>
+    </div>
+    <div>
+      <div class="real-screen">
+        <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Rotem_Portfolio/codex/portfolio-polish/assets/family-finance/evidence/screenshots/quick-cash-after.png" alt="Real Family Finance transactions screen">
+      </div>
+      <div class="evidence-tag">REAL PRODUCT EVIDENCE · quick-cash-after.png · immutable</div>
+    </div>
+  </div>
+  <div class="midbeat">
+    <div class="yay">yay!</div>
+    <div>everything is in one place.</div>
+    <div class="dots"><span>·</span><span>·</span><span>·</span></div>
+    <div class="but">But.</div>
+    <div>the system still expected me to do the boring part.</div>
+  </div>
+</section>
+
+<section class="spread callback">
+  <div class="ticker-wrap">
+    <div class="ticker" aria-label="repetitive finance admin tasks">
+      <div class="ticker-track">
+        categorize everything · remember what I paid for · match receipts to transactions · check the credit card statement · identify duplicates · remember what's missing · fix categories · check reimbursements · upload documents · categorize everything · remember what I paid for · match receipts to transactions · check the credit card statement · identify duplicates · remember what's missing · fix categories · check reimbursements · upload documents ·
+      </div>
+    </div>
+    <div class="ohhell">oh hell no.</div>
+  </div>
+  <p class="story" style="margin-top:3.5vh">What could the system do without me?</p>
+</section>
+
+<section class="product-block">
+  <div class="system-first">
+    <div class="handles">
+      <p style="font:normal 16px/1.45 Georgia,serif;margin:0 0 12px">The system started doing the boring part.</p>
+      <div class="handles-row">
+        <span>collect</span><span>read</span><span>match</span><span>categorize</span><span>remember</span>
+      </div>
+      <div class="reminder-card">
+        <span class="tiny">REMINDER</span><br><br>
+        You usually add this around now.
+      </div>
+    </div>
+    <div class="attention-after">
+      <div class="real-screen" style="margin-top:12px">
+        <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Rotem_Portfolio/codex/portfolio-polish/assets/family-finance/evidence/screenshots/attention-after.png" alt="Real Family Finance Attention screen">
+      </div>
+      <div class="evidence-tag">REAL PRODUCT EVIDENCE · attention-after.png · immutable</div>
+      <p class="note" style="margin-top:12px">And when it really does need me, it can ask.</p>
+    </div>
+  </div>
+</section>
+
+<section class="micro rule">
+  <div class="micro-head">
+    <div class="story-inline">I knew where I spent it, but I still didn't know what I spent it <span class="on">ON.</span></div>
+  </div>
+
+  <div class="receipt-row">
+    <div class="short-receipt">SUPERMARKET A<br><br>tomatoes&nbsp;&nbsp;&nbsp;&nbsp;12.90<br>dates&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18.50<br>laundry&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24.90<br>storage box&nbsp;&nbsp;19.90<div class="dash"></div>shortened storytelling receipt</div>
+    <div class="short-receipt">MAX STOCK<br><br>cleaning item&nbsp;14.90<br>sheet clips&nbsp;&nbsp;&nbsp;12.90<br>drawer divider&nbsp;9.90<br>home decor&nbsp;&nbsp;&nbsp;&nbsp;24.90<div class="dash"></div>shortened storytelling receipt</div>
+    <div class="short-receipt">SUPERMARKET B<br><br>fruit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22.40<br>paper goods&nbsp;&nbsp;&nbsp;18.90<br>food&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31.60<br>home item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16.90<div class="dash"></div>shortened storytelling receipt</div>
+  </div>
+<div class="screen-slot">
+    <div>
+      <strong>REAL MICRO-CATEGORIES SCREEN GOES HERE</strong>
+      <span>Not fabricated. This slot stays explicit until the genuine product capture is added.</span>
+    </div>
+  </div>
+  <div class="decor-note note">I <strong>REALLY</strong> need to stop buying random stuff for the house.</div>
+</section>
+
+<section class="insights rule">
+  <div class="insight-wrap">
+    <div>
+      <p style="font:normal 17px/1.45 Georgia,serif;margin:0 0 10px">And suddenly, the data could tell me things.</p>
+      <p class="sub">A glimpse of the real Insights layer — enough to show the potential without turning the case study into a roadmap.</p>
+    </div>
+    <div class="screen-slot">
+      <div>
+        <strong>REAL INSIGHTS SCREEN GOES HERE</strong>
+        <span>Reserved for the genuine capture. No fake dashboard or invented metrics.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="explorer" id="explore">
+  <p style="font:normal 16px/1.5 Georgia,serif;margin:0">The story stops here. There's more to it.</p>
+  <p style="margin-top:8px">Go ahead. <em>Poke around.</em></p>
+
+  <div class="explorer-stage">
+    <img src="https://raw.githubusercontent.com/rotemkasahun-maker/Rotem_Portfolio/codex/portfolio-polish/assets/family-finance/evidence/screenshots/quick-cash-after.png" alt="Real Family Finance product screen used as the explorer base">
+    <div class="hotspots">
+      <span>Transactions</span><span>Insights</span><span>Attention</span><span>Shopping</span><span>Receipts</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="final">
+  <div class="northstar">The goal is a system that needs less from me the longer I use it.</div>
+
+  <div class="closure">
+    <div class="smallq">I wanted to know where our money was going.</div>
+    <div class="answer">Now I actually could.</div>
+  </div>
+</section>
+
+<section class="hood" id="hood">
+  <div>
+    <span class="kicker">optional depth</span>
+    <h3>Curious what's under the hood?</h3>
+    <span class="cta">open the hood →</span>
+  </div>
+  <div class="lineperson" aria-hidden="true">
+    <div class="car"></div><div class="hoodline"></div><div class="person"></div>
+  </div>
+</section>
+</main>
+</body>
+</html>
