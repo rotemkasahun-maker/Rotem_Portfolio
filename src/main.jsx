@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
+import HomePage from './homepage/HomePage.jsx';
 
 const copy = {
   fridgeHidden: 'If the vegetables are hidden in the drawer, I forget they exist.',
@@ -47,14 +48,6 @@ function FridgeHero({ openCase }) {
             onClick={() => setVisible(false)}
           >
             Hidden
-          </button>
-
-          <button
-            className="switch"
-            aria-pressed={visible}
-            onClick={() => setVisible(v => !v)}
-          >
-            <span className={visible ? 'knob on' : 'knob'} />
           </button>
 
           <button
@@ -305,12 +298,7 @@ function Contact() {
 }
 
 function Home({ setRoute }) {
-  return (
-    <>
-      <FridgeHero openCase={() => setRoute('family-finance')} />
-      <Project openCase={() => setRoute('family-finance')} />
-    </>
-  );
+  return <HomePage setRoute={setRoute} />;
 }
 
 function App() {
