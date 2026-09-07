@@ -1,0 +1,120 @@
+.refined :global(.case106-flow-zone) {
+  margin-inline: 0;
+  padding: 52px 0 88px;
+  background: transparent;
+}
+
+.refined :global(.case106-current-flow) {
+  width: 84%;
+  max-width: none;
+  margin: 0;
+  padding: 24px 0 28px;
+  border-top: 1px solid var(--golda-rule);
+  border-bottom: 1px solid var(--golda-rule);
+}
+
+.refined :global(.case106-question) {
+  width: 76%;
+  max-width: 680px;
+  margin: 62px 0 0 18%;
+  padding: 42px 44px 44px;
+  background: var(--golda-paper-alt);
+}
+
+.refined :global(.case106-intervention) {
+  padding-top: 88px;
+}
+
+.refined :global(.case106-intervention-flow) {
+  width: 90%;
+  margin-left: 7%;
+}
+
+.refined :global(.case106-example) {
+  position: relative;
+  width: 90%;
+  margin-left: 7%;
+  padding: 30px 0 38px;
+}
+
+.refined :global(.case106-example)::before {
+  position: absolute;
+  z-index: 0;
+  top: 54px;
+  bottom: 36px;
+  left: -8%;
+  width: 62%;
+  content: "";
+  background: var(--golda-paper-alt);
+}
+
+.refined :global(.case106-example) > * {
+  position: relative;
+  z-index: 1;
+}
+
+.refined :global(.case106-example-grid) {
+  grid-template-columns: minmax(0, 1.32fr) minmax(156px, 0.68fr);
+  max-width: 710px;
+  margin-left: 0;
+  gap: 34px;
+}
+
+.refined :global(.case106-respond) {
+  max-width: 608px;
+  margin-left: 0;
+}
+
+.refined :global(.case106-before-after) {
+  padding-top: 84px;
+}
+
+.refined :global(.case106-comparison) {
+  grid-template-columns: minmax(0, 1.2fr) minmax(210px, 0.8fr);
+  width: 94%;
+}
+
+.refined :global(.case106-comparison) > :last-child {
+  padding-top: 54px;
+}
+
+.refined :global(.case106-closing) {
+  margin-left: 56%;
+}
+
+@media (max-width: 767px) {
+  .refined :global(.case106-flow-zone) {
+    padding: 38px 0 64px;
+  }
+
+  .refined :global(.case106-current-flow),
+  .refined :global(.case106-question),
+  .refined :global(.case106-intervention-flow),
+  .refined :global(.case106-example),
+  .refined :global(.case106-comparison) {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .refined :global(.case106-question) {
+    margin-top: 42px;
+    padding: 30px 0 0;
+    background: transparent;
+  }
+
+  .refined :global(.case106-example)::before {
+    display: none;
+  }
+
+  .refined :global(.case106-example-grid) {
+    grid-template-columns: 1fr;
+  }
+
+  .refined :global(.case106-comparison) > :last-child {
+    padding-top: 38px;
+  }
+
+  .refined :global(.case106-closing) {
+    margin-left: 0;
+  }
+}
