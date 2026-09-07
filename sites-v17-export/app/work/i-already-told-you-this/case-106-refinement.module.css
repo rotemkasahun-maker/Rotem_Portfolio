@@ -5,12 +5,118 @@
 }
 
 .refined :global(.case106-current-flow) {
-  width: 84%;
+  width: 88%;
   max-width: none;
   margin: 0;
-  padding: 24px 0 28px;
+  padding: 24px 0 32px;
   border-top: 1px solid var(--golda-rule);
   border-bottom: 1px solid var(--golda-rule);
+}
+
+.refined :global(.case106-current-flow-sequence) {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0 18px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.refined :global(.case106-current-flow-step) {
+  position: relative;
+  min-width: 0;
+  color: var(--golda-ink);
+  font-family: var(--golda-body);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.refined :global(.case106-current-flow-step-1) {
+  grid-column: 1 / span 5;
+  padding: 0 0 26px;
+  font-family: var(--golda-display);
+  font-size: clamp(28px, 3.2vw, 43px);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.refined :global(.case106-current-flow-step-1)::after,
+.refined :global(.case106-current-flow-step-2)::after,
+.refined :global(.case106-current-flow-step-3)::after {
+  position: absolute;
+  content: "";
+  background: var(--golda-rule);
+}
+
+.refined :global(.case106-current-flow-step-1)::after {
+  right: -40px;
+  bottom: 12px;
+  width: 46px;
+  height: 1px;
+}
+
+.refined :global(.case106-current-flow-step-2) {
+  grid-column: 8 / span 4;
+  align-self: end;
+  margin-bottom: 14px;
+  padding: 13px 0 0;
+  border-top: 1px solid var(--golda-rule);
+  color: var(--golda-secondary);
+  font-size: 15px;
+}
+
+.refined :global(.case106-current-flow-step-2)::after {
+  left: 24%;
+  bottom: -41px;
+  width: 1px;
+  height: 29px;
+}
+
+.refined :global(.case106-current-flow-step-3) {
+  grid-column: 3 / span 7;
+  margin-top: 55px;
+  padding: 17px 0 19px 25px;
+  border-left: 3px solid var(--case-coral);
+  font-family: var(--golda-display);
+  font-size: clamp(34px, 4.3vw, 58px);
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.refined :global(.case106-current-flow-step-3)::after {
+  right: -28%;
+  bottom: 0;
+  width: 24%;
+  height: 1px;
+}
+
+.refined :global(.case106-current-flow-step-4),
+.refined :global(.case106-current-flow-step-5) {
+  margin-top: 47px;
+  padding-top: 11px;
+  border-top: 1px solid var(--golda-rule);
+  color: var(--golda-secondary);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.refined :global(.case106-current-flow-step-4) {
+  grid-column: 9 / span 2;
+}
+
+.refined :global(.case106-current-flow-step-5) {
+  grid-column: 11 / span 2;
+  padding-left: 12px;
+  border-left: 1px solid var(--golda-rule);
+}
+
+.refined :global(.case106-current-flow) :global(.case106-caption) {
+  max-width: 455px;
+  margin-top: 37px;
+  color: var(--golda-secondary);
 }
 
 .refined :global(.case106-question) {
@@ -94,6 +200,72 @@
   .refined :global(.case106-comparison) {
     width: 100%;
     margin-left: 0;
+  }
+
+  .refined :global(.case106-current-flow) {
+    padding-bottom: 28px;
+  }
+
+  .refined :global(.case106-current-flow-sequence) {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 25px;
+  }
+
+  .refined :global(.case106-current-flow-step),
+  .refined :global(.case106-current-flow-step-1),
+  .refined :global(.case106-current-flow-step-2),
+  .refined :global(.case106-current-flow-step-3),
+  .refined :global(.case106-current-flow-step-4),
+  .refined :global(.case106-current-flow-step-5) {
+    width: 100%;
+    margin: 0;
+  }
+
+  .refined :global(.case106-current-flow-step-1) {
+    padding-bottom: 28px;
+    font-size: clamp(31px, 10vw, 43px);
+  }
+
+  .refined :global(.case106-current-flow-step-1)::after,
+  .refined :global(.case106-current-flow-step-2)::after,
+  .refined :global(.case106-current-flow-step-3)::after {
+    left: 0;
+    right: auto;
+    bottom: -14px;
+    width: 1px;
+    height: 10px;
+  }
+
+  .refined :global(.case106-current-flow-step-2) {
+    margin-left: 12%;
+    width: 76%;
+    padding: 13px 0 19px;
+    font-size: 15px;
+  }
+
+  .refined :global(.case106-current-flow-step-3) {
+    margin-top: 11px;
+    padding: 18px 0 21px 20px;
+    font-size: clamp(37px, 12vw, 51px);
+  }
+
+  .refined :global(.case106-current-flow-step-4),
+  .refined :global(.case106-current-flow-step-5) {
+    width: auto;
+    margin-left: 19%;
+    padding: 12px 0 0;
+    border-left: 0;
+    font-size: 15px;
+  }
+
+  .refined :global(.case106-current-flow-step-5) {
+    margin-top: 15px;
+  }
+
+  .refined :global(.case106-current-flow) :global(.case106-caption) {
+    margin-top: 34px;
   }
 
   .refined :global(.case106-question) {

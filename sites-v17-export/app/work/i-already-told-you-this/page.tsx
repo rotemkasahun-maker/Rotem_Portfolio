@@ -80,7 +80,7 @@ export default function IAlreadyToldYouThis() {
       </section>
 
       <section className="case106-flow-zone" aria-label="Current flow and design question">
-        <div className="case106-section case106-current-flow"><CaseLabel>Current flow</CaseLabel><ProcessStrip>{currentFlow.map((item) => <li key={item}>{item}</li>)}</ProcessStrip><p className="case106-caption">The system asks for fields without first checking whether they already exist in the resident&apos;s message.</p></div>
+        <div className="case106-section case106-current-flow"><CaseLabel>Current flow</CaseLabel><ol className="case106-current-flow-sequence">{currentFlow.map((item, index) => <li key={item} className={`case106-current-flow-step case106-current-flow-step-${index + 1}`}>{item}</li>)}</ol><p className="case106-caption">The system asks for fields without first checking whether they already exist in the resident&apos;s message.</p></div>
         <blockquote className="case106-question">How might the service use information residents have already provided —<br />without turning the experience into an open-ended AI chatbot?</blockquote>
       </section>
 
