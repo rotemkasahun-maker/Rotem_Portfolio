@@ -347,6 +347,69 @@
   }
 }
 
+/* Donor-mechanism rebuild: 12-column narrative, split stage, indexed list. */
+.rebuild { --rebuild-rule: var(--golda-rule); }
+.rebuild .rebuild-section { width: min(1120px, calc(100% - 10vw)); margin: 0 auto; padding: 120px 0; border-top: 1px solid var(--rebuild-rule); }
+.rebuild .rebuild-label { grid-column: 1 / span 2; color: var(--golda-secondary); }
+.rebuild .rebuild-narrative, .rebuild .rebuild-why-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+.rebuild .rebuild-lead { grid-column: 3 / span 7; margin: 0; color: var(--golda-ink); font-family: var(--golda-display); font-size: clamp(38px, 5vw, 72px); font-weight: 700; letter-spacing: -.055em; line-height: .94; text-transform: uppercase; }
+.rebuild .rebuild-evidence { grid-column: 3 / span 5; grid-row: 2 / span 2; margin: 38px 0 0; }
+.rebuild .rebuild-evidence img, .rebuild .rebuild-offset-evidence img { display: block; width: 100%; height: auto; }
+.rebuild figcaption { margin-top: 12px; color: var(--golda-secondary); font-size: 12px; }
+.rebuild .rebuild-annotation { grid-column: 9 / span 3; grid-row: 2; margin-top: 38px; border-top: 1px solid var(--rebuild-rule); }
+.rebuild .rebuild-annotation dl { margin: 0; }
+.rebuild .rebuild-annotation dl div, .rebuild .rebuild-structured div { display: grid; grid-template-columns: 1fr 1fr; padding: 14px 0; border-bottom: 1px solid var(--rebuild-rule); }
+.rebuild dt, .rebuild dd { margin: 0; }
+.rebuild dt { color: var(--golda-secondary); font-size: 11px; text-transform: uppercase; }
+.rebuild dd { color: var(--golda-ink); }
+.rebuild .rebuild-support { grid-column: 9 / span 3; grid-row: 3; margin-top: 36px; }
+.rebuild .rebuild-support p { margin: 0 0 24px; color: var(--golda-ink); }
+.rebuild .rebuild-why-grid { align-items: start; }
+.rebuild .rebuild-why-grid .rebuild-lead { grid-column: 1 / span 6; }
+.rebuild .rebuild-offset-evidence { grid-column: 7 / span 4; margin: 74px 0 0; }
+.rebuild .rebuild-why-grid .rebuild-support { grid-column: 3 / span 4; grid-row: 2; margin-top: 44px; }
+.rebuild .rebuild-split > .case-label { display: block; }
+.rebuild .rebuild-split-stage { display: grid; grid-template-columns: 1.35fr .8fr; gap: 9vw; margin-top: 62px; }
+.rebuild .rebuild-side { min-height: 390px; border-top: 1px solid var(--rebuild-rule); }
+.rebuild .rebuild-side h2 { margin: 20px 0 40px; color: var(--golda-ink); font-family: var(--golda-display); font-size: clamp(46px, 7vw, 98px); letter-spacing: -.07em; line-height: .82; text-transform: uppercase; }
+.rebuild .rebuild-better { margin-top: 120px; min-height: 280px; border-color: var(--case-accent); }
+.rebuild .rebuild-better h2 { color: var(--case-accent); }
+.rebuild .rebuild-side ol, .rebuild .rebuild-indexed ol { margin: 0; padding: 0; list-style: none; }
+.rebuild .rebuild-side li { display: grid; grid-template-columns: 42px 1fr; gap: 18px; padding: 15px 0; border-bottom: 1px solid var(--rebuild-rule); color: var(--golda-ink); }
+.rebuild .rebuild-side li span, .rebuild .rebuild-indexed li span { color: var(--golda-secondary); font-size: 12px; }
+.rebuild .rebuild-intervention > .rebuild-lead { margin: 30px 0 72px; }
+.rebuild .rebuild-intervention-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 28px; align-items: start; }
+.rebuild .rebuild-raw { grid-column: 1 / span 5; }
+.rebuild .rebuild-message, .rebuild .case106-message { margin-top: 18px; padding: 32px; border-left: 4px solid var(--case-accent); background: var(--golda-paper-alt); color: var(--golda-ink); font-size: clamp(21px, 2.2vw, 34px); }
+.rebuild .rebuild-interpret { grid-column: 6 / span 3; padding: 0 0 0 24px; border-left: 1px solid var(--case-accent); }
+.rebuild .rebuild-interpret p { color: var(--golda-ink); }
+.rebuild .rebuild-structured { grid-column: 9 / span 4; margin: 0; border-top: 1px solid var(--rebuild-rule); }
+.rebuild .rebuild-action { grid-column: 3 / span 7; margin-top: 40px; padding-left: 24px; border-left: 1px solid var(--case-accent); }
+.rebuild blockquote { margin: 16px 0; padding: 18px 22px; border-left: 3px solid var(--case-accent); background: var(--golda-paper-alt); color: var(--golda-ink); }
+.rebuild .rebuild-indexed { display: grid; grid-template-columns: 1fr 1fr; gap: 10vw; margin: 46px 0 0 16.67%; }
+.rebuild .rebuild-indexed > div { border-top: 1px solid var(--rebuild-rule); }
+.rebuild .rebuild-indexed > div > p { margin: 18px 0; color: var(--golda-ink); }
+.rebuild .rebuild-indexed li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--rebuild-rule); color: var(--golda-ink); }
+.rebuild .rebuild-note { max-width: 560px; margin: 42px 0 0 16.67%; color: var(--golda-ink); }
+.rebuild .rebuild-ending { width: min(1120px, calc(100% - 10vw)); margin: 0 auto; padding-top: 88px; }
+.rebuild .rebuild-ending .case106-final { max-width: 720px; margin-left: 16.67%; }
+.rebuild .rebuild-ending .case106-status { margin: 72px 0 0 66.67%; max-width: 320px; }
+@media (max-width: 767px) {
+  .rebuild .rebuild-section, .rebuild .rebuild-ending { width: calc(100% - 40px); padding: 72px 0; }
+  .rebuild .rebuild-narrative, .rebuild .rebuild-why-grid, .rebuild .rebuild-intervention-grid, .rebuild .rebuild-indexed, .rebuild .rebuild-split-stage { display: block; }
+  .rebuild .rebuild-lead { margin: 24px 0 32px; font-size: clamp(36px, 12vw, 56px); }
+  .rebuild .rebuild-evidence, .rebuild .rebuild-annotation, .rebuild .rebuild-support, .rebuild .rebuild-offset-evidence { margin: 28px 0; }
+  .rebuild .rebuild-why-grid .rebuild-support { margin-top: 28px; }
+  .rebuild .rebuild-side { min-height: 0; margin: 0 0 56px; }
+  .rebuild .rebuild-better { margin-top: 56px; }
+  .rebuild .rebuild-intervention > .rebuild-lead { margin-bottom: 42px; }
+  .rebuild .rebuild-raw, .rebuild .rebuild-interpret, .rebuild .rebuild-structured, .rebuild .rebuild-action { margin: 0 0 42px; padding-left: 0; border-left: 0; }
+  .rebuild .rebuild-interpret, .rebuild .rebuild-action { padding-top: 24px; border-top: 1px solid var(--case-accent); }
+  .rebuild .rebuild-indexed { margin: 28px 0 0; }
+  .rebuild .rebuild-indexed > div { margin-bottom: 42px; }
+  .rebuild .rebuild-note, .rebuild .rebuild-ending .case106-final, .rebuild .rebuild-ending .case106-status { margin: 32px 0 0; }
+}
+
 /* Keep the art-direction composition authoritative after the legacy refinement rules. */
 .refined :global(.case106-before-after) {
   width: 100%;
