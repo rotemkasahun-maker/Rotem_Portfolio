@@ -1,0 +1,14 @@
+{
+  "name": "Rotem Portfolio",
+  "install": "test -f index.html && test -f script.js && test -f styles.css && test -f family-finance.html && test -d assets/key-story && test -d assets/history && echo 'Portfolio files verified'",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "python3 -m http.server 8000 --bind 0.0.0.0",
+      "description": "Serves the static portfolio at http://localhost:8000 (open index.html)"
+    }
+  ],
+  "ports": [
+    { "name": "web", "port": 8000 }
+  ]
+}
