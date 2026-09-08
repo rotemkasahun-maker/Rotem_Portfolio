@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import styles from "./replacement.module.css";
+
+export const metadata: Metadata = { title: "I Already Told You This — Rotem Kasahun" };
+
+const current = ["Write issue + location", "Generic intake", "Repeat issue", "Complete the remaining fields", "Submit"];
+const better = ["Write issue + location", "Use what’s already there", "Ask only for what’s missing", "Submit"];
+const checks = ["Which fields are actually mandatory?", "At what point does a WhatsApp message become an official 106 request?", "What information can the existing WhatsApp and service-management setup already receive automatically?", "Which requests should always go to a human?"];
+const pilot = ["Does it reduce the number of messages needed to submit a request?", "Do more residents complete the flow?", "Can issue and location be extracted accurately enough?"];
+
+export default function IAlreadyToldYouThisV4() {
+  return <div className={styles.page}>
+    <header className={styles.mast}><span>STUDIO GOLDA / ROTKA</span><span>CASE 106 · 2026</span></header>
+    <article className={styles.document}>
+      <header className={styles.opener}><p className={styles.kicker}>A REAL-LIFE ANNOYANCE / SERVICE DESIGN / 2026</p><h1>I Already Told You This</h1><p className={styles.deck}>I told the city what was wrong. I told them where it was. Then their WhatsApp asked me to do it again.</p><p className={styles.meta}>Observed in use · Unsolicited service improvement proposal · Not commissioned by the municipality</p></header>
+      <figure className={styles.plateWide}><img src="/106/whatsapp-mosquitoes.jpg" alt="WhatsApp exchange in Hebrew about mosquitoes at the Yad Labanim dog park"/><figcaption>Observed municipal 106 WhatsApp intake</figcaption></figure>
+      <section className={styles.beat}><p className={styles.display}>I had already written the problem and the location.</p><div className={styles.beatGrid}><div><p>I used WhatsApp the way I normally would: I wrote what I needed and where the problem was.</p><p>The automated reply then asked me to describe the issue again.</p></div><dl><div><dt>Issue</dt><dd>Mosquitoes</dd></div><div><dt>Request</dt><dd>Pest control</dd></div><div><dt>Location</dt><dd>Yad Labanim dog park</dd></div></dl></div></section>
+      <section className={styles.beatAlt}><div><p className={styles.display}>The second time it happened, I just didn’t continue.</p><p>That made me wonder what happens to reports that stop at this point.</p><p>If a 106 request is only created after the automated intake is completed, repetition like this could mean some reports never make it into the system.</p><p className={styles.caveat}>I don’t know whether that’s how Petah Tikva’s backend works. It’s the first thing I’d want to verify.</p></div><figure><img src="/106/whatsapp-repetition.jpg" alt="Second WhatsApp exchange showing a repeated intake request"/><figcaption>A second observed interaction</figcaption></figure></section>
+      <section className={styles.comparison}><p className={styles.kicker}>CURRENT → BETTER</p><div><h2>Current</h2><ol>{current.map((x,i)=><li key={x}><b>0{i+1}</b>{x}</li>)}</ol></div><div><h2>Better</h2><ol>{better.map((x,i)=><li key={x}><b>0{i+1}</b>{x}</li>)}</ol></div></section>
+      <section className={styles.intervention}><p className={styles.kicker}>THE INTERVENTION</p><p className={styles.display}>Use the message before asking for it again.</p><div className={styles.interventionGrid}><p className={styles.message} dir="rtl" lang="he">נשמח להדברת יתושים בגינת כלבים יד לבנים</p><div><p>I wouldn’t replace the 106 flow with an AI chatbot.</p><p>I’d add a narrow interpretation step before the existing intake: extract what the resident has already said, check which required fields are still missing, and ask only for those.</p></div><dl><div><dt>Issue</dt><dd>Mosquitoes</dd></div><div><dt>Request</dt><dd>Pest control</dd></div><div><dt>Location</dt><dd>Yad Labanim dog park</dd></div><div><dt>Category</dt><dd>Pest control</dd></div><div><dt>Confidence</dt><dd>High</dd></div></dl></div><blockquote>I understood that you’re reporting mosquitoes at the Yad Labanim dog park. I only need your full name to complete the request.</blockquote><p>If the required identity details are already available, the request could simply move forward.</p></section>
+      <p className={styles.conclusion}>People shouldn’t have to repeat information they’ve already given a service.</p>
+      <aside className={styles.end}><p className={styles.kicker}>WHAT I’D CHECK NEXT / STATUS</p><div className={styles.endGrid}><div><p>Before building it:</p><ol>{checks.map((x,i)=><li key={x}><b>{String(i+1).padStart(2,"0")}</b>{x}</li>)}</ol></div><div><p>If piloted:</p><ol>{pilot.map((x,i)=><li key={x}><b>{String(i+1).padStart(2,"0")}</b>{x}</li>)}</ol></div></div><p className={styles.status}>Unsolicited service improvement proposal. Not commissioned, implemented or validated by the Municipality of Petah Tikva. The proposal was documented and sent to the municipality for consideration.</p></aside>
+    </article><footer className={styles.footer}>studio golda by ROTKA</footer>
+  </div>;
+}
