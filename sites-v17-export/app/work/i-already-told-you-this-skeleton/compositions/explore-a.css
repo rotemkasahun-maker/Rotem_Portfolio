@@ -1,0 +1,301 @@
+/*
+ * Exploration A — Restrained Editorial
+ * Narrow measures, disciplined grid, generous negative space, quiet rules.
+ */
+
+[data-explore="a"] {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+[data-explore="a"] [data-region="content"] {
+  max-width: 42rem;
+  padding: clamp(2.75rem, 5vw, 4.25rem) clamp(1.25rem, 3vw, 2rem)
+    clamp(3.5rem, 6vw, 5.5rem);
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+[data-explore="a"] [data-region="opening"] {
+  padding-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+[data-explore="a"] [data-region="opening"] [data-role="metadata"] {
+  max-width: 20rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.08em;
+  color: color-mix(in srgb, var(--case-text-metadata) 92%, transparent);
+}
+
+[data-explore="a"] [data-region="opening"] [data-role="display"] {
+  max-width: 11.5em;
+  margin-bottom: 2.75rem;
+  font-size: clamp(38px, 3.2vw + 20px, 50px);
+  line-height: 0.96;
+}
+
+[data-explore="a"] [data-region="opening"] [data-role="body"] {
+  max-width: 21rem;
+  font-size: clamp(14px, 0.15vw + 13.5px, 15.5px);
+  line-height: 1.5;
+  color: var(--case-text-secondary);
+}
+
+[data-explore="a"] [data-region="opening"] [data-role="body"] + [data-role="body"] {
+  margin-top: 0.75rem;
+}
+
+[data-explore="a"] [data-region="reading-mode"] {
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+}
+
+[data-explore="a"] [data-role="label"] {
+  max-width: 16rem;
+  letter-spacing: 0.08em;
+}
+
+[data-explore="a"] [data-role="label"]::after {
+  width: 1rem;
+  margin-top: 0.625rem;
+}
+
+[data-explore="a"] [data-role="display"] {
+  max-width: 26rem;
+  line-height: 1.06;
+}
+
+[data-explore="a"] [data-role="body"] {
+  max-width: 24rem;
+  font-size: clamp(14px, 0.12vw + 13.75px, 15.5px);
+  line-height: 1.62;
+}
+
+[data-explore="a"] [data-role="metadata"] {
+  max-width: 26rem;
+  line-height: 1.6;
+}
+
+[data-explore="a"] [data-role="evidence"] img {
+  width: min(100%, 190px);
+}
+
+[data-explore="a"] [data-beat="tldr-request"] {
+  padding-bottom: 4rem;
+}
+
+[data-explore="a"] [data-beat="tldr-request"] [data-role="label"] {
+  margin-bottom: 1.25rem;
+}
+
+[data-explore="a"] [data-beat="tldr-proposal"] {
+  max-width: 24rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  border-top-width: 1px;
+}
+
+[data-explore="a"] [data-beat="tldr-proposal"] [data-role="display"] {
+  max-width: 22rem;
+  font-size: clamp(24px, 1.4vw + 16px, 28px);
+}
+
+[data-explore="a"] [data-beat="tldr-proposal"] [data-role="body"] {
+  margin-top: 1.375rem;
+}
+
+[data-explore="a"] [data-beat="tldr-impact"] {
+  max-width: 24rem;
+  margin-left: 0;
+  margin-right: auto;
+  padding-top: 3.25rem;
+  padding-bottom: 1rem;
+  border-top-width: 1px;
+}
+
+[data-explore="a"] [data-beat="tldr-impact"] [data-role="label"] {
+  margin-bottom: 1.375rem;
+}
+
+[data-explore="a"] [data-beat="detailed-request"] {
+  padding-bottom: 4.5rem;
+}
+
+[data-explore="a"] [data-beat="key-moment"] {
+  max-width: 24rem;
+}
+
+[data-explore="a"] [data-beat="key-moment"] [data-role="display"] {
+  max-width: 22rem;
+  font-size: clamp(26px, 1.6vw + 16px, 32px);
+}
+
+[data-explore="a"] [data-beat="detailed-why"] {
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+}
+
+[data-explore="a"] [data-beat="why-matters"] [data-role="display"] {
+  max-width: 18rem;
+  font-size: clamp(24px, 1.2vw + 16px, 28px);
+}
+
+[data-explore="a"] [data-beat="solution"] {
+  max-width: 25rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+[data-explore="a"] [data-beat="solution"] [data-role="display"] {
+  max-width: 23rem;
+  font-size: clamp(24px, 1.2vw + 16px, 28px);
+}
+
+[data-explore="a"] [data-beat="check-next"] {
+  max-width: 26rem;
+  margin-left: 0;
+  padding-top: 3.5rem;
+  padding-bottom: 3.25rem;
+}
+
+[data-explore="a"] [data-beat="conclusion"] {
+  max-width: 22rem;
+  margin-left: 0;
+  margin-right: auto;
+  padding-top: 4.5rem;
+  padding-bottom: 4rem;
+}
+
+[data-explore="a"] [data-beat="conclusion"] [data-role="display"] {
+  max-width: 20rem;
+  font-size: clamp(26px, 1.4vw + 16px, 30px);
+  line-height: 1.08;
+}
+
+[data-explore="a"] [data-beat="status"] {
+  max-width: 28rem;
+  padding-top: 2.75rem;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  [data-explore="a"] [data-beat="tldr-request"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    column-gap: 3.5rem;
+    align-items: start;
+  }
+
+  [data-explore="a"] [data-beat="tldr-request"] [data-role="label"] {
+    grid-column: 1 / -1;
+  }
+
+  [data-explore="a"] [data-beat="tldr-request"] [data-role="evidence"]:first-of-type {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  [data-explore="a"] [data-beat="tldr-request"] [data-role="display"] {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 0;
+    max-width: 22rem;
+  }
+
+  [data-explore="a"] [data-beat="tldr-request"] [data-role="body"] {
+    grid-column: 1;
+    grid-row: 3;
+    max-width: 21rem;
+  }
+
+  [data-explore="a"] [data-beat="tldr-request"] [data-role="evidence"]:last-of-type {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: end;
+    margin-top: 1.25rem;
+  }
+
+  [data-explore="a"] [data-beat="detailed-request"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    column-gap: 3.5rem;
+    align-items: center;
+  }
+
+  [data-explore="a"] [data-beat="detailed-request"] [data-role="evidence"] {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+
+  [data-explore="a"] [data-beat="key-moment"] {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  [data-explore="a"] [data-beat="detailed-why"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    column-gap: 3.5rem;
+    align-items: start;
+  }
+
+  [data-explore="a"] [data-beat="why-matters"] {
+    display: contents;
+  }
+
+  [data-explore="a"] [data-beat="detailed-why"] [data-role="label"] {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  [data-explore="a"] [data-beat="detailed-why"] [data-role="display"] {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  [data-explore="a"] [data-beat="detailed-why"] [data-role="evidence"] {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 767px) {
+  [data-explore="a"] {
+    padding-top: 0;
+  }
+
+  [data-explore="a"] [data-region="content"] {
+    padding-top: 2.25rem;
+    padding-bottom: 3rem;
+    border-left: none;
+    border-right: none;
+  }
+
+  [data-explore="a"] [data-region="opening"] [data-role="display"] {
+    max-width: 10em;
+    margin-bottom: 1.75rem;
+  }
+
+  [data-explore="a"] [data-region="opening"] [data-role="body"] {
+    max-width: none;
+  }
+
+  [data-explore="a"] [data-role="display"],
+  [data-explore="a"] [data-role="body"] {
+    max-width: none;
+  }
+
+  [data-explore="a"] [data-beat="tldr-proposal"],
+  [data-explore="a"] [data-beat="tldr-impact"],
+  [data-explore="a"] [data-beat="conclusion"] {
+    max-width: none;
+  }
+
+  [data-explore="a"] [data-role="evidence"] img {
+    width: min(100%, 200px);
+  }
+}

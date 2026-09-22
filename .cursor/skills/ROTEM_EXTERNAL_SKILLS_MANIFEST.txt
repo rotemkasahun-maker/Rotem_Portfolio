@@ -1,0 +1,30 @@
+ROTEM EXTERNAL CURSOR SKILLS PACKAGE
+Date: 2026-09-12
+
+Install destination:
+<project>/.cursor/skills/
+
+Extract the three folders directly into .cursor/skills/:
+- design-taste
+- taste-color
+- design-rules-companion
+
+No README.md files are included.
+License files use unique names to avoid Windows filename replacement prompts.
+
+Sources:
+1) design-taste + taste-color
+   https://github.com/madebymustafa/design-taste
+   License: MIT
+
+2) design-rules-companion
+   https://github.com/Kotelberg/design-rules-companion-skill
+   License: MIT
+
+Recommended use for ROTKA:
+Primary project authority: rotka-design-director
+Then: design-taste
+Color tasks: taste-color
+Secondary heuristic QA: design-rules-companion
+
+Do not allow external skills to override locked ROTKA copy, typography, layout, motion, or project-specific decisions.

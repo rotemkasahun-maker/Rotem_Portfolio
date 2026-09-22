@@ -1,0 +1,73 @@
+---
+description: Enforce ROTKA design workflow, content integrity, reference-led design, visual QA, and feedback-to-pattern learning
+globs: "**/*.{tsx,jsx,ts,js,css,scss,html,md}"
+alwaysApply: false
+---
+
+# ROTKA Design Director Rule
+
+Before any portfolio visual/frontend task, read:
+
+- `docs/design/SKILL.md`
+- `docs/design/DESIGN_SYSTEM.md`
+- `docs/design/PATTERN_LIBRARY.md`
+
+If they do not exist at those paths, STOP and report the missing file.
+
+Use this priority:
+
+1. latest explicit user instruction
+2. latest approved screenshot/live implementation
+3. page-specific locked spec/content
+4. approved pattern library
+5. design system
+6. older docs
+7. external reference
+8. generic convention
+
+## Hard rules
+
+- Approved screens are design commits.
+- Patch; do not reinterpret unrelated approved work.
+- Content source is authoritative when present.
+- Do not invent user-visible case-study content.
+- Old content is not automatically approved content.
+- Separate static layout, depth, hover, scroll, motion, and responsive refinement.
+- Do not use motion to rescue weak composition.
+- Use one primary reference per section/beat.
+- Do not average references.
+- Reuse approved patterns before inventing new ones.
+- If a first meaningful visual pass is fundamentally wrong, STOP and revisit the reference/composition rather than layering patches.
+- No shared/global/dependency changes unless explicitly authorized.
+- Rendered visual QA is required before claiming visual PASS.
+- Strong positive or repeated negative feedback should trigger a PROPOSED reusable pattern/avoid-pattern, not an automatic Pattern Library edit.
+- Approval of a screen ≠ approval of a reusable pattern.
+- Explicit user approval is required before updating `PATTERN_LIBRARY.md`.
+
+## Before implementation
+
+State:
+- PRODUCT / PAGE
+- CURRENT PASS
+- CONTENT SOURCE
+- PRIMARY REFERENCE
+- APPROVED PATTERNS TO REUSE
+- FILES ALLOWED TO CHANGE
+
+If any are unclear and materially necessary, inspect repo/docs first.
+
+## Before finishing
+
+Report:
+- files created
+- files modified
+- shared/global files changed? yes/no
+- dependencies added? yes/no
+- user-visible content added? list
+- content invention check
+- truth-state risks
+- visual QA status
+- patterns eligible for promotion
+
+Do not mark a pattern approved automatically.
+User approval is required.

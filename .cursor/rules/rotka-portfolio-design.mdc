@@ -1,0 +1,124 @@
+---
+description: ROTKA portfolio visual design, art direction, change-control, and anti-generic UI rules for frontend work
+globs: "**/*.{tsx,jsx,css,scss,html}"
+alwaysApply: false
+---
+
+# ROTKA Portfolio Design Rule
+
+The existing approved ROTKA Homepage is the visual North Star.
+
+Approved screens are design commits. If a task says change only X, change only X. Do not reinterpret, regenerate, improve, normalize, modernize, or redesign unrelated approved work. If a technical constraint requires an unrelated change, STOP and report it before editing.
+
+## Core visual target
+The work should feel highly designed, intentional, spatial, tactile, asymmetric, evidence-led, visually memorable, mature enough for a professional portfolio, and like a digital experience rather than a formatted document.
+
+Do not rely on typography + beige background + thin rules as the entire art direction.
+
+## ROTKA Homepage DNA
+Preserve these existing tokens and actual project implementation unless the task explicitly overrides them:
+- page: #F3EDE2
+- optional alternate paper: #F7F2E9
+- primary ink: #171717
+- secondary: #4A4742
+- metadata: #726D65
+- rules: #CFC7BA
+- display: existing Roboto Condensed implementation
+- body: Manrope
+- micro/metadata: IBM Plex Mono
+
+Layout DNA:
+- strict underlying grid
+- loose/asymmetric composition
+- strong scale contrast
+- changing density
+- deliberate negative space
+- content over container
+- evidence/object-led moments
+- restrained accents
+- precise micro typography
+- warm catalogue quality without becoming an article
+
+## Anti-generic design rules
+Do NOT default to card grids, rounded rectangles around every content group, dashboards, SaaS landing-page structure, centered hero + cards, generic icon rows, pills/tags for decoration, gradient blobs, blue/purple AI styling, excessive shadows, glassmorphism, uniform section heights, repeated heading -> paragraph -> image -> divider structure, giant screenshots because few assets exist, fake device mockups, decorative UI that implies functionality/data that does not exist, or invented diagrams used to fill visual gaps.
+
+Cards are for genuinely related grouped content, not default wrappers.
+
+## Art-direction judgment
+Before editing visual code, identify:
+1. focal point
+2. narrative beat
+3. evidence/media role
+4. intended density
+5. visual mechanism used for this beat
+
+Use one strong visual idea per beat.
+
+Potential mechanisms: crop, scale shift, overlap, layering, inset, partial reveal, pinned/sticky moment when justified, full-bleed media, asymmetric split, depth through spatial arrangement, typography used as composition, controlled transition between dense and sparse zones.
+
+## Media treatment
+Treat real media as evidence, not filler. Do not enlarge an image merely to occupy empty space.
+
+Never redraw supplied screenshots, fabricate screenshots, create fake UI, invent extra imagery, or place real evidence inside decorative mockups unless explicitly requested.
+
+## Content realism
+NEVER invent product or case-study substance to make a page look complete.
+
+Do not invent copy, headings, captions, labels, metrics, outcomes, research, findings, personas, validation, quotes, dates, project metadata, technical architecture, provider/API/CRM details, screens, diagrams, feature names, or states.
+
+If content is absent, leave space, omit the pattern, or ask.
+
+## Content-lock rule
+When a task provides a content source file, that file is authoritative.
+All user-visible case-study strings must come from the approved content source.
+Do not hard-code new case-study text inside page/components/CSS.
+If a requested visual pattern would require new semantic content, STOP and report the conflict.
+
+## Reference usage
+When a reference is supplied: RECONSTRUCT BEFORE REINTERPRETING.
+Use the reference for geometry, composition, spacing, hierarchy, media relationships, crop behavior, visual rhythm, and interaction mechanism.
+Do not mix multiple references into a new invented aesthetic unless explicitly asked.
+
+## Reuse before inventing
+Before creating a non-trivial interaction, motion pattern, or common UI mechanism from scratch:
+1. check the project for an existing mechanism
+2. check previously approved/open-source donor mechanisms
+3. verify license if source code is reused
+4. reuse only the mechanism, not another project's identity
+5. create custom behavior only if no suitable implementation exists
+
+## Static first, motion second
+Static composition must pass visual QA before motion is used as a solution.
+Motion may enhance reveal, continuity, hierarchy, spatial transition, evidence timing.
+Motion must NOT rescue weak layout, create blank scroll gaps, animate layout dimensions, hijack scroll, hide required content, or create long pinned dead zones.
+prefers-reduced-motion: all content must remain visible, readable, and structurally correct.
+
+## Responsive behavior
+Mobile is designed, not merely "not broken".
+Preserve hierarchy, narrative order, evidence relationships, and visual intent.
+Adapt crop, scale, overlaps, sticky behavior, gutters, and line lengths.
+
+## Design quality gate
+Before declaring visual work complete, self-review:
+- Is there one clear focal point per beat?
+- Does the page still feel designed without animation?
+- Does each visual element have a reason to exist?
+- Is any box/card acting as a default crutch?
+- Did any content get invented?
+- Is evidence proportionate to its narrative importance?
+- Does the page avoid the appearance of a generic UX template?
+- Does the composition visibly inherit ROTKA DNA?
+- Is important content visually legible, not styled like metadata?
+- Did only requested files/areas change?
+
+If the first meaningful visual pass is fundamentally wrong: STOP. Do not pile on cosmetic patches. Recommend a clean directional rebuild.
+
+## Change control
+Never touch unrelated routes, shared components, global CSS, Homepage, project copy, assets, dependencies, or navigation unless explicitly authorized.
+
+Before final response, report:
+- files created
+- files modified
+- whether any shared/global file changed
+- whether any user-visible content was added
+- whether any dependency was added

@@ -1,0 +1,94 @@
+.overlay {
+  --sheet-ease: cubic-bezier(0.76, 0, 0.24, 1);
+  --sheet-duration: 320ms;
+  --sheet-stagger: 65ms;
+  --sheet-trail: clamp(28px, 5vw, 56px);
+  --sheet-lift: 10px;
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.layerPage,
+.layerContent {
+  position: fixed;
+  inset: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.layerPage {
+  z-index: 1;
+  background: #f3ede2;
+  transform: translate3d(100%, 0, 0);
+}
+
+.layerContent {
+  z-index: 2;
+  background: #f7f2e9;
+  transform: translate3d(calc(100% + var(--sheet-trail)), var(--sheet-lift), 0);
+}
+
+.overlay[data-phase="enter"] {
+  pointer-events: auto;
+}
+
+.overlay[data-phase="enter"] .layerPage {
+  transition: transform var(--sheet-duration) var(--sheet-ease);
+  transform: translate3d(0, 0, 0);
+}
+
+.overlay[data-phase="enter"] .layerContent {
+  transition: transform var(--sheet-duration) var(--sheet-ease) var(--sheet-stagger);
+  transform: translate3d(0, var(--sheet-lift), 0);
+}
+
+.overlay[data-phase="covered"] {
+  pointer-events: auto;
+}
+
+.overlay[data-phase="covered"] .layerPage {
+  transition: none;
+  transform: translate3d(0, 0, 0);
+}
+
+.overlay[data-phase="covered"] .layerContent {
+  transition: none;
+  transform: translate3d(0, var(--sheet-lift), 0);
+}
+
+.overlay[data-phase="exit"] {
+  pointer-events: auto;
+}
+
+.overlay[data-phase="exit"] .layerContent {
+  transition: transform var(--sheet-duration) var(--sheet-ease);
+  transform: translate3d(-100%, var(--sheet-lift), 0);
+}
+
+.overlay[data-phase="exit"] .layerPage {
+  transition: transform var(--sheet-duration) var(--sheet-ease) var(--sheet-stagger);
+  transform: translate3d(-100%, 0, 0);
+}
+
+.overlay[data-phase="idle"] .layerPage,
+.overlay[data-phase="idle"] .layerContent {
+  transition: none;
+}
+
+.overlay[data-phase="idle"] .layerPage {
+  transform: translate3d(100%, 0, 0);
+}
+
+.overlay[data-phase="idle"] .layerContent {
+  transform: translate3d(calc(100% + var(--sheet-trail)), var(--sheet-lift), 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay {
+    display: none;
+  }
+}

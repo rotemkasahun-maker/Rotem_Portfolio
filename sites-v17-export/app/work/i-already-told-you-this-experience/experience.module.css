@@ -1,0 +1,814 @@
+/* ============================================================
+   I ALREADY TOLD YOU THIS — EXPERIENTIAL PROTOTYPE
+   
+   Design DNA: Homepage visual system
+   Strategy: Page-as-experience, not article
+   ============================================================ */
+
+.experience {
+  --paper: #F3EDE2;
+  --paper-alt: #F7F2E9;
+  --ink: #171717;
+  --secondary: #4A4742;
+  --muted: #726D65;
+  --rule: #CFC7BA;
+  --accent: #9EBA63;
+  --butter: #D8C46A;
+  
+  --display: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+  --body: Manrope, Arial, sans-serif;
+  --micro: 'IBM Plex Mono', monospace;
+  
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: hidden;
+}
+
+.headerShell {
+  position: relative;
+  height: 145px;
+  margin-inline: -34px;
+}
+
+/* ============================================================
+   OPENING — Immediate spatial establishment
+   ============================================================ */
+
+.opening {
+  position: relative;
+  min-height: 85vh;
+  padding: 62px 34px 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-content: start;
+}
+
+.openingLabel {
+  font-family: var(--micro);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 68px;
+}
+
+.openingLabel span::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  margin-bottom: 1px;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: middle;
+}
+
+.openingStage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 58% 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(72px, 9.5vw, 97px);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  transform: scaleX(0.78);
+  transform-origin: left top;
+}
+
+.title span {
+  display: block;
+}
+
+.hero {
+  align-self: center;
+  margin-top: -12px;
+}
+
+.heroCopy {
+  margin: 0 0 23px;
+  font-family: var(--body);
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--secondary);
+}
+
+.heroCopy:last-child {
+  margin-bottom: 0;
+  color: var(--ink);
+}
+
+/* ============================================================
+   THE MOMENT — Evidence as spatial composition
+   ============================================================ */
+
+.moment {
+  position: relative;
+  margin-top: 14vh;
+  padding: 0 34px;
+  min-height: 110vh;
+}
+
+.momentCopy {
+  max-width: 520px;
+  margin-bottom: 82px;
+}
+
+.beat {
+  margin: 0 0 18px;
+  font-family: var(--micro);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.statement {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(46px, 6.2vw, 67px);
+  font-weight: 700;
+  line-height: 0.91;
+  letter-spacing: -0.052em;
+  text-transform: uppercase;
+}
+
+.statement span {
+  display: block;
+}
+
+/* Evidence composition — asymmetric placement with depth */
+.evidenceStage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  gap: 68px;
+  align-items: start;
+}
+
+.evidence {
+  position: relative;
+  margin: 0;
+  z-index: 2;
+}
+
+.evidence::before {
+  content: "";
+  position: absolute;
+  top: -34px;
+  right: -48px;
+  width: 100%;
+  height: calc(100% - 44px);
+  background: var(--paper-alt);
+  border-left: 1px solid var(--rule);
+  z-index: -1;
+}
+
+.evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  box-shadow: 0 18px 42px rgba(23, 23, 23, 0.095);
+}
+
+/* Annotations — appearing alongside evidence */
+.annotations {
+  align-self: start;
+  margin-top: 38px;
+}
+
+.annotationItem {
+  padding: 17px 0 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.annotationItem:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.annotationItem span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--micro);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.annotationItem p {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.momentContext {
+  position: absolute;
+  bottom: 0;
+  left: 34px;
+  right: 34px;
+  max-width: 465px;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.momentContext p {
+  margin: 0 0 16px;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: -0.025em;
+  color: var(--secondary);
+}
+
+.momentContext p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   WHY IT MATTERS — Changing density, second evidence
+   ============================================================ */
+
+.why {
+  position: relative;
+  margin-top: 16vh;
+  padding: 0 34px;
+  min-height: 100vh;
+}
+
+.whyStatement {
+  max-width: 580px;
+  margin-bottom: 92px;
+}
+
+.keyline {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(42px, 5.8vw, 63px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.052em;
+  text-transform: uppercase;
+}
+
+.keyline span {
+  display: block;
+}
+
+/* Second evidence — opposite spatial treatment */
+.whyEvidence {
+  position: relative;
+  width: 38%;
+  max-width: 280px;
+  margin: 0 0 72px auto;
+  z-index: 2;
+}
+
+.secondEvidence {
+  position: relative;
+  margin: 0;
+}
+
+.secondEvidence::after {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: -42px;
+  width: 100%;
+  height: calc(100% - 38px);
+  background: var(--paper-alt);
+  border-right: 1px solid var(--rule);
+  z-index: -1;
+}
+
+.secondEvidence img {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  box-shadow: 0 16px 38px rgba(23, 23, 23, 0.088);
+  z-index: 1;
+}
+
+.secondEvidence figcaption {
+  position: relative;
+  margin-top: 10px;
+  font-family: var(--micro);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  color: var(--muted);
+  z-index: 1;
+}
+
+.whyReasoning {
+  max-width: 485px;
+  margin-left: 14%;
+}
+
+.whyReasoning p {
+  margin: 0 0 20px;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.63;
+  letter-spacing: -0.025em;
+  color: var(--secondary);
+}
+
+.whyReasoning p:last-child {
+  margin-bottom: 0;
+}
+
+.caveat {
+  margin-top: 32px !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--micro) !important;
+  font-size: 10px !important;
+  line-height: 1.55 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--muted) !important;
+}
+
+/* ============================================================
+   THE INTERVENTION — Layered explanation
+   ============================================================ */
+
+.intervention {
+  position: relative;
+  margin-top: 18vh;
+  padding: 0 34px;
+  min-height: 100vh;
+}
+
+.interventionIntro {
+  max-width: 620px;
+  margin-bottom: 88px;
+}
+
+.interventionTitle {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 65px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.052em;
+  text-transform: uppercase;
+}
+
+.interventionTitle span {
+  display: block;
+}
+
+/* Flow visualization — spatial progression */
+.interventionFlow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 62px;
+  max-width: 740px;
+  margin: 0 0 0 8%;
+  padding: 42px 0 58px;
+}
+
+.flowMessage,
+.flowInterpret,
+.flowExtract {
+  position: relative;
+}
+
+.flowLabel {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--micro);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.messageExample {
+  padding: 22px 24px;
+  background: var(--paper-alt);
+  border-left: 3px solid var(--accent);
+  font-family: var(--body);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.flowInterpret p {
+  margin: 0 0 18px;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.62;
+  letter-spacing: -0.025em;
+  color: var(--secondary);
+}
+
+.flowInterpret p:last-child {
+  margin-bottom: 0;
+}
+
+/* Extraction display */
+.extraction {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.extraction > div {
+  padding: 16px 20px 15px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.extraction > div:nth-child(odd) {
+  border-right: 1px solid var(--rule);
+}
+
+.extraction > div:nth-child(n+3) {
+  border-bottom: 0;
+}
+
+.extraction > div:last-child {
+  padding-right: 0;
+}
+
+.extraction dt {
+  margin-bottom: 8px;
+  font-family: var(--micro);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.extraction dd {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.extraction > div:last-child dd {
+  color: var(--accent);
+}
+
+/* ============================================================
+   CHECKS — Structured next questions
+   ============================================================ */
+
+.checks {
+  position: relative;
+  margin-top: 16vh;
+  padding: 0 34px 92px;
+}
+
+.checks > .beat {
+  margin-bottom: 52px;
+}
+
+.checkGroups {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  margin-bottom: 48px;
+}
+
+.checkGroup h3 {
+  margin: 0 0 24px;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.checkGroup ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checkGroup li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.48;
+  letter-spacing: -0.025em;
+  color: var(--secondary);
+}
+
+.checkGroup li:first-child {
+  border-top: 1px solid var(--rule);
+}
+
+.checkGroup li span {
+  font-family: var(--micro);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.checksNote {
+  max-width: 580px;
+  margin: 0;
+  font-family: var(--micro);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: -0.04em;
+  color: var(--muted);
+}
+
+/* ============================================================
+   ENDING — Conclusion and status
+   ============================================================ */
+
+.ending {
+  position: relative;
+  margin-top: 12vh;
+  padding: 0 34px 34px;
+}
+
+.conclusion {
+  margin-bottom: 118px;
+}
+
+.finalStatement {
+  margin: 0;
+  max-width: 720px;
+  font-family: var(--display);
+  font-size: clamp(38px, 5.2vw, 56px);
+  font-weight: 700;
+  line-height: 0.93;
+  letter-spacing: -0.052em;
+  text-transform: uppercase;
+}
+
+.finalStatement span {
+  display: block;
+}
+
+.status {
+  max-width: 520px;
+  padding: 32px 0 62px;
+  border-top: 1px solid var(--rule);
+}
+
+.status > .beat {
+  margin-bottom: 16px;
+}
+
+.statusText {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.58;
+  letter-spacing: -0.025em;
+  color: var(--secondary);
+}
+
+.footer {
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--micro);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  color: var(--muted);
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile adaptation
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .experience {
+    max-width: none;
+  }
+
+  .headerShell {
+    height: 88px;
+    margin-inline: -20px;
+  }
+
+  .opening {
+    min-height: auto;
+    padding: 48px 20px 0;
+  }
+
+  .openingLabel {
+    margin-bottom: 48px;
+  }
+
+  .openingStage {
+    display: block;
+  }
+
+  .title {
+    font-size: clamp(58px, 16vw, 82px);
+    margin-bottom: 42px;
+  }
+
+  .heroCopy {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .moment {
+    margin-top: 10vh;
+    padding: 0 20px;
+    min-height: auto;
+  }
+
+  .momentCopy {
+    margin-bottom: 52px;
+  }
+
+  .statement {
+    font-size: clamp(39px, 12vw, 54px);
+  }
+
+  .evidenceStage {
+    display: block;
+  }
+
+  .evidence {
+    width: min(70vw, 280px);
+    margin-bottom: 42px;
+  }
+
+  .evidence::before {
+    right: -24px;
+    top: -24px;
+  }
+
+  .annotations {
+    margin-top: 0;
+  }
+
+  .momentContext {
+    position: static;
+    margin-top: 52px;
+    padding: 24px 0 0;
+  }
+
+  .why {
+    margin-top: 12vh;
+    padding: 0 20px;
+    min-height: auto;
+  }
+
+  .whyStatement {
+    margin-bottom: 62px;
+  }
+
+  .keyline {
+    font-size: clamp(38px, 11vw, 56px);
+  }
+
+  .whyEvidence {
+    width: min(68vw, 260px);
+    margin: 0 0 52px auto;
+  }
+
+  .secondEvidence::after {
+    left: -24px;
+    top: -22px;
+  }
+
+  .whyReasoning {
+    margin-left: 0;
+  }
+
+  .intervention {
+    margin-top: 14vh;
+    padding: 0 20px;
+    min-height: auto;
+  }
+
+  .interventionIntro {
+    margin-bottom: 58px;
+  }
+
+  .interventionTitle {
+    font-size: clamp(40px, 12vw, 58px);
+  }
+
+  .interventionFlow {
+    margin-left: 0;
+    gap: 48px;
+    padding: 32px 0 48px;
+  }
+
+  .messageExample {
+    font-size: 17px;
+  }
+
+  .extraction {
+    grid-template-columns: 1fr;
+  }
+
+  .extraction > div:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .extraction > div {
+    border-bottom: 1px solid var(--rule);
+    padding-right: 0;
+  }
+
+  .extraction > div:last-child {
+    border-bottom: 0;
+  }
+
+  .checks {
+    margin-top: 12vh;
+    padding: 0 20px 72px;
+  }
+
+  .checks > .beat {
+    margin-bottom: 38px;
+  }
+
+  .checkGroups {
+    display: block;
+    margin-bottom: 38px;
+  }
+
+  .checkGroup + .checkGroup {
+    margin-top: 42px;
+  }
+
+  .checkGroup h3 {
+    margin-bottom: 20px;
+  }
+
+  .ending {
+    margin-top: 10vh;
+    padding: 0 20px 28px;
+  }
+
+  .conclusion {
+    margin-bottom: 82px;
+  }
+
+  .finalStatement {
+    font-size: clamp(36px, 11vw, 52px);
+  }
+
+  .status {
+    padding: 28px 0 52px;
+  }
+}
+
+/* ============================================================
+   MOTION — Restrained narrative reveals (applied by motion-system.tsx)
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

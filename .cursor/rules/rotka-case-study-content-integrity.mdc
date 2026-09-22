@@ -1,0 +1,35 @@
+---
+description: Strict no-invention and source-of-truth rules for ROTKA case-study content
+globs: "**/work/**/*.{ts,tsx,js,jsx,md}"
+alwaysApply: false
+---
+
+# ROTKA Case Study Content Integrity
+
+Case-study content is evidence, not filler.
+
+## Absolute rule
+Never create user-visible project content unless it exists in an explicitly approved source.
+
+When an approved content file exists:
+- import/read from that source
+- do not duplicate or paraphrase it elsewhere
+- do not add helpful-sounding text
+- do not fill missing slots
+
+## Forbidden invention
+Do not invent headings, subheads, captions, annotations, labels, metadata, metrics, findings, research, personas, quotes, results, outcomes, validation, technical architecture, workflows presented as fact, screens, diagrams, or feature names.
+
+If the design needs content that does not exist:
+OMIT THE DESIGN ELEMENT.
+
+## Diff check
+Before finishing:
+- inspect changed frontend files for newly introduced user-visible strings
+- every new case-study string must map to the approved content source
+- if any string cannot be traced to approved content, remove it
+
+Report explicitly:
+CONTENT INVENTION CHECK: PASS
+or
+CONTENT INVENTION CHECK: FAIL

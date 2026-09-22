@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { MotionSystem } from "@/components/motion-system";
+import { RouteTransition } from "@/components/route-transition";
 
 export const metadata: Metadata = {
   title: "Rotem Kasahun",
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased"><MotionSystem />{children}</body>
+      <body className="antialiased">
+        <MotionSystem />
+        <RouteTransition>{children}</RouteTransition>
+      </body>
     </html>
   );
 }

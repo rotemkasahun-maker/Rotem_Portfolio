@@ -1,0 +1,84 @@
+MODEL: Composer 2.5
+
+TASK: BUILD CONTENT-LOCKED 106 SKELETON ONLY
+
+This is NOT a design task.
+
+Do not attempt art direction.
+Do not add motion.
+Do not add visual storytelling mechanisms.
+Do not make it impressive.
+
+GOAL:
+Create a clean content skeleton for the 106 case study so we can verify 100% content integrity before visual design begins.
+
+First read and obey the project rules under `.cursor/rules/`, especially:
+- rotka-portfolio-design.mdc
+- rotka-case-study-content-integrity.mdc
+
+Then locate the approved 106 content and the two original WhatsApp screenshots already present in the project.
+
+CREATE:
+1. one dedicated content source file for 106
+2. one isolated skeleton route/page that renders ONLY content imported from that source file
+3. only the two real WhatsApp screenshots
+
+Preferred experimental route:
+`/work/i-already-told-you-this-skeleton`
+
+CONTENT SOURCE REQUIREMENT:
+All user-visible case-study text must live in ONE dedicated content source file.
+
+The page component may contain structural markup and accessibility attributes, but it must not contain newly invented case-study prose.
+
+STRICTLY FORBIDDEN:
+- new headings
+- new labels
+- annotations
+- captions
+- diagrams
+- extraction grids
+- cards
+- iconography
+- metrics
+- research claims
+- visualizations
+- fake WhatsApp UI
+- phone mockups
+- animations
+- sticky sections
+- decorative art direction
+- invented metadata
+- inferred copy
+
+If a section lacks enough approved content:
+render less.
+Do not fill it.
+
+VISUAL TREATMENT:
+Use only enough CSS for readable width, basic vertical spacing, correct RTL/LTR handling where needed, responsive image containment, and basic semantic hierarchy.
+
+Do NOT try to match the Homepage yet.
+
+Do NOT modify globals.css, shared components, Homepage, public 106 route, package.json, or dependencies.
+Do not commit.
+
+CONTENT QA:
+Before finishing, scan every changed `.tsx/.ts` file for user-visible strings.
+Every case-study string must be traceable to the approved content source.
+If any content was invented, remove it before reporting completion.
+
+STOP when the skeleton is complete.
+
+Return:
+A. exact files created
+B. exact files modified
+C. full content source file path
+D. exact two evidence asset paths
+E. route
+F. CONTENT INVENTION CHECK: PASS/FAIL
+G. list of every user-visible string that exists outside the content source file, if any
+H. confirmation that no shared/global/dependency file changed
+
+Do not proceed to visual design.
+Wait for content QA.

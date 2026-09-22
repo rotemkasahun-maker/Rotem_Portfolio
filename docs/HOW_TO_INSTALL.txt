@@ -1,0 +1,5 @@
+Suggested repo location:
+docs/design/DESIGN.md
+docs/design/PATTERN_LIBRARY.md
+
+Do not overwrite README.md.

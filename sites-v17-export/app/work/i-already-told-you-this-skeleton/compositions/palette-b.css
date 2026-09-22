@@ -1,0 +1,41 @@
+/*
+ * Palette B — soft segment color rhythm (reversible experiment)
+ * Remove import + data-palette wrapper from page.tsx to revert.
+ */
+
+[data-palette="b"] {
+  --palette-b-base: #f3ede2;
+  --palette-b-soft-cream: #f7f2e9;
+  --palette-b-sage: #e8ebdd;
+  --palette-b-yellow: #f0e9cf;
+  --palette-b-clay: #efe0d9;
+}
+
+[data-palette="b"] main {
+  background: var(--palette-b-base);
+}
+
+[data-palette="b"] [data-region="content"] {
+  background: var(--palette-b-soft-cream);
+}
+
+[data-palette="b"] [data-region="reading-mode"] [class*="bodyViewport"] {
+  background: var(--palette-b-soft-cream);
+}
+
+/* Sage — proposal / system-thinking moment */
+[data-palette="b"] [data-beat="tldr-proposal"],
+[data-palette="b"] [data-beat="solution"] {
+  background-color: var(--palette-b-sage);
+}
+
+/* Clay — consequence / human beat */
+[data-palette="b"] [data-beat="detailed-why"],
+[data-palette="b"] [data-beat="tldr-impact"] {
+  background-color: var(--palette-b-clay);
+}
+
+/* Status returns to quiet cream (override existing status tint) */
+[data-palette="b"] [data-beat="status"] {
+  background-color: var(--palette-b-soft-cream);
+}
